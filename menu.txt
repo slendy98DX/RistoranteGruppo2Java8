@@ -1,3 +1,5 @@
 Nome Ristorante: Palla 8
 Tipo menù: Carne
 Bevande: acqua,birra,coca-cola,sprite
+
+Primi piatti: Carbanara; Amatriciana.
