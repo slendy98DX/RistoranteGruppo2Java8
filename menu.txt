@@ -4,3 +4,4 @@ Bevande: acqua,birra,coca-cola,sprite
 
 Primi piatti: Carbanara; Amatriciana.
 Secondi piatti: Cotoletta alla Milanese; Sgaloppina;
+Menù Vegano: Fagioli, Zucchine, Carote, Rucola, Tofu, Soia.
