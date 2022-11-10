@@ -1,4 +1,7 @@
+Nomè ristorante: Palla 8
+Menù: carne
+Bevande: sprite,acqua,birra
+Primi piatti: Carbonara, Amatriciana.
 Secondi Piatti: Polpette al Sugo, Gateau di Patate, Spezzatino di Vitello con Patate, Saltimbocca alla Romana
-
 
 
