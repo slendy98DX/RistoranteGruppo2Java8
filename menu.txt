@@ -1,4 +1,6 @@
+Nomè ristorante: Palla 8
+Menù: carne
+Bevande: sprite,acqua,birra
 Primi piatti: Carbonara, Amatriciana.
-
 
 
