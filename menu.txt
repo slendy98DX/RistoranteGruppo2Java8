@@ -1,8 +1,3 @@
-Nome Ristorante: Palla 8
-Tipo di menù: Carne
-Bevande: sprite,coca cola,pepsi
-Primi piatti: Carbonara, Amatriciana.
-Secondi Piatti: Polpette al Sugo, Gateau di Patate, Spezzatino di Vitello con Patate, Saltimbocca alla Romana
 Dolci: Tiramisù, Cream Caramel, Babà, Crema Catalana.
 
 
