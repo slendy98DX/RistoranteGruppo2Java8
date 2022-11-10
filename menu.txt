@@ -1,6 +1,3 @@
-Nome Ristorante: Palla 8
-Tipo di menù: Carne
-Bevande: sprite,coca cola,pepsi
 Primi piatti: Carbonara, Amatriciana.
 
 
