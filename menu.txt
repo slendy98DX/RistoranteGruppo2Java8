@@ -1,3 +1,5 @@
-Dolci: Tiramisù, Cream Caramel, Babà, Crema Catalana.
+Nomè ristorante: Palla 8
+Menù: carne
+Bevande: sprite,acqua,birra
 
 
