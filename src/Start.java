@@ -16,9 +16,7 @@ public class Start {
         PrimoPiatto riso = new PrimoPiatto("Risotto funghi e salsiccia", true, 20, "riso,salsiccia,funghi");
 
 
-        System.out.println("Primi Piatti:\n" + pasta.printName() + " Prezzo: " + pasta.printPrice() + " € Ingredienti: " + riso.printIngredients() + "\n" + riso.printName() + " Prezzo: " + riso.printPrice() + " € Ingredienti: " + riso.printIngredients());
-       
-        System.out.println("Primi Piatti:\n"+ pasta.printName()+ " Prezzo: "+pasta.printPrice()+" € Ingredienti: "+riso.printIngredientsFirst()+"\n"+riso.printName()+ " Prezzo: "+riso.printPrice()+" € Ingredienti: "+riso.printIngredientsFirst());
+        System.out.println("Primi Piatti:\n" + pasta.printName() + " Prezzo: " + pasta.printPrice() + " € Ingredienti: " + pasta.printIngredients() + "\n" + riso.printName() + " Prezzo: " + riso.printPrice() + " € Ingredienti: " + riso.printIngredients());
 
         SecondoPiatto bistecca = new SecondoPiatto("Bistecca", true, 18.5, "Patatine", "Carne di Manzo");
         SecondoPiatto polpette = new SecondoPiatto("Polpette al Sugo", true, 14, "", "Carne di Vitello, Passata di Pomodoro, Pinoli");
@@ -30,7 +28,6 @@ public class Start {
         
         System.out.println("Lista Dolci: \n" + dolci1.printName()+" Prezzo "+dolci1.printPrice()+" €"+" -Tipo di dolce: "+dolci1.printType()+"- Ingredienti: "+dolci1.printIngredientsDolci()+"\n"+ dolci2.printName()+" -Prezzo "+dolci2.printPrice()+" €"+" -Tipo di dolce "+dolci2.printType()+" -Ingredienti: "+dolci2.printIngredientsDolci());
         
-
     }
 }
 
