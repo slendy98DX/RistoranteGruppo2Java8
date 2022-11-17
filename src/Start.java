@@ -18,8 +18,9 @@ public class Start {
         System.out.println("Primi Piatti:\n"+ pasta.printName()+ " Prezzo: "+pasta.printPrice()+" € Ingredienti: "+riso.printIngredientsFirst()+"\n"+riso.printName()+ " Prezzo: "+riso.printPrice()+" € Ingredienti: "+riso.printIngredientsFirst());
 
         SecondoPiatto bistecca = new SecondoPiatto("Bistecca", true, 18.5, "Patatine", "Carne di Manzo");
-        SecondoPiatto polpette = new SecondoPiatto("Polpette al sugo", true, 14, "", "Carne di vitello, sugo, pinoli");
-        System.out.println("Secondi Piatti:\n"+ bistecca.printName()+ " Prezzo: "+bistecca.printPrice()+" € Ingredienti: "+bistecca.printIngredientsSecond()+ " contorni: " + bistecca.sideDish + "\n"+polpette.printName()+ " Prezzo: "+polpette.printPrice()+" € Ingredienti: "+polpette.printIngredientsSecond());
+        SecondoPiatto polpette = new SecondoPiatto("Polpette al Sugo", true, 14, "", "Carne di Vitello, Passata di Pomodoro, Pinoli");
+
+        System.out.println("Secondi Piatti:\n"+ bistecca.printName()+ " Prezzo: "+bistecca.printPrice()+" € Ingredienti: "+bistecca.printIngredientsSecond()+ " contorni: " + bistecca.printSideDish() + "\n"+polpette.printName()+ " Prezzo: "+polpette.printPrice()+" € Ingredienti: "+polpette.printIngredientsSecond());
 
     }
 }
