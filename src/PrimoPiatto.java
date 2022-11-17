@@ -1,11 +1,11 @@
 public class PrimoPiatto extends Portata implements IPrimoPiatto{
 
-    String ingredients;
+    String ingredientsFirst;
 
 
     public PrimoPiatto(String name, boolean isHot, double priceEuros,String ingredients) {
         super(name, isHot, priceEuros);
-        this.ingredients = ingredients;
+        this.ingredientsFirst = ingredients;
 
     }
 
@@ -20,8 +20,8 @@ public class PrimoPiatto extends Portata implements IPrimoPiatto{
     }
 
     @Override
-    public String printIngredients() {
-        return ingredients;
+    public String printIngredientsFirst() {
+        return ingredientsFirst;
     }
 }
 

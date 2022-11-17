@@ -3,5 +3,5 @@ public interface IPrimoPiatto {
 
     double printPrice();
 
-    String printIngredients();
+    String printIngredientsFirst();
 }
