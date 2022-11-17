@@ -1,6 +1,5 @@
 public class Dolci extends Portata implements IDolci {
 
-;
 String type;
 String ingredientsDolci;
     public Dolci(String name, String type,boolean isHot , double priceEuros,String ingredientsDolci) {
