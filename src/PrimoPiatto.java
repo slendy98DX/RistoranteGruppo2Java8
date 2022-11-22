@@ -9,19 +9,5 @@ public class PrimoPiatto extends Portata implements IPrimoPiatto{
 
     }
 
-    @Override
-    public String printName() {
-        return name;
-    }
-
-    @Override
-    public double printPrice() {
-        return priceEuros;
-    }
-
-    @Override
-    public String printIngredientsFirst() {
-        return ingredientsFirst;
-    }
 }
 
