@@ -1,4 +1,4 @@
-public class SecondoPiatto extends Portata implements ISecondoPiatto{
+/*public class SecondoPiatto extends Portata implements ISecondoPiatto{
 
     String sideDish;
     String ingredientsSecond;
@@ -35,4 +35,4 @@ public class SecondoPiatto extends Portata implements ISecondoPiatto{
     public String printSideDish() {
         return sideDish;
     }
-}
+}*/

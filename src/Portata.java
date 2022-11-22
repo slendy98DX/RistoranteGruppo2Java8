@@ -1,13 +1,11 @@
-public class Portata {
+public abstract class Portata {
 
-    public String name;
-    public boolean isHot;
-    public double priceEuros;
+    private String name;
+    private double priceEuros;
 
-    public Portata(String name, boolean isHot, double priceEuros){
-        this.name = name;
-        this.isHot = isHot;
-        this.priceEuros = priceEuros;
+    public Portata(String name, double priceEuros){
+        this.setName(name);
+        this.setPriceEuros(priceEuros);
     }
 
     public String getName() {
@@ -26,18 +24,5 @@ public class Portata {
         this.priceEuros = priceEuros;
     }
 
-    public boolean isHot() {
-        return isHot;
-    }
-
-    public void setHot(boolean hot) {
-        isHot = hot;
-    }
-
-    //TODO da sistamare e sistemare a giro secondo i principi solid
-    public void printPortataDetail(){
-        System.out.println(name  + priceEuros);
-
-    }
-
+    public abstract void printPortataDetails();
 }

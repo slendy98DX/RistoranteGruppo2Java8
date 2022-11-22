@@ -1,11 +1,11 @@
 public class Bevanda extends Portata{
-    private boolean isAlcoolic;
 
-    public Bevanda(String name, boolean isHot, double priceEuros, boolean isAlcoolic) {
-        super(name, isHot, priceEuros);
-        this.isAlcoolic = isAlcoolic;
+    public Bevanda(String name, double priceEuros) {
+        super(name, priceEuros);
     }
 
-
-
+    @Override
+    public void printPortataDetails() {
+        System.out.printf("Nome: %s Prezzo: %.2f€%n", getName(), getPriceEuros());
+    }
 }
