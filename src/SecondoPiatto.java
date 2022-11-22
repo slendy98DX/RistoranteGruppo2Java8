@@ -1,38 +1,35 @@
-/*public class SecondoPiatto extends Portata implements ISecondoPiatto{
-
-    String sideDish;
-    String ingredientsSecond;
+public class SecondoPiatto extends Portata {
+    public String sideDish;
 
 
+    private String ingredients;
 
-    public SecondoPiatto(String name, boolean isHot, double priceEuros, String sideDish, String ingredients) {
-        super(name, isHot, priceEuros);
+    public SecondoPiatto(String name, double priceEuros, String sideDish, String ingredients) {
+        super(name, priceEuros);
         this.sideDish = sideDish;
-        this.ingredientsSecond = ingredients;
-
+        this.setIngredients(ingredients);
     }
 
-
-
-
-    @Override
-    public String printName() {
-        return name;
-    }
-
-    @Override
-    public double printPrice() {
-        return priceEuros;
-    }
-
-    @Override
-    public String printIngredientsSecond() {
-        return ingredientsSecond;
-    }
-
-
-    @Override
-    public String printSideDish() {
+    public String getSideDish() {
         return sideDish;
     }
-}*/
+
+    public void setSideDish(String sideDish) {
+        this.sideDish = sideDish;
+    }
+
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    @Override
+    public void printPortataDetails() {
+        System.out.printf("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s%n", getName(), getPriceEuros(), getSideDish(), getIngredients());
+
+    }
+}
