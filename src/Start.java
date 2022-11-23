@@ -31,8 +31,14 @@ public class Start {
         bistecca.printPortataDetails();
         polloAllaCacciatora.printPortataDetails();
 
-        //Dolci dolci1 = new Dolci("Sorbetto al limone'-", "Sorbetti-", true, 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi");
-        //Dolci dolci2 = new Dolci("Tiramisu'", "Dessert", false, 10, "Uova,Mascarpone,Zucchero,Caffè,Rum");
+        System.out.println("DOLCI");
+
+        Dolci dolci1 = new Dolci("Sorbetto al limone'-", "Sorbetti-", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi");
+        Dolci dolci2 = new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum");
+
+        dolci1.printPortataDetails();
+        dolci2.printPortataDetails();
+
     }
 }
 
