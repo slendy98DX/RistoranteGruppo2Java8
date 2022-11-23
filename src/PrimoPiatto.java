@@ -1,27 +1,25 @@
-public class PrimoPiatto extends Portata implements IPrimoPiatto{
+public class PrimoPiatto extends Portata {
+
+
 
     String ingredients;
 
 
-    public PrimoPiatto(String name, boolean isHot, double priceEuros,String ingredients) {
-        super(name, isHot, priceEuros);
+    public PrimoPiatto(String name, double priceEuros,String ingredients) {
+        super(name, priceEuros);
         this.ingredients = ingredients;
 
     }
-
-    @Override
-    public String printName() {
-        return name;
-    }
-
-    @Override
-    public double printPrice() {
-        return priceEuros;
-    }
-
-    @Override
-    public String printIngredients() {
+    public String getIngredients() {
         return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+    @Override
+    public void printPortataDetails() {
+        System.out.printf("Nome: %s Prezzo: %.2f€ Ingredienti: %s%n", getName(), getPriceEuros(), getIngredients());
     }
 }
 

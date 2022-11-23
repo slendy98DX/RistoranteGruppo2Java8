@@ -1,18 +1,11 @@
-public class Bevanda extends Portata implements IBevanda {
-    boolean isAlcoolic;
+public class Bevanda extends Portata{
 
-    public Bevanda(String name, boolean isHot, double priceEuros, boolean isAlcoolic) {
-        super(name, isHot, priceEuros);
-        this.isAlcoolic = isAlcoolic;
+    public Bevanda(String name, double priceEuros) {
+        super(name, priceEuros);
     }
 
     @Override
-    public String printName() {
-        return name;
-    }
-
-    @Override
-    public double printPrice() {
-        return priceEuros;
+    public void printPortataDetails() {
+        System.out.printf("Nome: %s Prezzo: %.2f€%n", getName(), getPriceEuros());
     }
 }
