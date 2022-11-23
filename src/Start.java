@@ -15,11 +15,13 @@ public class Start {
         acqua.printPortataDetails();
         vino.printPortataDetails();
         analcolico.printPortataDetails();
+        System.out.println("PRIMI PIATTI");
 
-        //PrimoPiatto pasta = new PrimoPiatto("Amatriciana", true, 16, "Pasta,sugo,pancetta,pecorino");
-        //PrimoPiatto riso = new PrimoPiatto("Risotto funghi e salsiccia", true, 20, "riso,salsiccia,funghi");
+        PrimoPiatto pasta = new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino");
+        PrimoPiatto riso = new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi");
 
-
+        pasta.printPortataDetails();
+        riso.printPortataDetails();
 
         SecondoPiatto bistecca = new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi");
         SecondoPiatto polloAllaCacciatora = new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure");
@@ -29,12 +31,8 @@ public class Start {
         bistecca.printPortataDetails();
         polloAllaCacciatora.printPortataDetails();
 
-
-
         //Dolci dolci1 = new Dolci("Sorbetto al limone'-", "Sorbetti-", true, 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi");
         //Dolci dolci2 = new Dolci("Tiramisu'", "Dessert", false, 10, "Uova,Mascarpone,Zucchero,Caffè,Rum");
-        
-
     }
 }
 

@@ -1,11 +1,6 @@
+
 public class SecondoPiatto extends Portata {
-
-
-
     String sideDish;
-
-
-
     String ingredients;
 
 
@@ -17,6 +12,7 @@ public class SecondoPiatto extends Portata {
     }
 
 
+
         public String getSideDish() {
             return sideDish;
         }
@@ -24,6 +20,7 @@ public class SecondoPiatto extends Portata {
         public void setSideDish(String sideDish) {
             this.sideDish = sideDish;
         }
+
 
         public String getIngredients() {
         return ingredients;
@@ -36,5 +33,6 @@ public class SecondoPiatto extends Portata {
         System.out.printf("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s%n", getName(), getPriceEuros(), getSideDish(), getIngredients());
     }
 }
+
 
 

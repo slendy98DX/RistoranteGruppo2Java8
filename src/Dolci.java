@@ -6,26 +6,40 @@
         this.ingredientsDolci=ingredientsDolci;
         this.type=type;
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> features/Primi-Piatti
     @Override
     public String printName() {
         return name;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> features/Primi-Piatti
     @Override
     public double printPrice() {
         return priceEuros;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> features/Primi-Piatti
     @Override
     public String printIngredientsDolci() {
         return ingredientsDolci;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> features/Primi-Piatti
     @Override
     public String printType() {
         return type;
     }
+<<<<<<< HEAD
 }*/
+
 
