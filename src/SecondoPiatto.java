@@ -29,8 +29,8 @@ public class SecondoPiatto extends Portata {
         this.ingredients = ingredients;
     }
     @Override
-    public void printPortataDetails() {
-        System.out.printf("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s%n", getName(), getPriceEuros(), getSideDish(), getIngredients());
+    public String printPortataDetails() {
+        return String.format("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s%n", getName(), getPriceEuros(), getSideDish(), getIngredients());
     }
 }
 

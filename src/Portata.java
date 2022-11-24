@@ -24,5 +24,5 @@ public abstract class Portata {
         this.priceEuros = priceEuros;
     }
 
-    public abstract void printPortataDetails();
+    public abstract String printPortataDetails();
 }

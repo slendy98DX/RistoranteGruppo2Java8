@@ -13,8 +13,8 @@ public class PrimoPiatto extends Portata{
         this.ingredients = ingredients;
     }
     @Override
-    public void printPortataDetails() {
-        System.out.printf("Nome: %s Prezzo: %.2f€ Ingredienti: %s%n", getName(), getPriceEuros(), getIngredients());
+    public String printPortataDetails() {
+        return String.format("Nome: %s Prezzo: %.2f€ Ingredienti: %s%n", getName(), getPriceEuros(), getIngredients());
     }
 }
 

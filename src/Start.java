@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Start {
 
     public static void main(String[] args) {
@@ -6,15 +10,17 @@ public class Start {
 
         menu.printRestaurantDetails();
 
-        Bevanda acqua = new Bevanda("Ferrarelle",2.5);
-        Bevanda vino = new Bevanda("Tavernello",5.6);
-        Bevanda analcolico = new Bevanda("Coca-cola",3.5);
-
         System.out.println("BEVANDE");
 
-        acqua.printPortataDetails();
-        vino.printPortataDetails();
-        analcolico.printPortataDetails();
+        List<Bevanda> listaBevande = new ArrayList<>();
+        listaBevande.add(new Bevanda("Ferrarelle",2.5));
+        listaBevande.add(new Bevanda("Tavernello",5.6));
+        listaBevande.add(new Bevanda("Coca-cola",3.5));
+
+        listaBevande.forEach(bevanda -> {
+            System.out.println(bevanda.printPortataDetails());
+        });
+
         System.out.println("PRIMI PIATTI");
 
         PrimoPiatto pasta = new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino");

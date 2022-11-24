@@ -5,7 +5,7 @@ public class Bevanda extends Portata{
     }
 
     @Override
-    public void printPortataDetails() {
-        System.out.printf("Nome: %s Prezzo: %.2f€%n", getName(), getPriceEuros());
+    public String printPortataDetails() {
+        return String.format("Nome: %s Prezzo: %.2f€%n", getName(), getPriceEuros());
     }
 }
