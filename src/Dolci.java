@@ -26,7 +26,7 @@ public class Dolci extends Portata {
 
     @Override
     public String printPortataDetails() {
-        return String.format("Nome: %s Prezzo: %.2f € Tipo di dolce: %s  Ingredienti: %s%n", getName(), getPriceEuros(),getType(), getIngredients());
+        return String.format("Nome: %s Prezzo: %.2f € Tipo di dolce: %s  Ingredienti: %s", getName(), getPriceEuros(),getType(), getIngredients());
     }
 }
 
