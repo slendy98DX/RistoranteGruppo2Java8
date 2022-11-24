@@ -33,13 +33,15 @@ public class Start {
 
         System.out.println("SECONDI PIATTI");
 
-        SecondoPiatto bistecca = new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi");
-        SecondoPiatto polloAllaCacciatora = new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure");
+        List<SecondoPiatto> secondiPiatti = new ArrayList<>();
+        secondiPiatti.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
+        secondiPiatti.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+
+        secondiPiatti.forEach(secondoPiatto -> {
+            System.out.println(secondoPiatto.printPortataDetails());
+        });
 
 
-
-        bistecca.printPortataDetails();
-        polloAllaCacciatora.printPortataDetails();
 
         System.out.println("DOLCI");
 
