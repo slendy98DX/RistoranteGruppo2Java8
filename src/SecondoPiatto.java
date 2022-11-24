@@ -30,7 +30,7 @@ public class SecondoPiatto extends Portata {
     }
     @Override
     public String printPortataDetails() {
-        return String.format("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s%n", getName(), getPriceEuros(), getSideDish(), getIngredients());
+        return String.format("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s", getName(), getPriceEuros(), getSideDish(), getIngredients());
     }
 }
 

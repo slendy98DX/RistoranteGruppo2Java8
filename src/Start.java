@@ -23,16 +23,20 @@ public class Start {
 
         System.out.println("PRIMI PIATTI");
 
-        PrimoPiatto pasta = new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino");
-        PrimoPiatto riso = new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi");
+        List<PrimoPiatto> primiPiatti = new ArrayList<>();
+        primiPiatti.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
+        primiPiatti.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
 
-        pasta.printPortataDetails();
-        riso.printPortataDetails();
+        primiPiatti.forEach(primoPiatto -> {
+            System.out.println(primoPiatto.printPortataDetails());
+        });
+
+        System.out.println("SECONDI PIATTI");
 
         SecondoPiatto bistecca = new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi");
         SecondoPiatto polloAllaCacciatora = new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure");
 
-        System.out.println("SECONDI PIATTI");
+
 
         bistecca.printPortataDetails();
         polloAllaCacciatora.printPortataDetails();

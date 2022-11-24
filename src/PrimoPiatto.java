@@ -3,7 +3,6 @@ public class PrimoPiatto extends Portata{
     public PrimoPiatto(String name, double priceEuros,String ingredients) {
         super(name, priceEuros);
         this.ingredients = ingredients;
-
     }
     public String getIngredients() {
         return ingredients;
@@ -14,7 +13,7 @@ public class PrimoPiatto extends Portata{
     }
     @Override
     public String printPortataDetails() {
-        return String.format("Nome: %s Prezzo: %.2f€ Ingredienti: %s%n", getName(), getPriceEuros(), getIngredients());
+        return String.format("Nome: %s Prezzo: %.2f€ Ingredienti: %s", getName(), getPriceEuros(), getIngredients());
     }
 }
 
