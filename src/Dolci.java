@@ -3,14 +3,14 @@ public class Dolci extends Portata {
     public Dolci(String name, double priceEuros) {
         super(name, priceEuros);
     }
-   // public String type;
-   // public String ingredients;
-   // public Dolci(String name, String type , double priceEuros,String ingredients) {
-      //  super(name, priceEuros);
-       // this.ingredients=ingredients;
-       // this.type=type;
-   // }
-   /* public String getType() {
+    public String type;
+    public String ingredients;
+    public Dolci(String name, String type , double priceEuros,String ingredients) {
+        super(name, priceEuros);
+        this.ingredients=ingredients;
+        this.type=type;
+    }
+    public String getType() {
         return type;
     }
 
@@ -24,11 +24,11 @@ public class Dolci extends Portata {
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
-    }*/
+    }
 
     @Override
     public String printPortataDetails() {
-        return String.format("Nome: %s Prezzo: %.2f € Tipo di dolce: %s  Ingredienti: %s", getName(), getPriceEuros());
+        return String.format("Nome: %s Prezzo: %.2f € Tipo di dolce: %s  Ingredienti: %s", getName(), getPriceEuros(),getType(),getIngredients());
     }
 }
 
