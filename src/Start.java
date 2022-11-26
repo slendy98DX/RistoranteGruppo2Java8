@@ -44,14 +44,17 @@ public class Start {
 
 
         System.out.println("DOLCI");
+        List<Dolci> dolciDolci = new ArrayList<>();
 
-        Dolci dolci1 = new Dolci("Sorbetto al limone'-", "Sorbetti-", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi");
-        Dolci dolci2 = new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum");
+        dolciDolci.add( new Dolci("Sorbetto al limone'-", "Sorbetti-", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+        dolciDolci.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
+        dolciDolci.forEach( dolciDolci-> {
+            System.out.println(dolciDolci.printPortataDetails());
+        });
 
-        dolci1.printPortataDetails();
-        dolci2.printPortataDetails();
 
-    }
+
+
 }
 
 
