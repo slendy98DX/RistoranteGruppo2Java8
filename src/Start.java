@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Start {
@@ -8,6 +7,8 @@ public class Start {
 
         Menu menu = new Menu();
 
+        menu.setRestaurantName("PALLA 8");
+        menu.setType("CARNE");
         menu.printRestaurantDetails();
 
         System.out.println("BEVANDE");
@@ -45,7 +46,7 @@ public class Start {
         System.out.println("DOLCI");
         List<Dolci> dolciLista = new ArrayList<>();
 
-        dolciLista.add(new Dolci("Sorbetto al limone'-", "Sorbetti-", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+        dolciLista.add(new Dolci("Sorbetto al limone' ", "Sorbetti ", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
         dolciLista.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
         dolciLista.forEach(dolci -> {
             System.out.println(dolci.printPortataDetails());
