@@ -5,10 +5,7 @@ public class Start {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu();
-
-        menu.setRestaurantName("PALLA 8");
-        menu.setType("CARNE");
+        Menu menu = new Menu("PALLA 8","CARNE");
         menu.printRestaurantDetails();
 
         System.out.println("BEVANDE");
@@ -51,10 +48,7 @@ public class Start {
         dolciLista.forEach(dolci -> {
             System.out.println(dolci.printPortataDetails());
         });
-
     }
-
-
 }
 
 

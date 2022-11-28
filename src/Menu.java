@@ -3,7 +3,10 @@ public class Menu {
     private String restaurantName;
     private String type;
 
-
+    public Menu(String restaurantName,String type){
+        this.restaurantName = restaurantName;
+        this.type = type;
+    }
     public String getRestaurantName() {
         return restaurantName;
     }
