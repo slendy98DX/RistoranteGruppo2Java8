@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ristorante {
+public class Menu {
 
     private String restaurantName;
 
-    public MenuType menuType;
+    private String menuType;
 
-    public Ristorante(String restaurantName, MenuType menuType){
+    public Menu(String restaurantName, String menuType){
         this.restaurantName = restaurantName;
         this.menuType = menuType;
     }
@@ -20,13 +20,14 @@ public class Ristorante {
         this.restaurantName = restaurantName;
     }
 
-    public MenuType getMenuType() {
+    public String getMenuType() {
         return menuType;
     }
 
-    public void setMenuType(MenuType menuType) {
+    public void setMenuType(String menuType) {
         this.menuType = menuType;
     }
+
     private List<Portata> listaPortate = new ArrayList<>();
 
     public void printMenu(){
