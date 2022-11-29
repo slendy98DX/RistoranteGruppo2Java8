@@ -1,4 +1,3 @@
-
 public class SecondoPiatto extends Portata{
     private String sideDish;
 
