@@ -1,6 +1,5 @@
 public class Bevanda extends Portata{
 
-
     public Bevanda(String name, double priceEuros, String ingridients) {
         super(name, priceEuros, ingridients);
     }

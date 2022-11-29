@@ -1,8 +1,14 @@
-public abstract class Portata {
+public class Portata{
 
-    //TODO questa classe non può essere abstract ----> perchè quando farete le liste lo capirete
     private String name;
     private double priceEuros;
+    private String ingridients;
+
+    public Portata(String name, double priceEuros, String ingridients){
+        this.name = name;
+        this.priceEuros = priceEuros;
+        this.ingridients = ingridients;
+    }
 
     public String getName() {
         return name;
@@ -20,5 +26,15 @@ public abstract class Portata {
         this.priceEuros = priceEuros;
     }
 
-    public abstract String printPortataDetails();
+    public String getIngridients() {
+        return ingridients;
+    }
+
+    public void setIngridients(String ingridients) {
+        this.ingridients = ingridients;
+    }
+
+    public String printPortataDetails(){
+        return "Print portata details";
+    };
 }
