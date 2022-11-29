@@ -2,11 +2,19 @@ public class Start {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu("Palla 8","Carne");
+        Ristorante ristorante1 = new Ristorante("Palla 8", MenuType.CARNE);
 
-        menu.printRestaurantDetails();
+        ristorante1.printRestaurantsDetails();
+        ristorante1.printMenu();
 
-        menu.printMenu();
+
+    }
+
+    public static void printMenu1(Ristorante ristorante ){
+        switch (ristorante.menuType)
+
+            case
+        }
     }
 }
 

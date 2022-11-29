@@ -1,16 +1,32 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu {
-    private String menuType;
+public class Ristorante {
 
     private String restaurantName;
 
-    public Menu(String restaurantName, String menuType){
+    public MenuType menuType;
+
+    public Ristorante(String restaurantName, MenuType menuType){
         this.restaurantName = restaurantName;
         this.menuType = menuType;
     }
 
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
+    }
+
+    public MenuType getMenuType() {
+        return menuType;
+    }
+
+    public void setMenuType(MenuType menuType) {
+        this.menuType = menuType;
+    }
     private List<Portata> listaPortate = new ArrayList<>();
 
     public void printMenu(){
@@ -28,24 +44,7 @@ public class Menu {
         });
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
-    }
-
-    public String getMenuType() {
-        return menuType;
-    }
-
-    public void setMenuType(String menuType) {
-        this.menuType = menuType;
-    }
-
-
-    public void printRestaurantDetails(){
+    public void printRestaurantsDetails(){
         System.out.printf("Nome ristorante: %s%nTipo di menù: %s%n",getRestaurantName(),getMenuType());
     }
 }
