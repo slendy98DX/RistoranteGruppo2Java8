@@ -8,6 +8,7 @@ public class Start {
         Menu menu = new Menu("PALLA 8","CARNE");
         menu.printRestaurantDetails();
 
+        //TODO le liste vanno passate alla lista del menù
         System.out.println("BEVANDE");
 
         List<Bevanda> listaBevande = new ArrayList<>();
