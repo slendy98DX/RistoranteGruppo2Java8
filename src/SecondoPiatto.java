@@ -1,6 +1,6 @@
 
 public class SecondoPiatto extends Portata{
-    String sideDish;
+    private String sideDish;
 
     public SecondoPiatto(String name, double priceEuros, String ingridients, String sideDish) {
         super(name, priceEuros, ingridients);

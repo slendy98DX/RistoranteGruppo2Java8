@@ -1,6 +1,6 @@
 public class Dolci extends Portata {
 
-    public String type;
+    private String type;
 
     public Dolci(String name,String type,double priceEuros, String ingridients) {
         super(name, priceEuros, ingridients);
