@@ -47,9 +47,9 @@ public class Ristorante{
 
             case CARNE:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,"&"));
-                listaCarne.add(new Bevanda("Tavernello",5.6,""));
-                listaCarne.add(new Bevanda("Coca-cola",3.5,""));
+                listaCarne.add(new Bevanda("Acqua",2.5,""));
+                listaCarne.add(new Bevanda("Tavernello",5.6,"uva"));
+                listaCarne.add(new Bevanda("Coca-cola",3.5,"zucchero, caffè"));
                 listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaCarne.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
                 listaCarne.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
