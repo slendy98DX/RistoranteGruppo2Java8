@@ -13,6 +13,7 @@ public class Ristorante{
         CARNE_VEGANO,
         PESCE_VEGANO,
         CARNE_PESCE_VEGANO,
+        panino
     }
 
     public MenuType menuType;
@@ -43,11 +44,11 @@ public class Ristorante{
     }
 
     public void printMenuRistorante(){
-        switch(menuType){
+        if(menuType != null) switch(menuType){
 
             case CARNE:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,"&"));
+                listaCarne.add(new Bevanda("Acqua",2.5,""));
                 listaCarne.add(new Bevanda("Tavernello",5.6,""));
                 listaCarne.add(new Bevanda("Coca-cola",3.5,""));
                 listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
@@ -63,8 +64,8 @@ public class Ristorante{
 
             case VEGANO:
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Acqua",2.5,"$"));
-                listaVegano.add(new Bevanda("Tavernello",5.6,""));
+                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
+                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -79,8 +80,8 @@ public class Ristorante{
 
             case PESCE:
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,"%"));
-                listaPesce.add(new Bevanda("Tavernello",5.6,""));
+                listaPesce.add(new Bevanda("Acqua",2.5,""));
+                listaPesce.add(new Bevanda("Peroni",3.5,""));
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -95,8 +96,8 @@ public class Ristorante{
 
             case CARNE_PESCE:
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,"%"));
-                listaPesce.add(new Bevanda("Tavernello",5.6,""));
+                listaPesce.add(new Bevanda("Acqua",2.5,""));
+                listaPesce.add(new Bevanda("Peroni",3.5,""));
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -108,7 +109,7 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,"&"));
+                listaCarne.add(new Bevanda("Acqua",2.5,""));
                 listaCarne.add(new Bevanda("Tavernello",5.6,""));
                 listaCarne.add(new Bevanda("Coca-cola",3.5,""));
                 listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
@@ -124,7 +125,7 @@ public class Ristorante{
 
             case CARNE_VEGANO:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,"&"));
+                listaCarne.add(new Bevanda("Acqua",2.5,""));
                 listaCarne.add(new Bevanda("Tavernello",5.6,""));
                 listaCarne.add(new Bevanda("Coca-cola",3.5,""));
                 listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
@@ -137,8 +138,8 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Acqua",2.5,"$"));
-                listaVegano.add(new Bevanda("Tavernello",5.6,""));
+                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
+                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -153,8 +154,8 @@ public class Ristorante{
 
             case PESCE_VEGANO:
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,"%"));
-                listaPesce.add(new Bevanda("Tavernello",5.6,""));
+                listaPesce.add(new Bevanda("Acqua",2.5,""));
+                listaPesce.add(new Bevanda("Peroni",3.5,""));
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -166,8 +167,8 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Acqua",2.5,"$"));
-                listaVegano.add(new Bevanda("Tavernello",5.6,""));
+                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
+                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -182,7 +183,7 @@ public class Ristorante{
 
             case CARNE_PESCE_VEGANO:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,"&"));
+                listaCarne.add(new Bevanda("Acqua",2.5,""));
                 listaCarne.add(new Bevanda("Tavernello",5.6,""));
                 listaCarne.add(new Bevanda("Coca-cola",3.5,""));
                 listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
@@ -195,8 +196,8 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,"%"));
-                listaPesce.add(new Bevanda("Tavernello",5.6,""));
+                listaPesce.add(new Bevanda("Acqua",2.5,""));
+                listaPesce.add(new Bevanda("Peroni",3.5,""));
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
@@ -208,8 +209,8 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Acqua",2.5,"$"));
-                listaVegano.add(new Bevanda("Tavernello",5.6,""));
+                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
+                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));

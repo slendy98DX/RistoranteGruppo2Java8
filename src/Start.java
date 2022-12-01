@@ -42,7 +42,6 @@ public class Start {
         ristorante6.printRestaurantsDetails();
         ristorante6.printMenuRistorante();
 
-
     }
 }
 
