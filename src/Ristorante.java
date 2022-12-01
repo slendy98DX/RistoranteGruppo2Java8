@@ -68,8 +68,8 @@ public class Ristorante{
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaVegano.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaVegano.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
+                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
                 listaVegano.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaVegano.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaVegano.forEach(portata -> {
@@ -84,8 +84,8 @@ public class Ristorante{
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaPesce.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaPesce.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
+                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
                 listaPesce.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaPesce.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaPesce.forEach(portata -> {
@@ -100,8 +100,8 @@ public class Ristorante{
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaPesce.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaPesce.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
+                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
                 listaPesce.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaPesce.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaPesce.forEach(portata -> {
@@ -142,8 +142,8 @@ public class Ristorante{
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaVegano.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaVegano.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
+                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
                 listaVegano.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaVegano.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaVegano.forEach(portata -> {
@@ -158,8 +158,8 @@ public class Ristorante{
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaPesce.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaPesce.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
+                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
                 listaPesce.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaPesce.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaPesce.forEach(portata -> {
@@ -171,8 +171,8 @@ public class Ristorante{
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaVegano.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaVegano.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
+                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
                 listaVegano.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaVegano.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaVegano.forEach(portata -> {
@@ -200,8 +200,8 @@ public class Ristorante{
                 listaPesce.add(new Bevanda("Coca-cola",3.5,""));
                 listaPesce.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaPesce.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaPesce.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
+                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
                 listaPesce.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaPesce.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaPesce.forEach(portata -> {
@@ -213,8 +213,8 @@ public class Ristorante{
                 listaVegano.add(new Bevanda("Coca-cola",3.5,""));
                 listaVegano.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaVegano.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaVegano.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
+                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
                 listaVegano.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
                 listaVegano.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
                 listaVegano.forEach(portata -> {
