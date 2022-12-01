@@ -36,5 +36,5 @@ public class Portata{
 
     public String printPortataDetails(){
         return "Print portata details";
-    };
+    }
 }
