@@ -70,8 +70,8 @@ public class Ristorante{
                 listaVegano.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
                 listaVegano.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
                 listaVegano.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
-                listaVegano.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
-                listaVegano.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+                listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
+                listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
                 listaVegano.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -86,8 +86,8 @@ public class Ristorante{
                 listaPesce.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
                 listaPesce.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
                 listaPesce.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
-                listaPesce.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
-                listaPesce.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+                listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
+                listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
                 listaPesce.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
