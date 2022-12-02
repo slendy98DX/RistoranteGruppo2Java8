@@ -48,15 +48,7 @@ public class Ristorante{
 
             case CARNE:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,""));
-                listaCarne.add(new Bevanda("Tavernello",5.6,""));
-                listaCarne.add(new Bevanda("Coca-cola",3.5,""));
-                listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
-                listaCarne.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaCarne.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
-                listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
-                listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+                addListaCarne();
                 listaCarne.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -109,15 +101,7 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,""));
-                listaCarne.add(new Bevanda("Tavernello",5.6,""));
-                listaCarne.add(new Bevanda("Coca-cola",3.5,""));
-                listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
-                listaCarne.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaCarne.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
-                listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
-                listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+                addListaCarne();
                 listaCarne.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -125,15 +109,7 @@ public class Ristorante{
 
             case CARNE_VEGANO:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,""));
-                listaCarne.add(new Bevanda("Tavernello",5.6,""));
-                listaCarne.add(new Bevanda("Coca-cola",3.5,""));
-                listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
-                listaCarne.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaCarne.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
-                listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
-                listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+                addListaCarne();
                 listaCarne.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -183,15 +159,7 @@ public class Ristorante{
 
             case CARNE_PESCE_VEGANO:
                 System.out.println("MENU' DI CARNE");
-                listaCarne.add(new Bevanda("Acqua",2.5,""));
-                listaCarne.add(new Bevanda("Tavernello",5.6,""));
-                listaCarne.add(new Bevanda("Coca-cola",3.5,""));
-                listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
-                listaCarne.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
-                listaCarne.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
-                listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
-                listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
-                listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+                addListaCarne();
                 listaCarne.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -231,5 +199,18 @@ public class Ristorante{
 
     public void printRestaurantsDetails(){
         System.out.printf("Nome: %s%nTipo di menù: %s%n",getRestaurantName(),getMenuType());
+    }
+
+    private void addListaCarne(){
+        listaCarne.add(new Bevanda("Acqua",2.5,""));
+        listaCarne.add(new Bevanda("Tavernello",5.6,""));
+        listaCarne.add(new Bevanda("Coca-cola",3.5,""));
+        listaCarne.add(new PrimoPiatto("Amatriciana",  16, "Pasta,sugo,pancetta,pecorino"));
+        listaCarne.add(new PrimoPiatto("Risotto funghi e salsiccia",  20, "riso,salsiccia,funghi"));
+        listaCarne.add(new SecondoPiatto("Bistecca", 18.5, "Patate Fritte","Carne di Manzo, Limone, Aromi"));
+        listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
+        listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
+        listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+
     }
 }
