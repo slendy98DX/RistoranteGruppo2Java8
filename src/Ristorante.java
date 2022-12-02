@@ -56,15 +56,7 @@ public class Ristorante{
 
             case VEGANO:
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
-                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
-                listaVegano.add(new Bevanda("Coca-cola",3.5,""));
-                listaVegano.add(new PrimoPiatto("Spaghetti di riso e verdure",  13, "Pasta,carote,zucchine,melenzane,olio"));
-                listaVegano.add(new PrimoPiatto("Riso con tofu e seitan",  15, "riso,tofu,seitan"));
-                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
-                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
-                listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
-                listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
+                addListaVegano();
                 listaVegano.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -114,15 +106,7 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
-                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
-                listaVegano.add(new Bevanda("Coca-cola",3.5,""));
-                listaVegano.add(new PrimoPiatto("Spaghetti di riso e verdure",  13, "Pasta,carote,zucchine,melenzane,olio"));
-                listaVegano.add(new PrimoPiatto("Riso con tofu e seitan",  15, "riso,tofu,seitan"));
-                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
-                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
-                listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
-                listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
+                addListaVegano();
                 listaVegano.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -143,15 +127,7 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
-                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
-                listaVegano.add(new Bevanda("Coca-cola",3.5,""));
-                listaVegano.add(new PrimoPiatto("Spaghetti di riso e verdure",  13, "Pasta,carote,zucchine,melenzane,olio"));
-                listaVegano.add(new PrimoPiatto("Riso con tofu e seitan",  15, "riso,tofu,seitan"));
-                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
-                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
-                listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
-                listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
+                addListaVegano();
                 listaVegano.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -177,15 +153,7 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' VEGANO");
-                listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
-                listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
-                listaVegano.add(new Bevanda("Coca-cola",3.5,""));
-                listaVegano.add(new PrimoPiatto("Spaghetti di riso e verdure",  13, "Pasta,carote,zucchine,melenzane,olio"));
-                listaVegano.add(new PrimoPiatto("Riso con tofu e seitan",  15, "riso,tofu,seitan"));
-                listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
-                listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
-                listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
-                listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
+                addListaVegano();
                 listaVegano.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -211,6 +179,20 @@ public class Ristorante{
         listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
         listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
         listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
+
+    }
+
+    private void addListaVegano(){
+
+        listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
+        listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
+        listaVegano.add(new Bevanda("Coca-cola",3.5,""));
+        listaVegano.add(new PrimoPiatto("Spaghetti di riso e verdure",  13, "Pasta,carote,zucchine,melenzane,olio"));
+        listaVegano.add(new PrimoPiatto("Riso con tofu e seitan",  15, "riso,tofu,seitan"));
+        listaVegano.add(new SecondoPiatto("Patatine di polenta", 14.5, "Farina di mais, acqua, olio, sale grosso","Patatine"));
+        listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
+        listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
+        listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
 
     }
 }
