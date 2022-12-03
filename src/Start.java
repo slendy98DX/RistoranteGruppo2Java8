@@ -19,6 +19,8 @@ public class Start {
         ristorante2.printRestaurantsDetails();
         ristorante2.printMenuRistorante();
 
+        System.out.println("--------------------------------------------");
+
         Ristorante ristorante3 = new Ristorante("Palla 6", Ristorante.MenuType.CARNE_PESCE);
         Ristorante ristorante4 = new Ristorante("Palla 5", Ristorante.MenuType.PESCE_VEGANO);
         Ristorante ristorante5 = new Ristorante("Palla 4", Ristorante.MenuType.CARNE_VEGANO);

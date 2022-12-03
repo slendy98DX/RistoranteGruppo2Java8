@@ -13,7 +13,6 @@ public class Ristorante{
         CARNE_VEGANO,
         PESCE_VEGANO,
         CARNE_PESCE_VEGANO,
-        panino
     }
 
     public MenuType menuType;
@@ -64,37 +63,21 @@ public class Ristorante{
 
             case PESCE:
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,""));
-                listaPesce.add(new Bevanda("Peroni",3.5,""));
-                listaPesce.add(new Bevanda("Coca-cola",3.5,""));
-                listaPesce.add(new PrimoPiatto("Spaghetti alle vongole",  20, "Pasta,vongole,olio,prezzemolo"));
-                listaPesce.add(new PrimoPiatto("Paccheri allo scoglio",  19, "pasta,vongole,cozze,cannolicchi,"));
-                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
-                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
-                listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
-                listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
+                addListaPesce();
                 listaPesce.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
                 break;
 
             case CARNE_PESCE:
-                System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,""));
-                listaPesce.add(new Bevanda("Peroni",3.5,""));
-                listaPesce.add(new Bevanda("Coca-cola",3.5,""));
-                listaPesce.add(new PrimoPiatto("Spaghetti alle vongole",  20, "Pasta,vongole,olio,prezzemolo"));
-                listaPesce.add(new PrimoPiatto("Paccheri allo scoglio",  19, "pasta,vongole,cozze,cannolicchi,"));
-                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
-                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
-                listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
-                listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));;
-                listaPesce.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
                 System.out.println("MENU' DI CARNE");
                 addListaCarne();
                 listaCarne.forEach(portata -> {
+                    System.out.println(portata.printPortataDetails());
+                });
+                System.out.println("MENU' DI PESCE");
+                addListaPesce();
+                listaPesce.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
                 break;
@@ -114,15 +97,7 @@ public class Ristorante{
 
             case PESCE_VEGANO:
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,""));
-                listaPesce.add(new Bevanda("Peroni",3.5,""));
-                listaPesce.add(new Bevanda("Coca-cola",3.5,""));
-                listaPesce.add(new PrimoPiatto("Spaghetti alle vongole",  20, "Pasta,vongole,olio,prezzemolo"));
-                listaPesce.add(new PrimoPiatto("Paccheri allo scoglio",  19, "pasta,vongole,cozze,cannolicchi,"));
-                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
-                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
-                listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
-                listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
+                addListaPesce();
                 listaPesce.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -140,15 +115,7 @@ public class Ristorante{
                     System.out.println(portata.printPortataDetails());
                 });
                 System.out.println("MENU' DI PESCE");
-                listaPesce.add(new Bevanda("Acqua",2.5,""));
-                listaPesce.add(new Bevanda("Peroni",3.5,""));
-                listaPesce.add(new Bevanda("Coca-cola",3.5,""));
-                listaPesce.add(new PrimoPiatto("Spaghetti alle vongole",  20, "Pasta,vongole,olio,prezzemolo"));
-                listaPesce.add(new PrimoPiatto("Paccheri allo scoglio",  19, "pasta,vongole,cozze,cannolicchi,"));
-                listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
-                listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
-                listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
-                listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
+                addListaPesce();
                 listaPesce.forEach(portata -> {
                     System.out.println(portata.printPortataDetails());
                 });
@@ -183,7 +150,6 @@ public class Ristorante{
     }
 
     private void addListaVegano(){
-
         listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
         listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
         listaVegano.add(new Bevanda("Coca-cola",3.5,""));
@@ -194,5 +160,17 @@ public class Ristorante{
         listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
         listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
 
+    }
+
+    private void addListaPesce(){
+        listaPesce.add(new Bevanda("Acqua",2.5,""));
+        listaPesce.add(new Bevanda("Peroni",3.5,""));
+        listaPesce.add(new Bevanda("Coca-cola",3.5,""));
+        listaPesce.add(new PrimoPiatto("Spaghetti alle vongole",  20, "Pasta,vongole,olio,prezzemolo"));
+        listaPesce.add(new PrimoPiatto("Paccheri allo scoglio",  19, "pasta,vongole,cozze,cannolicchi,"));
+        listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
+        listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
+        listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
+        listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
     }
 }
