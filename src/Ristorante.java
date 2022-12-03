@@ -5,24 +5,16 @@ public class Ristorante{
 
     private String restaurantName;
 
-    public enum MenuType{
-        CARNE,
-        PESCE,
-        VEGANO,
-        CARNE_PESCE,
-        CARNE_VEGANO,
-        PESCE_VEGANO,
-        CARNE_PESCE_VEGANO,
-    }
+    private String address;
+    private MenuType menuType;
 
-    public MenuType menuType;
+    private List<Portata> listaCarne = new ArrayList<>();
+    private List<Portata> listaVegano = new ArrayList<>();
+    private List<Portata> listaPesce = new ArrayList<>();
 
-    List<Portata> listaCarne = new ArrayList<>();
-    List<Portata> listaVegano = new ArrayList<>();
-    List<Portata> listaPesce = new ArrayList<>();
-
-    public Ristorante(String restaurantName, MenuType menuType){
+    public Ristorante(String restaurantName, String address, MenuType menuType){
         this.restaurantName = restaurantName;
+        this.address = address;
         this.menuType = menuType;
     }
 
@@ -42,88 +34,48 @@ public class Ristorante{
         this.menuType = menuType;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public void printMenuRistorante(){
         if(menuType != null) switch(menuType){
 
             case CARNE:
-                System.out.println("MENU' DI CARNE");
-                addListaCarne();
-                listaCarne.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaCarne();
                 break;
 
             case VEGANO:
-                System.out.println("MENU' VEGANO");
-                addListaVegano();
-                listaVegano.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaVegano();
                 break;
 
             case PESCE:
-                System.out.println("MENU' DI PESCE");
-                addListaPesce();
-                listaPesce.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaPesce();
                 break;
 
             case CARNE_PESCE:
-                System.out.println("MENU' DI CARNE");
-                addListaCarne();
-                listaCarne.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
-                System.out.println("MENU' DI PESCE");
-                addListaPesce();
-                listaPesce.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaCarne();
+                printListaPesce();
                 break;
 
             case CARNE_VEGANO:
-                System.out.println("MENU' DI CARNE");
-                addListaCarne();
-                listaCarne.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
-                System.out.println("MENU' VEGANO");
-                addListaVegano();
-                listaVegano.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaCarne();
+                printListaVegano();
                 break;
 
             case PESCE_VEGANO:
-                System.out.println("MENU' DI PESCE");
-                addListaPesce();
-                listaPesce.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
-                System.out.println("MENU' VEGANO");
-                addListaVegano();
-                listaVegano.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaPesce();
+                printListaVegano();
                 break;
 
             case CARNE_PESCE_VEGANO:
-                System.out.println("MENU' DI CARNE");
-                addListaCarne();
-                listaCarne.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
-                System.out.println("MENU' DI PESCE");
-                addListaPesce();
-                listaPesce.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
-                System.out.println("MENU' VEGANO");
-                addListaVegano();
-                listaVegano.forEach(portata -> {
-                    System.out.println(portata.printPortataDetails());
-                });
+                printListaCarne();
+                printListaPesce();
+                printListaVegano();
                 break;
 
             default:
@@ -133,10 +85,11 @@ public class Ristorante{
     }
 
     public void printRestaurantsDetails(){
-        System.out.printf("Nome: %s%nTipo di menù: %s%n",getRestaurantName(),getMenuType());
+        System.out.printf("Nome: %s%nIndirizzo: %s%nMenù disponibili: %s%n",getRestaurantName(),getAddress(),getMenuType());
     }
 
-    private void addListaCarne(){
+    private void printListaCarne(){
+        System.out.println("MENU' DI CARNE");
         listaCarne.add(new Bevanda("Acqua",2.5,""));
         listaCarne.add(new Bevanda("Tavernello",5.6,""));
         listaCarne.add(new Bevanda("Coca-cola",3.5,""));
@@ -146,10 +99,13 @@ public class Ristorante{
         listaCarne.add(new SecondoPiatto("Pollo alla Cacciatora", 15.3, "Patate al Forno", "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure"));
         listaCarne.add(new Dolci("Tiramisu'", "Dessert", 10, "Uova,Mascarpone,Zucchero,Caffè,Rum"));
         listaCarne.add(new Dolci("Sorbetto al limone", "Sorbetti", 5, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi"));
-
+        listaCarne.forEach(portata -> {
+            System.out.println(portata.printPortataDetails());
+        });
     }
 
-    private void addListaVegano(){
+    private void printListaVegano(){
+        System.out.println("MENU' VEGANO");
         listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
         listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
         listaVegano.add(new Bevanda("Coca-cola",3.5,""));
@@ -159,10 +115,13 @@ public class Ristorante{
         listaVegano.add(new SecondoPiatto("Cipollotti caramellati", 13.3, "Cipollotti, Aceto Balsamico, Miele, Sale, Olio d'Oliva", "Patatine, Verdure varie"));
         listaVegano.add(new Dolci("Torta vegana al cioccolato e nocciole ", "Torta", 5.50, "Biscotti vegani,Panna vegetale,Nocciolata vegana,Caffè,Latte di soia"));
         listaVegano.add(new Dolci("Torta fredda al limone", "Torta gelato", 5.5, "Yogurt di soia al limone,Zucchero,Panna vegana ,Biscotti vegani,Succo di Limone"));
-
+        listaVegano.forEach(portata -> {
+            System.out.println(portata.printPortataDetails());
+        });
     }
 
-    private void addListaPesce(){
+    private void printListaPesce(){
+        System.out.println("MENU' DI PESCE");
         listaPesce.add(new Bevanda("Acqua",2.5,""));
         listaPesce.add(new Bevanda("Peroni",3.5,""));
         listaPesce.add(new Bevanda("Coca-cola",3.5,""));
@@ -172,5 +131,8 @@ public class Ristorante{
         listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
         listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
         listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
+        listaPesce.forEach(portata -> {
+            System.out.println(portata.printPortataDetails());
+        });
     }
 }
