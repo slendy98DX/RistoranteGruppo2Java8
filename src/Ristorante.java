@@ -8,10 +8,6 @@ public class Ristorante{
     private String address;
     private MenuType menuType;
 
-    private List<Portata> listaCarne = new ArrayList<>();
-    private List<Portata> listaVegano = new ArrayList<>();
-    private List<Portata> listaPesce = new ArrayList<>();
-
     public Ristorante(String restaurantName, String address, MenuType menuType){
         this.restaurantName = restaurantName;
         this.address = address;
@@ -90,6 +86,7 @@ public class Ristorante{
 
     private void printListaCarne(){
         System.out.println("MENU' DI CARNE");
+        List<Portata> listaCarne = new ArrayList<>();
         listaCarne.add(new Bevanda("Acqua",2.5,""));
         listaCarne.add(new Bevanda("Tavernello",5.6,""));
         listaCarne.add(new Bevanda("Coca-cola",3.5,""));
@@ -106,6 +103,7 @@ public class Ristorante{
 
     private void printListaVegano(){
         System.out.println("MENU' VEGANO");
+        List<Portata> listaVegano = new ArrayList<>();
         listaVegano.add(new Bevanda("Gin tonic",8.0,"gin,acqua tonica"));
         listaVegano.add(new Bevanda("Mojito",10.0,"rum, zucchero di canna, lime, soda e menta"));
         listaVegano.add(new Bevanda("Coca-cola",3.5,""));
@@ -122,6 +120,7 @@ public class Ristorante{
 
     private void printListaPesce(){
         System.out.println("MENU' DI PESCE");
+        List<Portata> listaPesce = new ArrayList<>();
         listaPesce.add(new Bevanda("Acqua",2.5,""));
         listaPesce.add(new Bevanda("Peroni",3.5,""));
         listaPesce.add(new Bevanda("Coca-cola",3.5,""));
