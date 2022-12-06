@@ -1,4 +1,6 @@
-public enum MenuType{
+public enum TypeEnum {
+
+    //TODO inserire solo uno stato apposito MISTO
     CARNE,
     PESCE,
     VEGANO,

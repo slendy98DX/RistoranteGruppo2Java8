@@ -6,7 +6,7 @@ public class PrimoPiatto extends Portata{
     }
 
     @Override
-    public String printPortataDetails() {
+    public  printPortataDetails() {
         return String.format("Nome: %s Prezzo: %.2f€ Ingredienti: %s", getName(), getPriceEuros(), getIngridients());
     }
 }

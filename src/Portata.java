@@ -4,10 +4,13 @@ public class Portata{
     private double priceEuros;
     private String ingridients;
 
-    public Portata(String name, double priceEuros, String ingridients){
+    private TypeEnum typeEnum;
+
+    public Portata(String name, double priceEuros, String ingridients, TypeEnum typeEnum){
         this.name = name;
         this.priceEuros = priceEuros;
         this.ingridients = ingridients;
+        this.typeEnum = typeEnum;
     }
 
     public String getName() {
@@ -34,6 +37,16 @@ public class Portata{
         this.ingridients = ingridients;
     }
 
+    public TypeEnum getTypeEnum() {
+        return typeEnum;
+    }
+
+    public void setTypeEnum(TypeEnum typeEnum) {
+        this.typeEnum = typeEnum;
+    }
+
+
+    //TODO deve stampare già tutto e deve essere di tipo void e stampare tutto
     public String printPortataDetails(){
         return "Print portata details";
     }

@@ -6,9 +6,11 @@ public class Ristorante{
     private String restaurantName;
 
     private String address;
-    private MenuType menuType;
+    private TypeEnum menuType;
 
-    public Ristorante(String restaurantName, String address, MenuType menuType){
+    private List<Portata> portataList = new ArrayList<>();
+
+    public Ristorante(String restaurantName, String address, TypeEnum menuType){
         this.restaurantName = restaurantName;
         this.address = address;
         this.menuType = menuType;
@@ -22,11 +24,11 @@ public class Ristorante{
         this.restaurantName = restaurantName;
     }
 
-    public MenuType getMenuType() {
+    public TypeEnum getMenuType() {
         return menuType;
     }
 
-    public void setMenuType(MenuType menuType) {
+    public void setMenuType(TypeEnum menuType) {
         this.menuType = menuType;
     }
 
@@ -39,8 +41,15 @@ public class Ristorante{
     }
 
     public void printMenuRistorante(){
-        if(menuType != null) switch(menuType){
 
+
+        for (Portata portata : portataList){
+            portata.printPortataDetails();
+        }
+
+       /* if(menuType != null)
+
+            switch(menuType){
             case CARNE:
                 printListaCarne();
                 break;
@@ -77,7 +86,10 @@ public class Ristorante{
             default:
                 System.out.println("No menu available");
 
+
+
         }
+         */
     }
 
     public void printRestaurantsDetails(){
@@ -101,6 +113,7 @@ public class Ristorante{
         });
     }
 
+    //TODO Eliminare
     private void printListaVegano(){
         System.out.println("MENU' VEGANO");
         List<Portata> listaVegano = new ArrayList<>();
@@ -118,19 +131,17 @@ public class Ristorante{
         });
     }
 
-    private void printListaPesce(){
-        System.out.println("MENU' DI PESCE");
-        List<Portata> listaPesce = new ArrayList<>();
-        listaPesce.add(new Bevanda("Acqua",2.5,""));
-        listaPesce.add(new Bevanda("Peroni",3.5,""));
-        listaPesce.add(new Bevanda("Coca-cola",3.5,""));
-        listaPesce.add(new PrimoPiatto("Spaghetti alle vongole",  20, "Pasta,vongole,olio,prezzemolo"));
-        listaPesce.add(new PrimoPiatto("Paccheri allo scoglio",  19, "pasta,vongole,cozze,cannolicchi,"));
-        listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
-        listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
-        listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
-        listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito"));
-        listaPesce.forEach(portata -> {
+    public List<Portata> getPortataList() {
+        return portataList;
+    }
+
+    public void addPortata(Portata portata){
+        portataList.add(portata);
+    }
+
+    private void printListaPesce(List<Portata> portataList){
+
+        portataList.forEach(portata -> {
             System.out.println(portata.printPortataDetails());
         });
     }
