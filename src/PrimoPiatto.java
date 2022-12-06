@@ -1,13 +1,24 @@
 public class PrimoPiatto extends Portata{
 
+    private String isHotOrCold;
 
-    public PrimoPiatto(String name, double priceEuros, String ingridients) {
-        super(name, priceEuros, ingridients);
+    public PrimoPiatto(TypeEnum typeEnum, String name, double priceEuros, String ingridients, String isHotOrCold) {
+        super(typeEnum, name, priceEuros, ingridients);
+        this.isHotOrCold = isHotOrCold;
+    }
+
+
+    public String getIsHotOrCold() {
+        return isHotOrCold;
+    }
+
+    public void setIsHotOrCold(String isHotOrCold) {
+        this.isHotOrCold = isHotOrCold;
     }
 
     @Override
-    public  printPortataDetails() {
-        return String.format("Nome: %s Prezzo: %.2f€ Ingredienti: %s", getName(), getPriceEuros(), getIngridients());
+    public void printPortataDetails() {
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Caldo o Freddo?: %s", getTypeEnum(),getName(),getPriceEuros(),getIngridients(),getIsHotOrCold());
     }
 }
 
