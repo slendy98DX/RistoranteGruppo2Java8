@@ -1,10 +1,13 @@
-public class SecondoPiatto extends Portata{
+public class SecondoPiatto extends Portata {
     private String sideDish;
+    private String isHotOrCold;
 
-    public SecondoPiatto(String name, double priceEuros, String ingridients, String sideDish) {
-        super(name, priceEuros, ingridients);
+    public SecondoPiatto(TypeEnum typeEnum, String name, double priceEuros, String ingridients, String sideDish, String isHotOrCold) {
+        super(typeEnum, name, priceEuros, ingridients);
         this.sideDish = sideDish;
+        this.isHotOrCold = isHotOrCold;
     }
+
 
     public String getSideDish() {
         return sideDish;
@@ -13,9 +16,17 @@ public class SecondoPiatto extends Portata{
     public void setSideDish(String sideDish) {
         this.sideDish = sideDish;
     }
+    public String getIsHotOrCold() {
+        return isHotOrCold;
+    }
+
+    public void setIsHotOrCold(String isHotOrCold) {
+        this.isHotOrCold = isHotOrCold;
+    }
+
     @Override
-    public String printPortataDetails() {
-        return String.format("Nome: %s Prezzo: %.2f€ Contorno: %s Ingredienti: %s", getName(), getPriceEuros(), getSideDish(), getIngridients());
+    public void printPortataDetails() {
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Contorno: %s Caldo o Freddo?: %s", getTypeEnum(),getName(),getPriceEuros(),getIngridients(), getSideDish(), getIsHotOrCold());
     }
 }
 
