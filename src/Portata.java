@@ -6,11 +6,11 @@ public class Portata{
 
     private TypeEnum typeEnum;
 
-    public Portata(String name, double priceEuros, String ingridients, TypeEnum typeEnum){
+    public Portata(TypeEnum typeEnum,String name, double priceEuros, String ingridients){
+        this.typeEnum = typeEnum;
         this.name = name;
         this.priceEuros = priceEuros;
         this.ingridients = ingridients;
-        this.typeEnum = typeEnum;
     }
 
     public String getName() {
