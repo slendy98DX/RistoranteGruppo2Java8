@@ -129,7 +129,7 @@ public class Ristorante{
         listaPesce.add(new SecondoPiatto("Cheesecake al salmone", 19.5, "Biscotti, Crema di Formaggio","Patatine"));
         listaPesce.add(new SecondoPiatto("Salmone affumicato agli agrumi", 19.3, "Carpaccio di Salmone", "Pane e Burro"));
         listaPesce.add(new Dolci("Coppa al mascarpone", "Dessert", 8.50, "Uova,Mascarpone,Zucchero,Caffè,Marsala,Cioccolato fondente ,Meringhe"));
-        listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito "));
+        listaPesce.add(new Dolci("Torta di mele e mascarpone", "Torta", 6.50, "Mele Golden,Mascarpone,Zucchero,Farina,Uova,Baccelo di vaniglia,lievito"));
         listaPesce.forEach(portata -> {
             System.out.println(portata.printPortataDetails());
         });
