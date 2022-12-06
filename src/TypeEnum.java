@@ -4,8 +4,10 @@ public enum TypeEnum {
     CARNE,
     PESCE,
     VEGANO,
-    CARNE_PESCE,
-    CARNE_VEGANO,
-    PESCE_VEGANO,
-    CARNE_PESCE_VEGANO,
+    MISTO,
+    BEVANDA,
+    PRIMO_PIATTO,
+    SECONDO_PIATTO,
+    DOLCE,
+
 }
