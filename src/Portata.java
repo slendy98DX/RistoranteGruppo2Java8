@@ -47,7 +47,7 @@ public class Portata{
 
 
     //TODO deve stampare già tutto e deve essere di tipo void e stampare tutto
-    public String printPortataDetails(){
-        return "Print portata details";
+    public void printPortataDetails(){
+        System.out.printf("Nome: %s Prezzo: %.2f € Tipo di portata: %s  Ingredienti: %s", getName(), getPriceEuros(),getTypeEnum(),getIngridients());
     }
 }
