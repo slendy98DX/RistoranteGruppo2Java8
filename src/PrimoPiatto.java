@@ -18,7 +18,7 @@ public class PrimoPiatto extends Portata{
 
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Caldo o Freddo?: %s", getTypeEnum(),getName(),getPriceEuros(),getIngridients(),getIsHotOrCold());
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Caldo o Freddo?: %s%n", getTypeEnum(),getName(),getPriceEuros(),getIngridients(),getIsHotOrCold());
     }
 }
 

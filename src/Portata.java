@@ -48,6 +48,6 @@ public class Portata{
 
     //TODO deve stampare già tutto e deve essere di tipo void e stampare tutto
     public void printPortataDetails(){
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s", getTypeEnum(),getName(),getPriceEuros(),getIngridients());
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getTypeEnum(),getName(),getPriceEuros(),getIngridients());
     }
 }

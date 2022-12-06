@@ -18,6 +18,6 @@ public class Bevanda extends Portata{
 
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s E' alcolico?: %b", getTypeEnum(),getName(),getPriceEuros(),getIngridients(),isAlcolic());
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s E' alcolico?: %b%n", getTypeEnum(),getName(),getPriceEuros(),getIngridients(),isAlcolic());
     }
 }

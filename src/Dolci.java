@@ -19,7 +19,7 @@ public class Dolci extends Portata {
 
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Tipo di Dolce: %s Nome: %s Prezzo: %.2f € Ingredienti: %s ", getTypeEnum(),getType(),getName(),getPriceEuros(),getIngridients());
+        System.out.printf("Tipo di portata: %s Tipo di Dolce: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getTypeEnum(),getType(),getName(),getPriceEuros(),getIngridients());
     }
 }
 
