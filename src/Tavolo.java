@@ -44,6 +44,6 @@ public class Tavolo {
     }
 
     public void printTavoloDetails(){
-        System.out.printf("Numero di Tavolo: %d Numero di posti a sedere: %d Posizione: %s Stato della prenotazione: %s",getNumeroDelTavolo(),getNumeroDiPostiASedere(),getPosizione(),getStatoDellaPrenotazione());
+        System.out.printf("Numero di Tavolo: %d Numero di posti a sedere: %d Posizione: %s Stato della prenotazione: %s%n",getNumeroDelTavolo(),getNumeroDiPostiASedere(),getPosizione(),getStatoDellaPrenotazione());
     }
 }
