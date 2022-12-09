@@ -10,14 +10,10 @@ public class Ristorante {
 
     private List<Portata> portataList = new ArrayList<>();
 
-    public Ristorante(String restaurantName, String address, MenuTypeEnum menuType) throws Exception {
+    public Ristorante(String restaurantName, String address, MenuTypeEnum menuType){
         this.restaurantName = restaurantName;
         this.address = address;
-        if(menuType == MenuTypeEnum.CARNE || menuType == MenuTypeEnum.PESCE || menuType == MenuTypeEnum.VEGANO || menuType == MenuTypeEnum.MISTO){
-            this.menuType = menuType;
-        } else {
-            throw new Exception("The type of the menu is not correct");
-        }
+        this.menuType = menuType;
     }
 
     public String getRestaurantName() {
