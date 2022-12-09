@@ -10,6 +10,9 @@ public class Ristorante {
 
     private List<Portata> portataList = new ArrayList<>();
 
+    private List<Tavolo> tavoliDisponibili = new ArrayList<>();
+    private List<Tavolo>  tavoliPrenotati = new ArrayList<>();
+
     public Ristorante(String restaurantName, String address, MenuTypeEnum menuType){
         this.restaurantName = restaurantName;
         this.address = address;
@@ -47,10 +50,38 @@ public class Ristorante {
     }
 
     public void printRestaurantsDetails() {
-        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%n", getRestaurantName(), getAddress(), getMenuType());
+        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%nTavoli disponibili: %d%nTavoli prenotati: %d%nTavoli totali: %d%n", getRestaurantName(), getAddress(), getMenuType(), getNumeroTavoliDisponibili(), getNumeroTavoliPrenotati());
     }
 
     public void addPortata(Portata portata) {
         portataList.add(portata);
+    }
+
+    public void addTavoli(Tavolo tavolo){
+        if(tavolo.getStatoDellaPrenotazione() == TavoloTypeEnum.PRENOTATO){
+            tavoliPrenotati.add(tavolo);
+        } else {
+            tavoliDisponibili.add(tavolo);
+        }
+    }
+
+    public int getNumeroTavoliDisponibili(){
+        return tavoliDisponibili.size();
+    }
+
+    public int getNumeroTavoliPrenotati(){
+        return tavoliPrenotati.size();
+    }
+
+    public void printDettagliTavoliDisponibili() {
+        for (Tavolo tavolo : tavoliDisponibili) {
+            tavolo.printTavoloDetails();
+        }
+    }
+
+    public void printDettagliTavoliPrenotati() {
+        for (Tavolo tavolo : tavoliPrenotati) {
+            tavolo.printTavoloDetails();
+        }
     }
 }
