@@ -4,10 +4,10 @@ public class Portata{
     private double priceEuros;
     private String ingridients;
 
-    private TypeEnum typeEnum;
+    private PortataTypeEnum portataTypeEnum;
 
-    public Portata(TypeEnum typeEnum,String name, double priceEuros, String ingridients){
-        this.typeEnum = typeEnum;
+    public Portata(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients){
+        this.portataTypeEnum = portataTypeEnum;
         this.name = name;
         this.priceEuros = priceEuros;
         this.ingridients = ingridients;
@@ -37,17 +37,15 @@ public class Portata{
         this.ingridients = ingridients;
     }
 
-    public TypeEnum getTypeEnum() {
-        return typeEnum;
+    public PortataTypeEnum getPortataTypeEnum() {
+        return portataTypeEnum;
     }
 
-    public void setTypeEnum(TypeEnum typeEnum) {
-        this.typeEnum = typeEnum;
+    public void setPortataTypeEnum(PortataTypeEnum portataTypeEnum) {
+        this.portataTypeEnum = portataTypeEnum;
     }
 
-
-    //TODO deve stampare già tutto e deve essere di tipo void e stampare tutto
     public void printPortataDetails(){
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getTypeEnum(),getName(),getPriceEuros(),getIngridients());
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients());
     }
 }

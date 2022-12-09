@@ -2,8 +2,8 @@ public class Dolci extends Portata {
 
     private String type;
 
-    public Dolci(TypeEnum typeEnum, String name, double priceEuros, String ingridients, String type) {
-        super(typeEnum, name, priceEuros, ingridients);
+    public Dolci(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String type) {
+        super(portataTypeEnum, name, priceEuros, ingridients);
         this.type=type;
     }
 
@@ -19,7 +19,7 @@ public class Dolci extends Portata {
 
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Tipo di Dolce: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getTypeEnum(),getType(),getName(),getPriceEuros(),getIngridients());
+        System.out.printf("Tipo di portata: %s Tipo di Dolce: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getPortataTypeEnum(),getType(),getName(),getPriceEuros(),getIngridients());
     }
 }
 

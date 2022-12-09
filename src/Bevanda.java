@@ -3,8 +3,8 @@ public class Bevanda extends Portata{
     private boolean isAlcolic;
 
 
-    public Bevanda(TypeEnum typeEnum, String name, double priceEuros, String ingridients, boolean isAlcolic) {
-        super(typeEnum, name, priceEuros, ingridients);
+    public Bevanda(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, boolean isAlcolic) {
+        super(portataTypeEnum, name, priceEuros, ingridients);
         this.isAlcolic = isAlcolic;
     }
 
@@ -18,6 +18,6 @@ public class Bevanda extends Portata{
 
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s E' alcolico?: %b%n", getTypeEnum(),getName(),getPriceEuros(),getIngridients(),isAlcolic());
+        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s E' alcolico?: %b%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients(),isAlcolic());
     }
 }
