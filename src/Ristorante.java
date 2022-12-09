@@ -6,14 +6,18 @@ public class Ristorante {
     private String restaurantName;
 
     private String address;
-    private TypeEnum menuType;
+    private MenuTypeEnum menuType;
 
     private List<Portata> portataList = new ArrayList<>();
 
-    public Ristorante(String restaurantName, String address, TypeEnum menuType) {
+    public Ristorante(String restaurantName, String address, MenuTypeEnum menuType) throws Exception {
         this.restaurantName = restaurantName;
         this.address = address;
-        this.menuType = menuType;
+        if(menuType == MenuTypeEnum.CARNE || menuType == MenuTypeEnum.PESCE || menuType == MenuTypeEnum.VEGANO || menuType == MenuTypeEnum.MISTO){
+            this.menuType = menuType;
+        } else {
+            throw new Exception("The type of the menu is not correct");
+        }
     }
 
     public String getRestaurantName() {
@@ -24,11 +28,11 @@ public class Ristorante {
         this.restaurantName = restaurantName;
     }
 
-    public TypeEnum getMenuType() {
+    public MenuTypeEnum getMenuType() {
         return menuType;
     }
 
-    public void setMenuType(TypeEnum menuType) {
+    public void setMenuType(MenuTypeEnum menuType) {
         this.menuType = menuType;
     }
 
@@ -47,15 +51,10 @@ public class Ristorante {
     }
 
     public void printRestaurantsDetails() {
-        System.out.printf("Nome: %s%nIndirizzo: %s%nMenù disponibili: %s%n", getRestaurantName(), getAddress(), getMenuType());
-    }
-
-    private List<Portata> getPortataList() {
-        return portataList;
+        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%n", getRestaurantName(), getAddress(), getMenuType());
     }
 
     public void addPortata(Portata portata) {
         portataList.add(portata);
     }
-
 }
