@@ -1,6 +1,6 @@
 public class Start {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
 
         Ristorante ristorante = new Ristorante("Palla 8","Via Roma 1", MenuTypeEnum.CARNE);
 
@@ -21,9 +21,14 @@ public class Start {
 
         System.out.println("-------------------------------------------------------");
 
-        Tavolo tavolo = new Tavolo(7,4,TavoloTypeEnum.ESTERNO,TavoloTypeEnum.PRENOTATO);
+        ristorante.addTavoli(new Tavolo(7,4,TavoloTypeEnum.ESTERNO,TavoloTypeEnum.PRENOTATO));
+        ristorante.addTavoli(new Tavolo(1,2,TavoloTypeEnum.INTERNO,TavoloTypeEnum.NON_PRENOTATO));
 
-        tavolo.printTavoloDetails();
+        ristorante.printRestaurantsDetails();
+
+        ristorante.printDettagliTavoliDisponibili();
+
+        ristorante.printDettagliTavoliPrenotati();
     }
 }
 
