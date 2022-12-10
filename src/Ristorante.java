@@ -50,7 +50,7 @@ public class Ristorante {
     }
 
     public void printRestaurantsDetails() {
-        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%nTavoli disponibili: %d%nTavoli prenotati: %d%nTavoli totali: %d%n", getRestaurantName(), getAddress(), getMenuType(), getNumeroTavoliDisponibili(), getNumeroTavoliPrenotati());
+        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%nTavoli disponibili: %d%nTavoli prenotati: %d%n", getRestaurantName(), getAddress(), getMenuType(), getNumeroTavoliDisponibili(), getNumeroTavoliPrenotati());
     }
 
     public void addPortata(Portata portata) {
