@@ -4,9 +4,9 @@ public class Portata{
     private double priceEuros;
     private String ingridients;
 
-    private PortataTypeEnum portataTypeEnum;
+    private TypeEnum portataTypeEnum;
 
-    public Portata(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients){
+    public Portata(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients){
         this.portataTypeEnum = portataTypeEnum;
         this.name = name;
         this.priceEuros = priceEuros;
@@ -37,11 +37,11 @@ public class Portata{
         this.ingridients = ingridients;
     }
 
-    public PortataTypeEnum getPortataTypeEnum() {
+    public TypeEnum getPortataTypeEnum() {
         return portataTypeEnum;
     }
 
-    public void setPortataTypeEnum(PortataTypeEnum portataTypeEnum) {
+    public void setPortataTypeEnum(TypeEnum portataTypeEnum) {
         this.portataTypeEnum = portataTypeEnum;
     }
 

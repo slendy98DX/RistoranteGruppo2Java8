@@ -2,7 +2,7 @@ public class Dolci extends Portata {
 
     private String type;
 
-    public Dolci(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String type) {
+    public Dolci(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String type) {
         super(portataTypeEnum, name, priceEuros, ingridients);
         this.type=type;
     }

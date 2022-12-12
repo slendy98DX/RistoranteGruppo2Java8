@@ -2,7 +2,7 @@ public class SecondoPiatto extends Portata {
     private String sideDish;
     private String isHotOrCold;
 
-    public SecondoPiatto(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String sideDish, String isHotOrCold) {
+    public SecondoPiatto(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String sideDish, String isHotOrCold) {
         super(portataTypeEnum, name, priceEuros, ingridients);
         this.sideDish = sideDish;
         this.isHotOrCold = isHotOrCold;

@@ -3,7 +3,7 @@ public class Bevanda extends Portata{
     private boolean isAlcolic;
 
 
-    public Bevanda(PortataTypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, boolean isAlcolic) {
+    public Bevanda(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, boolean isAlcolic) {
         super(portataTypeEnum, name, priceEuros, ingridients);
         this.isAlcolic = isAlcolic;
     }
