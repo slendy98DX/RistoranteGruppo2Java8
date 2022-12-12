@@ -1,4 +1,4 @@
-public enum MenuTypeEnum {
+public enum TypeEnum {
     CARNE,
     PESCE,
     VEGANO,
