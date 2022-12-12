@@ -6,14 +6,14 @@ public class Ristorante {
     private String restaurantName;
 
     private String address;
-    private MenuTypeEnum menuType;
+    private TypeEnum menuType;
 
     private List<Portata> portataList = new ArrayList<>();
 
     private List<Tavolo> tavoliDisponibili = new ArrayList<>();
     private List<Tavolo>  tavoliPrenotati = new ArrayList<>();
 
-    public Ristorante(String restaurantName, String address, MenuTypeEnum menuType){
+    public Ristorante(String restaurantName, String address, TypeEnum menuType){
         this.restaurantName = restaurantName;
         this.address = address;
         this.menuType = menuType;
@@ -27,11 +27,11 @@ public class Ristorante {
         this.restaurantName = restaurantName;
     }
 
-    public MenuTypeEnum getMenuType() {
+    public TypeEnum getMenuType() {
         return menuType;
     }
 
-    public void setMenuType(MenuTypeEnum menuType) {
+    public void setMenuType(TypeEnum menuType) {
         this.menuType = menuType;
     }
 
