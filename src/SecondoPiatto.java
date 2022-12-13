@@ -1,11 +1,23 @@
-/*public class SecondoPiatto extends Portata {
+/**
+ * @author Alessio Pollina
+ */
+public class SecondoPiatto extends Portata {
     private String sideDish;
-    private String isHotOrCold;
+    private Boolean isHot;
 
-    public SecondoPiatto(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String sideDish, String isHotOrCold) {
-        super(portataTypeEnum, name, priceEuros, ingridients);
+    /**
+     * Constructor method of the Second Plate
+     * @param name the name of the Second Plate
+     * @param priceEuros the price of the Second Plate
+     * @param ingredients the ingridients of the Second Plate
+     * @param portataTypeEnum the type of the Second Plate
+     * @param sideDish the sideDish of the Second Plate
+     * @param isHot the temperature of the Second Plate
+     */
+    public SecondoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, String sideDish, Boolean isHot) {
+        super(name, priceEuros, ingredients, portataTypeEnum);
         this.sideDish = sideDish;
-        this.isHotOrCold = isHotOrCold;
+        this.isHot = isHot;
     }
 
 
@@ -16,19 +28,24 @@
     public void setSideDish(String sideDish) {
         this.sideDish = sideDish;
     }
-    public String getIsHotOrCold() {
-        return isHotOrCold;
+
+    public Boolean getIsHot() {
+        return isHot;
     }
 
-    public void setIsHotOrCold(String isHotOrCold) {
-        this.isHotOrCold = isHotOrCold;
+    public void setIsHot(Boolean ishot) {
+        isHot = ishot;
     }
 
+    /**
+     * Prints the Second Plate's details
+     */
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Contorno: %s Caldo o Freddo?: %s%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients(), getSideDish(), getIsHotOrCold());
+        super.printPortataDetails();
+        System.out.printf(" Contorni: %s E' caldo? %d%n", getIsHot());
     }
-}*/
+}
 
 
 
