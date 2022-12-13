@@ -1,4 +1,4 @@
-public class PrimoPiatto extends Portata{
+/*public class PrimoPiatto extends Portata{
 
     private String isHotOrCold;
 
@@ -22,6 +22,6 @@ public class PrimoPiatto extends Portata{
     public void printPortataDetails() {
         System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Caldo o Freddo?: %s%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients(),getIsHotOrCold());
     }
-}
+}*/
 
 

@@ -1,4 +1,4 @@
-public class Dolci extends Portata {
+/*public class Dolci extends Portata {
 
     private String type;
 
@@ -21,6 +21,6 @@ public class Dolci extends Portata {
     public void printPortataDetails() {
         System.out.printf("Tipo di portata: %s Tipo di Dolce: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getPortataTypeEnum(),getType(),getName(),getPriceEuros(),getIngridients());
     }
-}
+}*/
 
 
