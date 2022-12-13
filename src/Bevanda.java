@@ -1,23 +1,35 @@
 public class Bevanda extends Portata{
 
-    private boolean isAlcolic;
+    private Boolean isAlcoholic;
 
-
-    public Bevanda(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, boolean isAlcolic) {
-        super(portataTypeEnum, name, priceEuros, ingridients);
-        this.isAlcolic = isAlcolic;
+    /**
+     * Constructor method of the beverages
+     * @param name name of the beverage
+     * @param priceEuros price of the beverage
+     * @param ingredients ingredients of the beverage
+     * @param portataTypeEnum the type of the beverage
+     * @param isAlcoholic true if the beverage is alcoholic, false if it's not alcoholic
+     */
+    public Bevanda(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, Boolean isAlcoholic) {
+        super(name, priceEuros, ingredients, portataTypeEnum);
+        this.isAlcoholic = isAlcoholic;
     }
 
-    public boolean isAlcolic() {
-        return isAlcolic;
+
+    public Boolean isAlcoholic() {
+        return isAlcoholic;
     }
 
-    public void setAlcolic(boolean alcolic) {
-        isAlcolic = alcolic;
+    public void setAlcolic(Boolean alcolic) {
+        isAlcoholic = alcolic;
     }
 
+    /**
+     * Prints the beverage's details
+     */
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s E' alcolico?: %b%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients(),isAlcolic());
+        super.printPortataDetails();
+        System.out.printf(" E' alcolico? %b%n",isAlcoholic());
     }
 }

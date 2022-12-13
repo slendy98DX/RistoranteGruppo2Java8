@@ -1,20 +1,26 @@
+/**
+ * @author Marco Setaro
+ */
 public class Portata{
 
     private String name;
-    private double priceEuros;
-    private String ingridients;
-
+    private Double priceEuros;
+    private String ingredients;
     private TypeEnum portataTypeEnum;
 
-    //TODO riordindare il costruttore
-    public Portata(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients){
-        this.portataTypeEnum = portataTypeEnum;
+    /**
+     * Constructor method of the dish
+     * @param name the name of the dish
+     * @param priceEuros the price of the dish
+     * @param ingredients the ingridients of dish
+     * @param portataTypeEnum the type of the dish
+     */
+    public Portata(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum) {
         this.name = name;
         this.priceEuros = priceEuros;
-        this.ingridients = ingridients;
+        this.ingredients = ingredients;
+        this.portataTypeEnum = portataTypeEnum;
     }
-
-
 
     public String getName() {
         return name;
@@ -24,20 +30,20 @@ public class Portata{
         this.name = name;
     }
 
-    public double getPriceEuros() {
+    public Double getPriceEuros() {
         return priceEuros;
     }
 
-    public void setPriceEuros(double priceEuros) {
+    public void setPriceEuros(Double priceEuros) {
         this.priceEuros = priceEuros;
     }
 
-    public String getIngridients() {
-        return ingridients;
+    public String getIngredients() {
+        return ingredients;
     }
 
-    public void setIngridients(String ingridients) {
-        this.ingridients = ingridients;
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public TypeEnum getPortataTypeEnum() {
@@ -48,8 +54,10 @@ public class Portata{
         this.portataTypeEnum = portataTypeEnum;
     }
 
-    //TODO
+    /**
+     * Prints the dish's details
+     */
     public void printPortataDetails(){
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients());
+        System.out.printf("Nome: %s Prezzo: %.2f € Ingredienti: %s Tipo di portata: %s",getName(),getPriceEuros(),getIngredients(),getPortataTypeEnum());
     }
 }
