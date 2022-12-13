@@ -8,6 +8,8 @@ public class PrimoPiatto extends Portata{
     }
 
 
+    //TODO secondo voi tutti questi campi descrittivi fissi possono usare enumerati?
+    //cioè possiamo fare un enumerato temperatureEnum che ha HOT,COULD
     public String getIsHotOrCold() {
         return isHotOrCold;
     }

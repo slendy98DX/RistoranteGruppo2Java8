@@ -10,6 +10,7 @@ public class Ristorante {
 
     private List<Portata> portataList = new ArrayList<>();
 
+    //TODO fare un unica lista
     private List<Tavolo> tavoliDisponibili = new ArrayList<>();
     private List<Tavolo>  tavoliPrenotati = new ArrayList<>();
 

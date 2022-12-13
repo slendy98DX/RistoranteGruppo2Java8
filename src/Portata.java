@@ -6,6 +6,7 @@ public class Portata{
 
     private TypeEnum portataTypeEnum;
 
+    //TODO riordindare il costruttore
     public Portata(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients){
         this.portataTypeEnum = portataTypeEnum;
         this.name = name;
@@ -47,6 +48,7 @@ public class Portata{
         this.portataTypeEnum = portataTypeEnum;
     }
 
+    //TODO
     public void printPortataDetails(){
         System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients());
     }

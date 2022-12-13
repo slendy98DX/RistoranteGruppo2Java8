@@ -1,7 +1,11 @@
 public class Tavolo {
+
+    //TODO va bene però iniziamo a usare gli Integer perchè lavoriamo sempre più con gli oggetti
     private int numeroDelTavolo;
     private int numeroDiPostiASedere;
     private TavoloTypeEnum posizione;
+
+    //TODO gli enum sempre enum
     private TavoloTypeEnum statoDellaPrenotazione;
 
     public Tavolo(int numeroDelTavolo, int numeroDiPostiASedere, TavoloTypeEnum posizione, TavoloTypeEnum statoDellaPrenotazione){
