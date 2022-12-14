@@ -25,9 +25,7 @@ public class Start {
         ristorante.addTavoli(new Tavolo(1,2,TavoloTypeEnum.INTERNO,TavoloTypeEnum.NON_PRENOTATO));
 
         ristorante.printRestaurantsDetails();
-
         ristorante.printDettagliTavoliDisponibili();
-
         ristorante.printDettagliTavoliPrenotati();
     }
 }

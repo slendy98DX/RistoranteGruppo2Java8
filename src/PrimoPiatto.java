@@ -1,27 +1,37 @@
-/*public class PrimoPiatto extends Portata{
+/**
+ * @author Michele Cioffo
+ */
+public class PrimoPiatto extends Portata{
+    private TemperaturaPiattoEnum temperaturaPiattoEnum;
 
-    private String isHotOrCold;
-
-    public PrimoPiatto(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String isHotOrCold) {
-        super(portataTypeEnum, name, priceEuros, ingridients);
-        this.isHotOrCold = isHotOrCold;
+    /**
+     * Costructor method for FirstPlate
+     * @param name the name of the dish
+     * @param priceEuros price of the dish
+     * @param ingredients of the dish
+     * @param portataTypeEnum the type of the dish
+     * @param temperaturaPiattoEnum the temperature of the dish
+     */
+    public PrimoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, TemperaturaPiattoEnum temperaturaPiattoEnum) {
+        super(name, priceEuros, ingredients, portataTypeEnum);
+        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
+    }
+    public TemperaturaPiattoEnum getTemperaturaPiattoEnum() {
+        return temperaturaPiattoEnum;
     }
 
-
-    //TODO secondo voi tutti questi campi descrittivi fissi possono usare enumerati?
-    //cioè possiamo fare un enumerato temperatureEnum che ha HOT,COULD
-    public String getIsHotOrCold() {
-        return isHotOrCold;
+    public void setTemperaturaPiattoEnum(TemperaturaPiattoEnum temperaturaPiattoEnum) {
+        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
     }
 
-    public void setIsHotOrCold(String isHotOrCold) {
-        this.isHotOrCold = isHotOrCold;
-    }
-
+    /**
+     * Prints the First Plate's details
+     */
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Nome: %s Prezzo: %.2f € Ingredienti: %s Caldo o Freddo?: %s%n", getPortataTypeEnum(),getName(),getPriceEuros(),getIngridients(),getIsHotOrCold());
+        super.printPortataDetails();
+        System.out.printf(" Temperatura del piatto: %s%n",getTemperaturaPiattoEnum());
     }
-}*/
+}
 
 
