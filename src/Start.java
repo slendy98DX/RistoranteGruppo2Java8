@@ -7,9 +7,9 @@ public class Start {
         ristorante.printRestaurantsDetails();
 
         System.out.println("-------------------------------------------------------");
-        ristorante.addPortata(new Bevanda("Acqua",2.5,"",TypeEnum.CARNE,false));
-        ristorante.addPortata(new Bevanda("Tavernello", 5.6, "",TypeEnum.CARNE,true));
-        ristorante.addPortata(new Bevanda("Coca-cola",3.5, "",TypeEnum.CARNE,false));
+        ristorante.addPortata(new Bevanda("Acqua",2.5,"",TypeEnum.CARNE,TipoDiBevandaEnum.ANALCOLICO));
+        ristorante.addPortata(new Bevanda("Tavernello", 5.6, "",TypeEnum.CARNE,TipoDiBevandaEnum.ALCOLICO));
+        ristorante.addPortata(new Bevanda("Coca-cola",3.5, "",TypeEnum.CARNE,TipoDiBevandaEnum.ANALCOLICO));
         /*ristorante.addPortata(new PrimoPiatto(TypeEnum.CARNE, "Risotto Funghi e Salsiccia", 13.3, "riso,salsiccia,funghi","Caldo"));
         ristorante.addPortata(new PrimoPiatto(TypeEnum.CARNE, "Amatriciana", 16, "Pasta,sugo,pancetta,pecorino", "Caldo"));*/
         ristorante.addPortata(new SecondoPiatto("Pollo alla Cacciatora", 17.4, "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure",TypeEnum.CARNE ,"Patate al Forno", true));
