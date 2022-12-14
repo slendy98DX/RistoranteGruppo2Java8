@@ -3,7 +3,9 @@
  */
 public class SecondoPiatto extends Portata {
     private String sideDish;
-    private Boolean isHot;
+
+
+    private TemperaturaPiattoEnum temperaturaPiattoEnum;
 
     /**
      * Constructor method of the Second Plate
@@ -12,12 +14,12 @@ public class SecondoPiatto extends Portata {
      * @param ingredients the ingridients of the Second Plate
      * @param portataTypeEnum the type of the Second Plate
      * @param sideDish the sideDish of the Second Plate
-     * @param isHot the temperature of the Second Plate
+     * @param temperaturaPiattoEnum temperature of the Second Plate
      */
-    public SecondoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, String sideDish, Boolean isHot) {
+    public SecondoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, String sideDish, TemperaturaPiattoEnum temperaturaPiattoEnum) {
         super(name, priceEuros, ingredients, portataTypeEnum);
         this.sideDish = sideDish;
-        this.isHot = isHot;
+        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
     }
 
 
@@ -29,13 +31,14 @@ public class SecondoPiatto extends Portata {
         this.sideDish = sideDish;
     }
 
-    public Boolean getIsHot() {
-        return isHot;
+    public TemperaturaPiattoEnum getTemperaturaPiattoEnum() {
+        return temperaturaPiattoEnum;
     }
 
-    public void setIsHot(Boolean ishot) {
-        isHot = ishot;
+    public void setTemperaturaPiattoEnum(TemperaturaPiattoEnum temperaturaPiattoEnum) {
+        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
     }
+
 
     /**
      * Prints the Second Plate's details
@@ -43,7 +46,7 @@ public class SecondoPiatto extends Portata {
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        System.out.printf(" Contorni: %s E' caldo? %d%n", getIsHot());
+        System.out.printf(" Contorni: %s Temperatura del Piatto: %s%n", getSideDish(), getTemperaturaPiattoEnum());
     }
 }
 
