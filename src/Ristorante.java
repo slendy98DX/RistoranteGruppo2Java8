@@ -1,19 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Gruppo 2
+ */
 public class Ristorante {
 
     private String restaurantName;
 
     private String address;
     private TypeEnum menuType;
-
     private List<Portata> portataList = new ArrayList<>();
+    private List<Tavolo> tavoliList = new ArrayList<>();
 
-    //TODO fare un unica lista
-    private List<Tavolo> tavoliDisponibili = new ArrayList<>();
-    private List<Tavolo>  tavoliPrenotati = new ArrayList<>();
-
+    /**
+     * The constructor method of the Restaurant
+     * @param restaurantName the name of the restaurant
+     * @param address the address of the restaurant
+     * @param menuType the avaiable menù of the restaurant
+     */
     public Ristorante(String restaurantName, String address, TypeEnum menuType){
         this.restaurantName = restaurantName;
         this.address = address;
@@ -44,44 +49,51 @@ public class Ristorante {
         this.address = address;
     }
 
+    /**
+     * Prints the whole menu of the restaurant
+     */
     public void printMenuRistorante() {
         for (Portata portata : portataList) {
             portata.printPortataDetails();
         }
     }
 
+    /**
+     * Prints the details of the restaurant
+     */
     public void printRestaurantsDetails() {
-        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%nTavoli disponibili: %d%nTavoli prenotati: %d%n", getRestaurantName(), getAddress(), getMenuType(), getNumeroTavoliDisponibili(), getNumeroTavoliPrenotati());
+        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%nNumero di tavoli: %d%n", getRestaurantName(), getAddress(), getMenuType(), getNumeroTavoli());
     }
 
+    /**
+     * Adds Portata object to the list portataList
+     * @param portata an object of type Portata
+     */
     public void addPortata(Portata portata) {
         portataList.add(portata);
     }
 
+    /**
+     * Adds Tavolo objects to the list of tavoliList
+     * @param tavolo an object of type Tavolo
+     */
     public void addTavoli(Tavolo tavolo){
-        if(tavolo.getStatoDellaPrenotazione() == TavoloTypeEnum.PRENOTATO){
-            tavoliPrenotati.add(tavolo);
-        } else {
-            tavoliDisponibili.add(tavolo);
-        }
+        tavoliList.add(tavolo);
     }
 
-    public int getNumeroTavoliDisponibili(){
-        return tavoliDisponibili.size();
+    /**
+     * Gets the size of the list tavoliList
+     * @return the number of tables in tavoliList
+     */
+    public Integer getNumeroTavoli(){
+        return tavoliList.size();
     }
 
-    public int getNumeroTavoliPrenotati(){
-        return tavoliPrenotati.size();
-    }
-
-    public void printDettagliTavoliDisponibili() {
-        for (Tavolo tavolo : tavoliDisponibili) {
-            tavolo.printTavoloDetails();
-        }
-    }
-
-    public void printDettagliTavoliPrenotati() {
-        for (Tavolo tavolo : tavoliPrenotati) {
+    /**
+     * Prints the details of each Tavolo object
+     */
+    public void printDettagliTavoli() {
+        for (Tavolo tavolo : tavoliList) {
             tavolo.printTavoloDetails();
         }
     }

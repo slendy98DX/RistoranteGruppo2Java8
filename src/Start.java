@@ -4,9 +4,7 @@ public class Start {
 
         Ristorante ristorante = new Ristorante("Palla 8","Via Roma 1", TypeEnum.CARNE);
 
-        ristorante.printRestaurantsDetails();
-
-        System.out.println("-------------------------------------------------------");
+        System.out.println("MENU' DEL RISTORANTE");
         ristorante.addPortata(new Bevanda("Acqua",2.5,"",TypeEnum.CARNE,TipoDiBevandaEnum.ANALCOLICO));
         ristorante.addPortata(new Bevanda("Tavernello", 5.6, "",TypeEnum.CARNE,TipoDiBevandaEnum.ALCOLICO));
         ristorante.addPortata(new Bevanda("Coca-cola",3.5, "",TypeEnum.CARNE,TipoDiBevandaEnum.ANALCOLICO));
@@ -21,12 +19,12 @@ public class Start {
 
         System.out.println("-------------------------------------------------------");
 
-        ristorante.addTavoli(new Tavolo(7,4,TavoloTypeEnum.ESTERNO,TavoloTypeEnum.PRENOTATO));
-        ristorante.addTavoli(new Tavolo(1,2,TavoloTypeEnum.INTERNO,TavoloTypeEnum.NON_PRENOTATO));
+        ristorante.addTavoli(new Tavolo(7,4, TavoloPositionEnum.ESTERNO,TavoloStatusEnum.PRENOTATO));
+        ristorante.addTavoli(new Tavolo(1,2, TavoloPositionEnum.INTERNO,TavoloStatusEnum.NON_PRENOTATO));
+        ristorante.addTavoli(new Tavolo(2,6, TavoloPositionEnum.ESTERNO,TavoloStatusEnum.PRENOTATO));
 
         ristorante.printRestaurantsDetails();
-        ristorante.printDettagliTavoliDisponibili();
-        ristorante.printDettagliTavoliPrenotati();
+        ristorante.printDettagliTavoli();
     }
 }
 

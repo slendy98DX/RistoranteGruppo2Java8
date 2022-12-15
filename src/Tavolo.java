@@ -1,53 +1,62 @@
+/**
+ * @author Marco Setaro
+ */
 public class Tavolo {
+    public Integer numeroDelTavolo;
+    private Integer numeroDiPostiASedere;
+    private TavoloPositionEnum posizioneEnum;
+    private TavoloStatusEnum statoDellaPrenotazioneEnum;
 
-    //TODO va bene però iniziamo a usare gli Integer perchè lavoriamo sempre più con gli oggetti
-    private int numeroDelTavolo;
-    private int numeroDiPostiASedere;
-    private TavoloTypeEnum posizione;
-
-    //TODO gli enum sempre enum
-    private TavoloTypeEnum statoDellaPrenotazione;
-
-    public Tavolo(int numeroDelTavolo, int numeroDiPostiASedere, TavoloTypeEnum posizione, TavoloTypeEnum statoDellaPrenotazione){
+    /**
+     * Constructor method of the table
+     * @param numeroDelTavolo the number of the table
+     * @param numeroDiPostiASedere the number of seats of the table
+     * @param posizioneEnum the position of the table
+     * @param statoDellaPrenotazioneEnum the status of the ordination of the table
+     */
+    public Tavolo(Integer numeroDelTavolo, Integer numeroDiPostiASedere, TavoloPositionEnum posizioneEnum, TavoloStatusEnum statoDellaPrenotazioneEnum){
         this.numeroDelTavolo = numeroDelTavolo;
         this.numeroDiPostiASedere = numeroDiPostiASedere;
-        this.posizione = posizione;
-        this.statoDellaPrenotazione = statoDellaPrenotazione;
+        this.posizioneEnum = posizioneEnum;
+        this.statoDellaPrenotazioneEnum = statoDellaPrenotazioneEnum;
     }
 
-    public int getNumeroDelTavolo() {
+    public Integer getNumeroDelTavolo() {
         return numeroDelTavolo;
     }
 
-    public void setNumeroDelTavolo(int numeroDelTavolo) {
+    public void setNumeroDelTavolo(Integer numeroDelTavolo) {
         this.numeroDelTavolo = numeroDelTavolo;
     }
 
-    public int getNumeroDiPostiASedere() {
+    public Integer getNumeroDiPostiASedere() {
         return numeroDiPostiASedere;
     }
 
-    public void setNumeroDiPostiASedere(int numeroDiPostiASedere) {
+    public void setNumeroDiPostiASedere(Integer numeroDiPostiASedere) {
         this.numeroDiPostiASedere = numeroDiPostiASedere;
     }
 
-    public TavoloTypeEnum getPosizione() {
-        return posizione;
+    public TavoloPositionEnum getPosizioneEnum() {
+        return posizioneEnum;
     }
 
-    public void setPosizione(TavoloTypeEnum posizione) {
-        this.posizione = posizione;
+    public void setPosizioneEnum(TavoloPositionEnum posizioneEnum) {
+        this.posizioneEnum = posizioneEnum;
     }
 
-    public TavoloTypeEnum getStatoDellaPrenotazione() {
-        return statoDellaPrenotazione;
+    public TavoloStatusEnum getStatoDellaPrenotazioneEnum() {
+        return statoDellaPrenotazioneEnum;
     }
 
-    public void setStatoDellaPrenotazione(TavoloTypeEnum statoDellaPrenotazione) {
-        this.statoDellaPrenotazione = statoDellaPrenotazione;
+    public void setStatoDellaPrenotazioneEnum(TavoloStatusEnum statoDellaPrenotazioneEnum) {
+        this.statoDellaPrenotazioneEnum = statoDellaPrenotazioneEnum;
     }
 
+    /**
+     * Prints the details of the table
+     */
     public void printTavoloDetails(){
-        System.out.printf("Numero di Tavolo: %d Numero di posti a sedere: %d Posizione: %s Stato della prenotazione: %s%n",getNumeroDelTavolo(),getNumeroDiPostiASedere(),getPosizione(),getStatoDellaPrenotazione());
+        System.out.printf("Numero di Tavolo: %d Numero di posti a sedere: %d Posizione: %s Stato della prenotazione: %s%n",getNumeroDelTavolo(),getNumeroDiPostiASedere(),getPosizioneEnum(),getStatoDellaPrenotazioneEnum());
     }
 }
