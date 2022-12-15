@@ -1,5 +1,4 @@
 public enum TavoloTypeEnum {
-
     //TODO separiamo gli enum
     INTERNO,
     ESTERNO,

@@ -1,3 +1,6 @@
+/**
+ * @author Marco Setaro
+ */
 public class Bevanda extends Portata{
 
     private TipoDiBevandaEnum tipoDiBevandaEnum;

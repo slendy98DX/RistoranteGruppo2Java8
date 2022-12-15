@@ -1,26 +1,38 @@
-/*public class Dolci extends Portata {
+/**
+ * @author Maria Coman
+ */
+public class Dolci extends Portata {
 
-    private String type;
 
-    public Dolci(TypeEnum portataTypeEnum, String name, double priceEuros, String ingridients, String type) {
-        super(portataTypeEnum, name, priceEuros, ingridients);
-        this.type=type;
+    private DolciTypeEnum dolciTypeEnum;
+
+    /**
+     *
+     * @param name name of the Sweets
+     * @param priceEuros price of the Sweets
+     * @param ingredients ingredients of the Sweets
+     * @param portataTypeEnum the type of the Sweets
+     * @param dolciTypeEnum the type of the Sweets
+     */
+    public Dolci(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum,DolciTypeEnum dolciTypeEnum) {
+        super(name, priceEuros, ingredients, portataTypeEnum);
+        this.dolciTypeEnum=dolciTypeEnum;
     }
 
-
-    public String getType() {
-        return type;
+    public DolciTypeEnum getDolciTypeEnum() {
+        return dolciTypeEnum;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDolciTypeEnum(DolciTypeEnum dolciTypeEnum) {
+        this.dolciTypeEnum = dolciTypeEnum;
     }
 
-
+    /**
+     * Print the Sweet's details
+     */
     @Override
     public void printPortataDetails() {
-        System.out.printf("Tipo di portata: %s Tipo di Dolce: %s Nome: %s Prezzo: %.2f € Ingredienti: %s%n", getPortataTypeEnum(),getType(),getName(),getPriceEuros(),getIngridients());
+        super.printPortataDetails();
+        System.out.printf(" Tipo di dolce: %s%n",getDolciTypeEnum());
     }
-}*/
-
-
+}
