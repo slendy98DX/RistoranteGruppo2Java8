@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * @author Marco Setaro
  * The enumeration of the type of menu/client/dish

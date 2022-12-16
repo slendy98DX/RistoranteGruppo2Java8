@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * @author Maria Coman
  */
@@ -14,7 +16,7 @@ public class Dolci extends Portata {
      * @param portataTypeEnum the type of the Sweets
      * @param dolciTypeEnum the type of the Sweets
      */
-    public Dolci(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum,DolciTypeEnum dolciTypeEnum) {
+    public Dolci(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, DolciTypeEnum dolciTypeEnum) {
         super(name, priceEuros, ingredients, portataTypeEnum);
         this.dolciTypeEnum=dolciTypeEnum;
     }

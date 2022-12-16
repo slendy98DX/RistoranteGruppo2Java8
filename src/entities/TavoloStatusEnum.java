@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * @author Marco Setaro
  * Enumeration of the possible status of the ordination of the table

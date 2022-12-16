@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * @author Marco Setaro
  */
@@ -57,6 +59,6 @@ public class Tavolo {
      * Prints the details of the table
      */
     public void printTavoloDetails(){
-        System.out.printf("Numero di Tavolo: %d Numero di posti a sedere: %d Posizione: %s Stato della prenotazione: %s%n",getNumeroDelTavolo(),getNumeroDiPostiASedere(),getPosizioneEnum(),getStatoDellaPrenotazioneEnum());
+        System.out.printf("Numero di entities.Tavolo: %d Numero di posti a sedere: %d Posizione: %s Stato della prenotazione: %s%n",getNumeroDelTavolo(),getNumeroDiPostiASedere(),getPosizioneEnum(),getStatoDellaPrenotazioneEnum());
     }
 }

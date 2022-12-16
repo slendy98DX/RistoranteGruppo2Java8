@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,16 +68,16 @@ public class Ristorante {
     }
 
     /**
-     * Adds Portata object to the list portataList
-     * @param portata an object of type Portata
+     * Adds entities.Portata object to the list portataList
+     * @param portata an object of type entities.Portata
      */
     public void addPortata(Portata portata) {
         portataList.add(portata);
     }
 
     /**
-     * Adds Tavolo objects to the list of tavoliList
-     * @param tavolo an object of type Tavolo
+     * Adds entities.Tavolo objects to the list of tavoliList
+     * @param tavolo an object of type entities.Tavolo
      */
     public void addTavoli(Tavolo tavolo){
         tavoliList.add(tavolo);
@@ -90,7 +92,7 @@ public class Ristorante {
     }
 
     /**
-     * Prints the details of each Tavolo object
+     * Prints the details of each entities.Tavolo object
      */
     public void printDettagliTavoli() {
         for (Tavolo tavolo : tavoliList) {

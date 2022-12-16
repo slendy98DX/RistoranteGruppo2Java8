@@ -1,7 +1,9 @@
+package entities;
+
 /**
  * @author Marco Setaro
  */
-public class Bevanda extends Portata{
+public class Bevanda extends Portata {
 
     private TipoDiBevandaEnum tipoDiBevandaEnum;
 

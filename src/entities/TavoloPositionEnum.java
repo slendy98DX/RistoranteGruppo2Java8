@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * @author Marco Setaro
  * The position of the table
