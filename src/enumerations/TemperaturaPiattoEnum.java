@@ -1,4 +1,4 @@
-package entities;
+package enumerations;
 
 /**
  * @author Michele Cioffo
