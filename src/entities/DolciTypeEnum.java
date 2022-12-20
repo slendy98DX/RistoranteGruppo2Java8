@@ -6,6 +6,7 @@ package entities;
  */
 public enum DolciTypeEnum {
 
+    //TODO stessa cosa dell'altro enumerato
     TORTE,
     SEMIFREDDO,
     GELATO,

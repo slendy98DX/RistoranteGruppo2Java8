@@ -6,6 +6,8 @@ package entities;
  */
 public enum TipoDiBevandaEnum {
 
+    //TODO inseriamo più campi e creaiamo il costruttore con dei campi di utilità(nome, descrizione)
+
     ALCOLICO,
     ANALCOLICO
 }
