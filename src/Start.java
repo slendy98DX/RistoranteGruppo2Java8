@@ -8,9 +8,9 @@ public class Start {
         Ristorante ristorante = new Ristorante("Palla 8", "Via Roma 1", TypeEnum.CARNE);
 
         System.out.println("MENU' DEL RISTORANTE");
-        ristorante.addPortata(new Bevanda("Acqua", 2.5, "", TypeEnum.CARNE, TipoDiBevandaEnum.ANALCOLICO));
-        ristorante.addPortata(new Bevanda("Tavernello", 5.6, "", TypeEnum.CARNE, TipoDiBevandaEnum.ALCOLICO));
-        ristorante.addPortata(new Bevanda("Coca-cola", 3.5, "", TypeEnum.CARNE, TipoDiBevandaEnum.ANALCOLICO));
+        ristorante.addPortata(new Bevanda("Nastro Azzurro", 1.20, "", TypeEnum.CARNE, TipoDiBevandaEnum.BIRRA));
+        ristorante.addPortata(new Bevanda("Solopaca", 4.54, "", TypeEnum.CARNE, TipoDiBevandaEnum.VINO));
+        ristorante.addPortata(new Bevanda("Coca-cola", 1.49, "", TypeEnum.CARNE, TipoDiBevandaEnum.COLA));
         ristorante.addPortata(new PrimoPiatto("Risotto Funghi e Salsiccia", 13.3, "riso,salsiccia,funghi", TypeEnum.CARNE, TemperaturaPiattoEnum.CALDO));
         ristorante.addPortata(new PrimoPiatto("Amatriciana", 16.5, "Pasta,sugo,pancetta,pecorino", TypeEnum.CARNE, TemperaturaPiattoEnum.CALDO));
         ristorante.addPortata(new SecondoPiatto("Pollo alla Cacciatora", 17.4, "Pollo, Pomodoro, Spezie, Cipolla, Vino, Verdure", TypeEnum.CARNE, "Patate al Forno", TemperaturaPiattoEnum.CALDO));

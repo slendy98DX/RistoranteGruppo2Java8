@@ -32,11 +32,11 @@ public class Bevanda extends Portata {
     }
 
     /**
-     * Prints the beverage's details
+     * This method prints the beverage's details
      */
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        System.out.printf(" E' alcolico? %s%n",getTipoDiBevandaEnum());
+        System.out.printf(" Tipo di bevanda: %s%n",tipoDiBevandaEnum);
     }
 }
