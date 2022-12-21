@@ -1,5 +1,8 @@
 package entities;
 
+import entities.enumerations.DolciTypeEnum;
+import entities.enumerations.TypeEnum;
+
 /**
  * @author Maria Coman
  */

@@ -1,4 +1,4 @@
-package enumerations;
+package entities.enumerations;
 
 /**
  * @author Maria Coman
