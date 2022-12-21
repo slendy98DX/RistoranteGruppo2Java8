@@ -1,7 +1,7 @@
 package entities;
 
-import entities.enumerations.TipoDiBevandaEnum;
-import entities.enumerations.TypeEnum;
+import enumerations.TipoDiBevandaEnum;
+import enumerations.TypeEnum;
 
 /**
  * @author Marco Setaro

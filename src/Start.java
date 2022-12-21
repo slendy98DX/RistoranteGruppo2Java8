@@ -1,5 +1,5 @@
 import entities.*;
-import entities.enumerations.*;
+import enumerations.*;
 
 public class Start {
 

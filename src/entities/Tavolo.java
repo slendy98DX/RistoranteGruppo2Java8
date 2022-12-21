@@ -1,7 +1,7 @@
 package entities;
 
-import entities.enumerations.TavoloPositionEnum;
-import entities.enumerations.TavoloStatusEnum;
+import enumerations.TavoloPositionEnum;
+import enumerations.TavoloStatusEnum;
 
 /**
  * @author Marco Setaro

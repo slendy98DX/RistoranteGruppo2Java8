@@ -1,4 +1,4 @@
-package entities.enumerations;
+package enumerations;
 
 /**
  * @author Marco Setaro
