@@ -1,6 +1,6 @@
 package entities;
 
-import entities.enumerations.TypeEnum;
+import enumerations.TypeEnum;
 
 /**
  * @author Marco Setaro

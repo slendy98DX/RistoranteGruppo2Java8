@@ -1,6 +1,6 @@
 package entities;
 
-import entities.enumerations.TypeEnum;
+import enumerations.TypeEnum;
 
 import java.util.ArrayList;
 import java.util.List;

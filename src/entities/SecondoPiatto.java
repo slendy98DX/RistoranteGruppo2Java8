@@ -1,7 +1,7 @@
 package entities;
 
-import entities.enumerations.TemperaturaPiattoEnum;
-import entities.enumerations.TypeEnum;
+import enumerations.TemperaturaPiattoEnum;
+import enumerations.TypeEnum;
 
 /**
  * @author Alessio Pollina
