@@ -1,5 +1,8 @@
 package entities;
 
+import entities.enumerations.TipoDiBevandaEnum;
+import entities.enumerations.TypeEnum;
+
 /**
  * @author Marco Setaro
  */

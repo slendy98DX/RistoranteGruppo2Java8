@@ -1,5 +1,7 @@
 package entities;
 
+import entities.enumerations.TypeEnum;
+
 /**
  * @author Marco Setaro
  */

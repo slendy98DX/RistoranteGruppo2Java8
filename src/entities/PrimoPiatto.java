@@ -1,5 +1,8 @@
 package entities;
 
+import entities.enumerations.TemperaturaPiattoEnum;
+import entities.enumerations.TypeEnum;
+
 /**
  * @author Michele Cioffo
  */
