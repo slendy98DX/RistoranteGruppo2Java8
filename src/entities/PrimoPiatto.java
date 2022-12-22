@@ -1,13 +1,12 @@
 package entities;
 
-import enumerations.TemperaturaPiattoEnum;
+import enumerations.CotturaTypeEnum;
 import enumerations.TypeEnum;
 
 /**
  * @author Michele Cioffo
  */
 public class PrimoPiatto extends Portata{
-    private TemperaturaPiattoEnum temperaturaPiattoEnum;
 
     /**
      * Costructor method for FirstPlate
@@ -15,18 +14,9 @@ public class PrimoPiatto extends Portata{
      * @param priceEuros price of the dish
      * @param ingredients of the dish
      * @param portataTypeEnum the type of the dish
-     * @param temperaturaPiattoEnum the temperature of the dish
      */
-    public PrimoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, TemperaturaPiattoEnum temperaturaPiattoEnum) {
+    public PrimoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum) {
         super(name, priceEuros, ingredients, portataTypeEnum);
-        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
-    }
-    public TemperaturaPiattoEnum getTemperaturaPiattoEnum() {
-        return temperaturaPiattoEnum;
-    }
-
-    public void setTemperaturaPiattoEnum(TemperaturaPiattoEnum temperaturaPiattoEnum) {
-        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
     }
 
     /**
@@ -35,7 +25,6 @@ public class PrimoPiatto extends Portata{
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        System.out.printf(" Temperatura del piatto: %s%n",getTemperaturaPiattoEnum());
     }
 }
 

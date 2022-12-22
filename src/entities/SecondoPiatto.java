@@ -1,7 +1,6 @@
 package entities;
 
 import enumerations.CotturaTypeEnum;
-import enumerations.TemperaturaPiattoEnum;
 import enumerations.TypeEnum;
 
 /**
