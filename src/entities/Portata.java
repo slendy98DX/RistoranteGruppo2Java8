@@ -59,14 +59,19 @@ public class Portata{
     }
 
 
-    //TODO sistemare il java doc con i tag, studiare come si definisce il javadoc sui void
+
     /**
-     * Prints the dish's details
-     *
+     * This method prints the dish's details
      */
 
-    //TODO abbiamo detto che i getter vengono usati solo dalle classi esterne nella stessa classe si usa il field
     public void printPortataDetails(){
-        System.out.printf("Nome: %s Prezzo: %.2f € Ingredienti: %s Tipo di portata: %s",getName(),getPriceEuros(),getIngredients(),getPortataTypeEnum());
+        System.out.printf("Nome: %s" +
+                " Prezzo: %.2f €" +
+                " Ingredienti: %s" +
+                " Tipo di menù: %s"
+                ,name
+                ,priceEuros
+                ,ingredients
+                ,portataTypeEnum);
     }
 }

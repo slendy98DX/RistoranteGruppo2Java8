@@ -1,5 +1,6 @@
 package entities;
 
+import enumerations.CotturaTypeEnum;
 import enumerations.TemperaturaPiattoEnum;
 import enumerations.TypeEnum;
 
@@ -10,7 +11,8 @@ public class SecondoPiatto extends Portata {
     private String sideDish;
 
 
-    private TemperaturaPiattoEnum temperaturaPiattoEnum;
+
+    private CotturaTypeEnum cotturaTypeEnum;
 
     /**
      * Constructor method of the Second Plate
@@ -19,12 +21,12 @@ public class SecondoPiatto extends Portata {
      * @param ingredients the ingridients of the Second Plate
      * @param portataTypeEnum the type of the Second Plate
      * @param sideDish the sideDish of the Second Plate
-     * @param temperaturaPiattoEnum temperature of the Second Plate
+     * @param cotturaTypeEnum temperature of the baking
      */
-    public SecondoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, String sideDish, TemperaturaPiattoEnum temperaturaPiattoEnum) {
+    public SecondoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, String sideDish, CotturaTypeEnum cotturaTypeEnum) {
         super(name, priceEuros, ingredients, portataTypeEnum);
         this.sideDish = sideDish;
-        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
+        this.cotturaTypeEnum = cotturaTypeEnum;
     }
 
 
@@ -36,14 +38,14 @@ public class SecondoPiatto extends Portata {
         this.sideDish = sideDish;
     }
 
-    public TemperaturaPiattoEnum getTemperaturaPiattoEnum() {
-        return temperaturaPiattoEnum;
+
+    public CotturaTypeEnum getCotturaTypeEnum() {
+        return cotturaTypeEnum;
     }
 
-    public void setTemperaturaPiattoEnum(TemperaturaPiattoEnum temperaturaPiattoEnum) {
-        this.temperaturaPiattoEnum = temperaturaPiattoEnum;
+    public void setCotturaTypeEnum(CotturaTypeEnum cotturaTypeEnum) {
+        this.cotturaTypeEnum = cotturaTypeEnum;
     }
-
 
     /**
      * Prints the Second Plate's details
@@ -51,7 +53,10 @@ public class SecondoPiatto extends Portata {
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        System.out.printf(" Contorni: %s Temperatura del Piatto: %s%n", getSideDish(), getTemperaturaPiattoEnum());
+        System.out.printf(" Contorni: %s" +
+                " Cottura del Piatto: %s%n"
+                , sideDish
+                , cotturaTypeEnum);
     }
 }
 

@@ -5,9 +5,40 @@ package enumerations;
  * The enumeration of the type of the beverage
  */
 public enum TipoDiBevandaEnum {
+    VINO(75.0,12.0),
+    BIRRA(66.0,5.1),
+    LIQUORE(0.4,17.0),
+    COLA(100.0,0.0)
+    ;
+    private Double gradazioneAlcolica;
+    private Double quantità;
 
-    //TODO inseriamo più campi e creaiamo il costruttore con dei campi di utilità(nome, descrizione)
+    TipoDiBevandaEnum(Double quantità, Double gradazioneAlcolica) {
+        this.quantità = quantità;
+        this.gradazioneAlcolica = gradazioneAlcolica;
+    }
 
-    ALCOLICO,
-    ANALCOLICO
+    public Double getGradazioneAlcolica() {
+        return gradazioneAlcolica;
+    }
+
+    public void setGradazioneAlcolica(Double gradazioneAlcolica) {
+        this.gradazioneAlcolica = gradazioneAlcolica;
+    }
+
+    public Double getQuantità() {
+        return quantità;
+    }
+
+    public void setQuantità(Double quantità) {
+        this.quantità = quantità;
+    }
+
+    @Override
+    public String toString() {
+        return "TipoDiBevandaEnum{" +
+                "gradazioneAlcolica=" + gradazioneAlcolica + "%" +
+                ", quantità=" + quantità + "cl" +
+                '}';
+    }
 }
