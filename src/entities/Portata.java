@@ -65,7 +65,7 @@ public class Portata{
      */
 
     public void printPortataDetails(){
-        System.out.printf("Nome: %s" +
+        System.out.printf("\u277D Nome: %s" +
                 " Prezzo: %.2f €" +
                 " Ingredienti: %s" +
                 " Tipo di menù: %s"
