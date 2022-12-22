@@ -68,7 +68,7 @@ public class Portata{
         System.out.printf("Nome: %s" +
                 " Prezzo: %.2f €" +
                 " Ingredienti: %s" +
-                " Tipo di portata: %s"
+                " Tipo di menù: %s"
                 ,name
                 ,priceEuros
                 ,ingredients
