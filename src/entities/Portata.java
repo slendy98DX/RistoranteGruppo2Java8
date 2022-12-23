@@ -19,12 +19,14 @@ public class Portata{
      * @param ingredients the ingridients of dish
      * @param portataTypeEnum the type of the dish
      */
-    public Portata(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum) {
+   public Portata(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum) {
         this.name = name;
         this.priceEuros = priceEuros;
         this.ingredients = ingredients;
         this.portataTypeEnum = portataTypeEnum;
     }
+
+
 
     public String getName() {
         return name;
