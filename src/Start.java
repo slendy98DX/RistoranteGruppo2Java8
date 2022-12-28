@@ -1,5 +1,6 @@
 import entities.*;
 import enumerations.*;
+import enumerations.booleane.DolciBooleaneEnum;
 
 public class Start {
 
@@ -17,7 +18,7 @@ public class Start {
        // ristorante.addPortata(new SecondoPiatto("Bistecca", 16.5, "Carne di Manzo, Limone, Aromi", TypeEnum.CARNE, "Patate Fritte", CotturaTypeEnum.AL_SANGUE));
         //ristorante.addPortata(new Dolci("Tiramisu'", 10.55, "Uova,Mascarpone,Zucchero,Caffè,Rum", TypeEnum.CARNE, DolciTypeEnum.TORTE));
         //ristorante.addPortata(new Dolci("Sorbetto al limone", 5.25, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi", TypeEnum.CARNE, DolciTypeEnum.SEMIFREDDO));
-        ristorante.addPortata(new Dolci(DolciTypeEnum.TORTE,"Torta di mele",12.5,"farina ,lievito ,uova,mele,zuchero",TypeEnum.CARNE));
+        ristorante.addPortata(new Dolci("PandiSpania",12.5,"Uova ,burro ,zuchero ",TypeEnum.CARNE,DolciTypeEnum.SEMIFREDDO,24.54, DolciBooleaneEnum.per_Allergici_congelato));
         ristorante.printMenuRistorante();
 
         System.out.println("-------------------------------------------------------");
@@ -28,6 +29,7 @@ public class Start {
 
         ristorante.printRestaurantsDetails();
         ristorante.printDettagliTavoli();
+        ristorante.printMenuRistorante();
     }
 }
 

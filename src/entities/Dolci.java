@@ -2,61 +2,40 @@ package entities;
 
 import enumerations.DolciTypeEnum;
 import enumerations.TypeEnum;
+import enumerations.booleane.DolciBooleaneEnum;
 
 /**
  * @author Maria Coman
  */
 public class Dolci extends Portata {
-
+    /**
+     * internal attributes
+     */
     private Double quantita;
-    private Boolean isPerCeliaci;
-    private Boolean isPerAlergici;
-    private Boolean isCongelato;
-
-    public Dolci(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, Double quantita) {
-        super(name, priceEuros, ingredients, portataTypeEnum);
-        this.quantita = quantita;
-    }
-
     private DolciTypeEnum dolciTypeEnum;
+    private DolciBooleaneEnum dolciBooleaneEnum;
 
     /**
      *
-     * @param name name of the Sweets
-     * @param priceEuros price of the Sweets
-     * @param ingredients ingredients of the Sweets
-     * @param portataTypeEnum the type of the Sweets
-     * @param dolciTypeEnum the type of the Sweets
-     * @param isCongelato the type of the Sweets
-     * @param isPerCeliaci the type of the Sweets
-     * @param quantita the quantity of the Sweets
-     * @param isPerAlergici   the type of the Sweets
-     *
+     * @param name name of the dish,
+     * @param priceEuros price of the dish,
+     * @param ingredients ingredients of the dish,
+     * @param portataTypeEnum associated type of menu,
+     * @param dolciTypeEnum type of cake,
+     * @param quantita total mass of the ingredients ,
+     * @param dolciBooleaneEnum special characteristics
      */
-    public Dolci(DolciTypeEnum dolciTypeEnum,
-                 String name,
-                 Double priceEuros,
-                 String ingredients,
-                 TypeEnum portataTypeEnum,
-                 Boolean isPerCeliaci,
-                 Boolean isPerAlergici ,
-                 Boolean isCongelato,
-                 Double quantita) {
+
+    public Dolci(String name, Double priceEuros,
+                 String ingredients, TypeEnum portataTypeEnum,
+                 DolciTypeEnum dolciTypeEnum, Double quantita,
+                 DolciBooleaneEnum dolciBooleaneEnum ) {
         super(name, priceEuros, ingredients, portataTypeEnum);
-        this.isCongelato=isCongelato;
-        this.isPerAlergici=isPerAlergici;
-        this.isPerCeliaci=isPerCeliaci;
-        this.quantita=quantita;
         this.dolciTypeEnum=dolciTypeEnum;
+        this.quantita=quantita;
+        this.dolciBooleaneEnum=dolciBooleaneEnum;
     }
 
-    public DolciTypeEnum getDolciTypeEnum() {
-        return dolciTypeEnum;
-    }
-
-    public void setDolciTypeEnum(DolciTypeEnum dolciTypeEnum) {
-        this.dolciTypeEnum = dolciTypeEnum;
-    }
 
     /**
      * Print the Sweet's details
@@ -64,27 +43,15 @@ public class Dolci extends Portata {
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        //System.out.printf(" Tipo di dolce: %s%n",dolciTypeEnum);
-        System.out.printf(" Tipo di desert: %s" +
-                        " E un congelato: %s" +
-                        "E per alergenici: %s"+
-                        "e per celiaci: %s "+
-                "quantita :%s ",
+
+        System.out.printf(", Tipo di desert: %s" +
+                        " , indicazioni: %s " +
+                        ", quantità porzione(gr) : %s ",
                 dolciTypeEnum,
-                isCongelato,
-                isPerAlergici,
-                isPerCeliaci,
+                dolciBooleaneEnum,
                 quantita
-
-                );
+        );
 
     }
 
-    public Double getQuantita() {
-        return quantita;
-    }
-
-    public void setQuantita(Double quantita) {
-        this.quantita = quantita;
-    }
 }
