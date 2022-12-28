@@ -7,13 +7,9 @@ package enumerations;
 public enum DolciTypeEnum {
 
     //TODO stessa cosa dell'altro enumerato
-    TORTA ,
+    TORTA,
     SEMIFREDDO,
-    GELATO
-    ;
-
-
-
-
+    GELATO,
 
 }
+
