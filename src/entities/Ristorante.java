@@ -101,4 +101,17 @@ public class Ristorante {
             tavolo.printTavoloDetails();
         }
     }
+
+    /**
+     * Method that calculates menu' price
+     * @return menu' price of type Double
+     */
+    public Double getPrezzoMenu(){
+        double suma=0;
+        for (int i = 0; i <portataList.size() ; i++) {
+            suma+=portataList.get(i).getPriceEuros();
+        }
+        return suma;
+    }
+
 }

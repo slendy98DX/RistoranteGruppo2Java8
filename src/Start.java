@@ -30,6 +30,10 @@ public class Start {
         ristorante.printRestaurantsDetails();
         ristorante.printDettagliTavoli();
         ristorante.printMenuRistorante();
+        System.out.println("...........................................");
+        System.out.println(ristorante.getPrezzoMenu());
+        System.out.println(".............................................");
+
     }
 }
 

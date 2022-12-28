@@ -46,7 +46,7 @@ public class Dolci extends Portata {
 
         System.out.printf(", Tipo di desert: %s" +
                         " , indicazioni: %s " +
-                        ", quantità porzione(gr) : %s ",
+                        ", quantità porzione(gr) : %s%n",
                 dolciTypeEnum,
                 dolciBooleaneEnum,
                 quantita

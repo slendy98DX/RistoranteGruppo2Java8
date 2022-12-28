@@ -1,5 +1,9 @@
 package enumerations.booleane;
 
+/**
+ * @author Maria Coman
+ * specifiche per dolci
+ */
 public enum DolciBooleaneEnum {
 
 
