@@ -3,7 +3,9 @@ package entities;
 import enumerations.TypeEnum;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Gruppo 2
@@ -15,7 +17,10 @@ public class Ristorante {
     private String address;
     private TypeEnum menuType;
     private List<Portata> portataList = new ArrayList<>();
-    private List<Tavolo> tavoliList = new ArrayList<>();
+
+    private Map<Integer,Tavolo> tavoloMap = new HashMap<>();
+
+    private static Integer numeroTavoliMax = 5;
 
     /**
      * The constructor method of the Restaurant
@@ -66,7 +71,14 @@ public class Ristorante {
      * Prints the details of the restaurant
      */
     public void printRestaurantsDetails() {
-        System.out.printf("Nome del ristorante: %s%nIndirizzo: %s%nMenù disponibili: %s%nNumero di tavoli: %d%n", getRestaurantName(), getAddress(), getMenuType(), getNumeroTavoli());
+        System.out.printf("Nome del ristorante: %s%n" +
+                "Indirizzo: %s%n" +
+                "Menù disponibili: %s%n" +
+                "Numero di tavoli: %d%n"
+                , restaurantName
+                , address
+                , menuType
+                , getNumeroTavoli());
     }
 
     /**
@@ -78,40 +90,46 @@ public class Ristorante {
     }
 
     /**
-     * Adds entities.Tavolo objects to the list of tavoliList
-     * @param tavolo an object of type entities.Tavolo
+     * This method add couple numeroDelTavolo,tavolo objects to the tavoloMap
+     * @param numeroDelTavolo the identifier of the tables
+     * @param tavolo the table
+     * @throws Exception if the map size reaches the max number of tables
      */
-    public void addTavoli(Tavolo tavolo){
-        tavoliList.add(tavolo);
+    public void putTavoli(Integer numeroDelTavolo,Tavolo tavolo) throws Exception{
+        if(tavoloMap.size() < numeroTavoliMax){
+            tavoloMap.putIfAbsent(numeroDelTavolo,tavolo);
+        } else {
+            throw new Exception("Numero di tavoli max raggiunto");
+        }
     }
 
     /**
-     * Gets the size of the list tavoliList
-     * @return the number of tables in tavoliList
+<<<<<<< HEAD
+     * This method returns the size of the tavoloMap
+     * @return tavoloMap size
      */
     public Integer getNumeroTavoli(){
-        return tavoliList.size();
+        return tavoloMap.size();
     }
 
     /**
-     * Prints the details of each entities.Tavolo object
+     * This method prints the details of all tavolo objects in tavoloMap
      */
-    public void printDettagliTavoli() {
-        for (Tavolo tavolo : tavoliList) {
+    public void printDettagliTavoli(){
+        tavoloMap.forEach((integer, tavolo) -> {
             tavolo.printTavoloDetails();
-        }
+        });
     }
 
     /**
-     * Method that calculates menu' price
-     * @return menu' price of type Double
+     * Method that calculates menu price
+     * @return menu price of type Double
      */
     public Double getPrezzoMenu(){
-        double suma=0;
+        double somma = 0;
         for (int i = 0; i <portataList.size() ; i++) {
-            suma+=portataList.get(i).getPriceEuros();
+            somma += portataList.get(i).getPriceEuros();
         }
-        return suma;
+        return somma;
     }
-
 }

@@ -6,7 +6,8 @@ package enumerations;
  */
 public enum TavoloPositionEnum {
 
-    //TODO come gli altri enum
-    INTERNO,
-    ESTERNO,
+    ESTERNO_TERRAZZO,
+    ESTERNO_VISTA_MARE,
+    ESTERNO_GIARDINO,
+    INTERNO
 }

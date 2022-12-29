@@ -20,20 +20,28 @@ public class Start {
         ristorante.addPortata(new Dolci("Sorbetto al limone", 5.25, "Succo di limone,Aqua,Zucchero,Limoncello,Albumi", TypeEnum.CARNE, DolciTypeEnum.SEMIFREDDO,120.00,DolciBooleaneEnum.FRESCO));
         ristorante.addPortata(new Dolci("Pan di Spagna",12.5,"Uova ,burro ,zuchero ",TypeEnum.CARNE,DolciTypeEnum.TORTA,120.00, DolciBooleaneEnum.PER_ALLERGICI_E_CELIACI_CONGELATO));
         ristorante.printMenuRistorante();
+        System.out.println(ristorante.getPrezzoMenu());
 
         System.out.println("-------------------------------------------------------");
 
-        ristorante.addTavoli(new Tavolo(7, 4, TavoloPositionEnum.ESTERNO, TavoloStatusEnum.PRENOTATO));
-        ristorante.addTavoli(new Tavolo(1, 2, TavoloPositionEnum.INTERNO, TavoloStatusEnum.NON_PRENOTATO));
-        ristorante.addTavoli(new Tavolo(2, 6, TavoloPositionEnum.ESTERNO, TavoloStatusEnum.PRENOTATO));
+        try{
+            ristorante.putTavoli(1,new Tavolo(2,TavoloPositionEnum.ESTERNO_GIARDINO,false));
+            ristorante.putTavoli(2,new Tavolo(4,TavoloPositionEnum.ESTERNO_TERRAZZO,false));
+            ristorante.putTavoli(3,new Tavolo(6,TavoloPositionEnum.INTERNO,false));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         ristorante.printRestaurantsDetails();
         ristorante.printDettagliTavoli();
+<<<<<<< HEAD
+=======
         ristorante.printMenuRistorante();
         System.out.println("...........................................");
         System.out.println(ristorante.getPrezzoMenu());
         System.out.println(".............................................");
 
+>>>>>>> origin/develop
     }
 }
 
