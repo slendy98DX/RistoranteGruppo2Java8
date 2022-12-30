@@ -70,7 +70,7 @@ public class Portata{
         System.out.printf("%n \u277D Nome: %s" +
                 " Prezzo: %.2f €" +
                 " Ingredienti: %s" +
-                " Tipo di menù: %s"
+                " Tipo di menù: %s%n"
                 ,name
                 ,priceEuros
                 ,ingredients

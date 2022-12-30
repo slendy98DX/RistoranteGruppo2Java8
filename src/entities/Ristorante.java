@@ -20,7 +20,7 @@ public class Ristorante {
 
     private Map<Integer,Tavolo> tavoloMap = new HashMap<>();
 
-    private static Integer numeroTavoliMax = 5;
+    private Integer numeroTavoliMax;
 
     /**
      * The constructor method of the Restaurant
@@ -28,10 +28,11 @@ public class Ristorante {
      * @param address the address of the restaurant
      * @param menuType the avaiable menù of the restaurant
      */
-    public Ristorante(String restaurantName, String address, TypeEnum menuType){
+    public Ristorante(String restaurantName, String address, TypeEnum menuType, Integer numeroTavoliMax){
         this.restaurantName = restaurantName;
         this.address = address;
         this.menuType = menuType;
+        this.numeroTavoliMax = numeroTavoliMax;
     }
 
     public String getRestaurantName() {
@@ -58,6 +59,14 @@ public class Ristorante {
         this.address = address;
     }
 
+    public Integer getNumeroTavoliMax() {
+        return numeroTavoliMax;
+    }
+
+    public void setNumeroTavoliMax(Integer numeroTavoliMax) {
+        this.numeroTavoliMax = numeroTavoliMax;
+    }
+
     /**
      * Prints the whole menu of the restaurant
      */
@@ -74,11 +83,13 @@ public class Ristorante {
         System.out.printf("Nome del ristorante: %s%n" +
                 "Indirizzo: %s%n" +
                 "Menù disponibili: %s%n" +
-                "Numero di tavoli: %d%n"
+                "Numero di tavoli: %d%n" +
+                "Costo del menù: %.2f€%n"
                 , restaurantName
                 , address
                 , menuType
-                , getNumeroTavoli());
+                , getNumeroTavoli()
+                , getPrezzoMenu());
     }
 
     /**
@@ -104,7 +115,6 @@ public class Ristorante {
     }
 
     /**
-<<<<<<< HEAD
      * This method returns the size of the tavoloMap
      * @return tavoloMap size
      */
