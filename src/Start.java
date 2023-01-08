@@ -2,6 +2,8 @@ import entities.*;
 import enumerations.*;
 import enumerations.booleane.DolciBooleaneEnum;
 
+import java.util.Date;
+
 public class Start {
 
     public static void main(String[] args) {
@@ -21,19 +23,27 @@ public class Start {
         ristorante.addPortata(new Dolci("Pan di Spagna",12.5,"Uova ,burro ,zuchero ",TypeEnum.CARNE,DolciTypeEnum.TORTA,120.00, DolciBooleaneEnum.PER_ALLERGICI_E_CELIACI_CONGELATO));
 
         try{
-            ristorante.putTavoli(1,new Tavolo(2,TavoloPositionEnum.ESTERNO_GIARDINO,false));
-            ristorante.putTavoli(2,new Tavolo(4,TavoloPositionEnum.ESTERNO_TERRAZZO,false));
-            ristorante.putTavoli(3,new Tavolo(6,TavoloPositionEnum.INTERNO,false));
-            ristorante.putTavoli(4,new Tavolo(10,TavoloPositionEnum.INTERNO,false));
-            ristorante.putTavoli(5,new Tavolo(11,TavoloPositionEnum.INTERNO,false));
-            ristorante.putTavoli(6,new Tavolo(12,TavoloPositionEnum.INTERNO,false));
+            ristorante.putTavoli(new Tavolo(1,2,TavoloPositionEnum.ESTERNO_GIARDINO,false));
+            ristorante.putTavoli(new Tavolo(2,4,TavoloPositionEnum.ESTERNO_TERRAZZO,false));
+            ristorante.putTavoli(new Tavolo(3,6,TavoloPositionEnum.INTERNO,false));
+            ristorante.putTavoli(new Tavolo(4,10,TavoloPositionEnum.INTERNO,false));
+            ristorante.putTavoli(new Tavolo(5,11,TavoloPositionEnum.INTERNO,false));
         } catch (Exception e){
             e.printStackTrace();
         }
 
         ristorante.printRestaurantsDetails();
-        ristorante.printDettagliTavoli();
         ristorante.printMenuRistorante();
+        ristorante.printDettagliTavoli();
+
+
+        Client client = new Client("Marco","Setaro","+393501992311",TypeEnum.CARNE,"m_setaro@yahoo.it");
+
+        Prenotazione prenotazione = new Prenotazione(client);
+
+        System.out.println(prenotazione);
+
+        ristorante.prenotaTavolo(prenotazione,5);
     }
 }
 

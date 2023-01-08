@@ -67,6 +67,22 @@ public class Ristorante {
         this.numeroTavoliMax = numeroTavoliMax;
     }
 
+    public List<Portata> getPortataList() {
+        return portataList;
+    }
+
+    public void setPortataList(List<Portata> portataList) {
+        this.portataList = portataList;
+    }
+
+    public Map<Integer, Tavolo> getTavoloMap() {
+        return tavoloMap;
+    }
+
+    public void setTavoloMap(Map<Integer, Tavolo> tavoloMap) {
+        this.tavoloMap = tavoloMap;
+    }
+
     /**
      * Prints the whole menu of the restaurant
      */
@@ -101,14 +117,13 @@ public class Ristorante {
     }
 
     /**
-     * This method add couple numeroDelTavolo,tavolo objects to the tavoloMap
-     * @param numeroDelTavolo the identifier of the tables
+     * This method add tavolo objects to the tavoloMap
      * @param tavolo the table
      * @throws Exception if the map size reaches the max number of tables
      */
-    public void putTavoli(Integer numeroDelTavolo,Tavolo tavolo) throws Exception{
+    public void putTavoli(Tavolo tavolo) throws Exception{
         if(tavoloMap.size() < numeroTavoliMax){
-            tavoloMap.putIfAbsent(numeroDelTavolo,tavolo);
+            tavoloMap.putIfAbsent(tavolo.getNumeroDelTavolo(),tavolo);
         } else {
             throw new Exception("Numero di tavoli max raggiunto");
         }
@@ -141,5 +156,19 @@ public class Ristorante {
             somma += portataList.get(i).getPriceEuros();
         }
         return somma;
+    }
+
+    public void prenotaTavolo(Prenotazione prenotazione, Integer numeroDiPersone){
+        for (int i = 1; i < tavoloMap.size(); i++) {
+            Tavolo t = tavoloMap.get(i);
+            if(t.getèPrenotato().equals(false)) {
+                if(numeroDiPersone <= t.getNumeroDiPostiASedere()){
+                    t.setèPrenotato(true);
+                    System.out.println("Tavolo prenotato da " + prenotazione.getNominativo());
+                    t.printTavoloDetails();
+                    break;
+                }
+            }
+        }
     }
 }
