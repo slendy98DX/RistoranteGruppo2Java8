@@ -2,8 +2,6 @@ import entities.*;
 import enumerations.*;
 import enumerations.booleane.DolciBooleaneEnum;
 
-import java.util.Date;
-
 public class Start {
 
     public static void main(String[] args) {
@@ -24,10 +22,10 @@ public class Start {
 
         try{
             ristorante.putTavoli(new Tavolo(1,2,TavoloPositionEnum.ESTERNO_GIARDINO,false));
-            ristorante.putTavoli(new Tavolo(2,4,TavoloPositionEnum.ESTERNO_TERRAZZO,false));
-            ristorante.putTavoli(new Tavolo(3,6,TavoloPositionEnum.INTERNO,false));
-            ristorante.putTavoli(new Tavolo(4,10,TavoloPositionEnum.INTERNO,false));
-            ristorante.putTavoli(new Tavolo(5,11,TavoloPositionEnum.INTERNO,false));
+            ristorante.putTavoli(new Tavolo(2,2,TavoloPositionEnum.ESTERNO_TERRAZZO,false));
+            ristorante.putTavoli(new Tavolo(3,4,TavoloPositionEnum.INTERNO,false));
+            ristorante.putTavoli(new Tavolo(4,6,TavoloPositionEnum.INTERNO,false));
+            ristorante.putTavoli(new Tavolo(5,2,TavoloPositionEnum.INTERNO,false));
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -38,12 +36,20 @@ public class Start {
 
 
         Client client = new Client("Marco","Setaro","+393501992311",TypeEnum.CARNE,"m_setaro@yahoo.it");
+        Client client2 = new Client("Alessio","Pollina","+39489132",TypeEnum.CARNE,"m_37983624");
+        Client client3 = new Client("Maria","Coman","+23476t74328",TypeEnum.CARNE,"324842");
 
         Prenotazione prenotazione = new Prenotazione(client);
+        Prenotazione prenotazione2 = new Prenotazione(client2);
+        Prenotazione prenotazione3 = new Prenotazione(client3);
 
         System.out.println(prenotazione);
+        System.out.println(prenotazione2);
+        System.out.println(prenotazione3);
 
-        ristorante.prenotaTavolo(prenotazione,5);
+        ristorante.prenotaTavolo(prenotazione,2);
+        ristorante.prenotaTavolo(prenotazione2,2);
+        ristorante.prenotaTavolo(prenotazione3,2);
     }
 }
 

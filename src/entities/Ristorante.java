@@ -158,11 +158,11 @@ public class Ristorante {
         return somma;
     }
 
-    public void prenotaTavolo(Prenotazione prenotazione, Integer numeroDiPersone){
-        for (int i = 1; i < tavoloMap.size(); i++) {
+    public void prenotaTavolo(Prenotazione prenotazione,Integer numeroDiPersone){
+        for (int i = 1; i <= tavoloMap.size(); i++) {
             Tavolo t = tavoloMap.get(i);
             if(t.getèPrenotato().equals(false)) {
-                if(numeroDiPersone <= t.getNumeroDiPostiASedere()){
+                if(numeroDiPersone.equals(t.getNumeroDiPostiASedere())){
                     t.setèPrenotato(true);
                     System.out.println("Tavolo prenotato da " + prenotazione.getNominativo());
                     t.printTavoloDetails();
