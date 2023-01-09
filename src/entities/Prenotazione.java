@@ -1,17 +1,32 @@
+
 package entities;
 
 import java.util.Random;
+
+/**
+ * @author Marco Setaro
+ */
 
 public class Prenotazione {
     private String id;
     private String nominativo;
     private String contactInfo;
 
+    /**
+     * This constructor method builds the booking
+     * @param client The data of the Client
+     */
+
     public Prenotazione(Client client){
         this.nominativo = client.getName() + " " + client.getSurname();
         this.contactInfo = "Numero di telefono: "+client.getPhoneNumber()+" Email: "+client.getEmail();
         this.id = generateID();
     }
+
+    /**
+     * This method generate id for the booking
+     * @return id for the booking
+     */
 
     public String generateID(){
         String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

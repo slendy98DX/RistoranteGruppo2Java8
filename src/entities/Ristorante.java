@@ -158,6 +158,12 @@ public class Ristorante {
         return somma;
     }
 
+    /**
+     * This method books table for requested number of people and tracks the name of the client
+     * @param prenotazione booking client data
+     * @param numeroDiPersone requested number of people
+     */
+
     public void prenotaTavolo(Prenotazione prenotazione,Integer numeroDiPersone){
         for (int i = 1; i <= tavoloMap.size(); i++) {
             Tavolo t = tavoloMap.get(i);
