@@ -10,19 +10,19 @@ public class Tavolo {
     private Integer numeroDelTavolo;
     private Integer numeroDiPostiASedere;
     private TavoloPositionEnum posizioneEnum;
-    private Boolean èPrenotato;
+    private boolean isPrenotato;
 
     /**
      * Constructor method of the table
      * @param numeroDiPostiASedere the number of seats of the table
      * @param posizioneEnum the position of the table
-     * @param èPrenotato the status of the ordination of the table
+     * @param isPrenotato the status of the ordination of the table
      */
-    public Tavolo(Integer numeroDelTavolo,Integer numeroDiPostiASedere, TavoloPositionEnum posizioneEnum, Boolean èPrenotato){
+    public Tavolo(Integer numeroDelTavolo,Integer numeroDiPostiASedere, TavoloPositionEnum posizioneEnum, boolean isPrenotato){
         this.numeroDelTavolo = numeroDelTavolo;
         this.numeroDiPostiASedere = numeroDiPostiASedere;
         this.posizioneEnum = posizioneEnum;
-        this.èPrenotato = èPrenotato;
+        this.isPrenotato = isPrenotato;
     }
 
     public Integer getNumeroDiPostiASedere() {
@@ -41,12 +41,12 @@ public class Tavolo {
         this.posizioneEnum = posizioneEnum;
     }
 
-    public Boolean getèPrenotato() {
-        return èPrenotato;
+    public boolean isPrenotato() {
+        return isPrenotato;
     }
 
-    public void setèPrenotato(Boolean èPrenotato) {
-        this.èPrenotato = èPrenotato;
+    public void setPrenotato(boolean prenotato) {
+        isPrenotato = prenotato;
     }
 
     public Integer getNumeroDelTavolo() {
@@ -66,6 +66,6 @@ public class Tavolo {
                 numeroDelTavolo,
                 numeroDiPostiASedere,
                 posizioneEnum,
-                èPrenotato);
+                isPrenotato);
     }
 }

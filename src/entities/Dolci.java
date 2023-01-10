@@ -2,7 +2,7 @@ package entities;
 
 import enumerations.DolciTypeEnum;
 import enumerations.TypeEnum;
-import enumerations.booleane.DolciBooleaneEnum;
+
 
 /**
  * @author Maria Coman
@@ -52,6 +52,21 @@ public class Dolci extends Portata {
                 quantita
         );
 
+
+    }
+    /**
+     * @author Maria Coman
+     * specifiche per dolci
+     */
+    public enum DolciBooleaneEnum {
+        PER_CELIACI_CONGELATO,
+        PER_ALLERGICI_CONGELATO,
+        PER_Celiaci_FRESCO,
+        PER_Allergici_FRESCO,
+        FRESCO,
+        CONGELATO,
+        PER_ALLERGICI_E_CELIACI_FRESCO,
+        PER_ALLERGICI_E_CELIACI_CONGELATO,
     }
 
 }

@@ -64,12 +64,12 @@ public class Prenotazione {
         this.contactInfo = contactInfo;
     }
 
-    @Override
-    public String toString() {
-        return "Prenotazione{" +
-                "id='" + id + '\'' +
-                ", nominativo='" + nominativo + '\'' +
-                ", contactInfo='" + contactInfo + '\'' +
-                '}';
+    public void printPortataDetails(){
+        System.out.printf("Nominativo: %s" +
+                        " Contact Info: %s" +
+                        " Id: %s%n"
+                ,nominativo
+                ,contactInfo
+                ,id);
     }
 }

@@ -104,8 +104,8 @@ public class Ristorante {
                 , restaurantName
                 , address
                 , menuType
-                , getNumeroTavoli()
-                , getPrezzoMenu());
+                , getNumeroTotaleTavoli()
+                , calculatePrezzoMenu());
     }
 
     /**
@@ -129,11 +129,12 @@ public class Ristorante {
         }
     }
 
+
     /**
      * This method returns the size of the tavoloMap
      * @return tavoloMap size
      */
-    public Integer getNumeroTavoli(){
+    public Integer getNumeroTotaleTavoli(){
         return tavoloMap.size();
     }
 
@@ -150,7 +151,7 @@ public class Ristorante {
      * Method that calculates menu price
      * @return menu price of type Double
      */
-    public Double getPrezzoMenu(){
+    public Double calculatePrezzoMenu(){
         double somma = 0;
         for (int i = 0; i <portataList.size() ; i++) {
             somma += portataList.get(i).getPriceEuros();
@@ -167,9 +168,9 @@ public class Ristorante {
     public void prenotaTavolo(Prenotazione prenotazione,Integer numeroDiPersone){
         for (int i = 1; i <= tavoloMap.size(); i++) {
             Tavolo t = tavoloMap.get(i);
-            if(t.getèPrenotato().equals(false)) {
+            if(t.isPrenotato() == (false)) {
                 if(numeroDiPersone.equals(t.getNumeroDiPostiASedere())){
-                    t.setèPrenotato(true);
+                    t.setPrenotato(true);
                     System.out.println("Tavolo prenotato da " + prenotazione.getNominativo());
                     t.printTavoloDetails();
                     break;

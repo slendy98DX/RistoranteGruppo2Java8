@@ -70,15 +70,15 @@
                 this.email = email;
             }
 
-             @Override
-                 public String toString() {
-                 return "Client{" +
-                    "name='" + name + '\'' +
-                    ", surname='" + surname + '\'' +
-                    ", phoneNumber='" + phoneNumber + '\'' +
-                    ", typeEnum=" + typeEnum +
-                    ", email='" + email + '\'' +
-                    '}';
-             }
+        public void printClientDetails(){
+            System.out.printf("Nome: %s" +
+                            " Cognome: %s" +
+                            " PhoneNumber: %s" +
+                            " Email: %s%n"
+                    ,name
+                    ,surname
+                    ,phoneNumber
+                    ,email);
+        }
 }
 
