@@ -16,24 +16,23 @@ public class Dolci extends Portata {
     private DolciBooleaneEnum dolciBooleaneEnum;
 
     /**
-     *
-     * @param name name of the dish,
-     * @param priceEuros price of the dish,
-     * @param ingredients ingredients of the dish,
-     * @param portataTypeEnum associated type of menu,
-     * @param dolciTypeEnum type of cake,
-     * @param quantita total mass of the ingredients ,
+     * @param name              name of the dish,
+     * @param priceEuros        price of the dish,
+     * @param ingredients       ingredients of the dish,
+     * @param portataTypeEnum   associated type of menu,
+     * @param dolciTypeEnum     type of cake,
+     * @param quantita          total mass of the ingredients ,
      * @param dolciBooleaneEnum special characteristics
      */
 
     public Dolci(String name, Double priceEuros,
                  String ingredients, TypeEnum portataTypeEnum,
                  DolciTypeEnum dolciTypeEnum, Double quantita,
-                 DolciBooleaneEnum dolciBooleaneEnum ) {
+                 DolciBooleaneEnum dolciBooleaneEnum) {
         super(name, priceEuros, ingredients, portataTypeEnum);
-        this.dolciTypeEnum=dolciTypeEnum;
-        this.quantita=quantita;
-        this.dolciBooleaneEnum=dolciBooleaneEnum;
+        this.dolciTypeEnum = dolciTypeEnum;
+        this.quantita = quantita;
+        this.dolciBooleaneEnum = dolciBooleaneEnum;
     }
 
 
@@ -51,8 +50,6 @@ public class Dolci extends Portata {
                 dolciBooleaneEnum,
                 quantita
         );
-
-
     }
     /**
      * @author Maria Coman
