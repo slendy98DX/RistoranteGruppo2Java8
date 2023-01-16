@@ -64,7 +64,7 @@ public class Prenotazione {
         this.contactInfo = contactInfo;
     }
 
-    public void printPortataDetails(){
+    public void printPrenotazioneDetails(){
         System.out.printf("Nominativo: %s" +
                         " Contact Info: %s" +
                         " Id: %s%n"
