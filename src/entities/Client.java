@@ -5,7 +5,7 @@
      * @author Alessio Pollina
      *
      */
-
+    //TODO indentare meglio il codice
     public class Client {
 
             private String name;

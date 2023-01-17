@@ -17,10 +17,16 @@ public class Prenotazione {
      * @param client The data of the Client
      */
 
-    public Prenotazione(Client client){
+    public Prenotazione(){
         this.nominativo = client.getName() + " " + client.getSurname();
         this.contactInfo = "Numero di telefono: "+client.getPhoneNumber()+" Email: "+client.getEmail();
         this.id = generateID();
+    }
+
+    public Prenotazione(String id, String nominativo, String contactInfo) {
+        this.id = id;
+        this.nominativo = nominativo;
+        this.contactInfo = contactInfo;
     }
 
     /**

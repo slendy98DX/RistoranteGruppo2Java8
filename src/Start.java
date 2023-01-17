@@ -5,6 +5,8 @@ public class Start {
 
     public static void main(String[] args) {
 
+        //TODO le eccezioni si gestiscono tutte in fondo a metodo chiamante
+
         Ristorante ristorante = new Ristorante("Palla 8", "Via Roma 1", TypeEnum.CARNE,10, 10);
 
         System.out.println("MENU' DEL RISTORANTE");
@@ -60,6 +62,8 @@ public class Start {
         }
 
         ristorante.printRestaurantsDetails();
+
+
     }
 }
 
