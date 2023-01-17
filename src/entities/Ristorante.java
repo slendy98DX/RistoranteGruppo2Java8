@@ -18,11 +18,13 @@ public class Ristorante {
     private TypeEnum menuType;
     private List<Portata> portataList = new ArrayList<>();
 
-    private Map<Integer, Tavolo> tavoloMap = new HashMap<>();
+    private List<Prenotazione> prenotazioneList = new ArrayList<>();
 
-    private Integer numeroTavoliMax;
+    private Map<Client, Tavolo> tavoloClientMap = new HashMap<>();
 
-    private Integer numeroDiPosti;
+    private Integer capienzaTavoliMassima;
+
+    //private Integer numeroDiPosti;
 
     /**
      * The constructor method for the restaurant object
@@ -36,8 +38,7 @@ public class Ristorante {
         this.restaurantName = restaurantName;
         this.address = address;
         this.menuType = menuType;
-        this.numeroTavoliMax = numeroTavoliMax;
-        this.numeroDiPosti = numeroDiPosti;
+        this.capienzaTavoliMassima = numeroTavoliMax;
     }
 
     public String getRestaurantName() {
@@ -64,12 +65,12 @@ public class Ristorante {
         this.address = address;
     }
 
-    public Integer getNumeroTavoliMax() {
-        return numeroTavoliMax;
+    public Integer getCapienzaTavoliMassima() {
+        return capienzaTavoliMassima;
     }
 
-    public void setNumeroTavoliMax(Integer numeroTavoliMax) {
-        this.numeroTavoliMax = numeroTavoliMax;
+    public void setCapienzaTavoliMassima(Integer capienzaTavoliMassima) {
+        this.capienzaTavoliMassima = capienzaTavoliMassima;
     }
 
     public List<Portata> getPortataList() {
@@ -80,13 +81,18 @@ public class Ristorante {
         this.portataList = portataList;
     }
 
-    public Map<Integer, Tavolo> getTavoloMap() {
-        return tavoloMap;
+    public Map<Integer, Tavolo> getTavoloClientMap() {
+        return tavoloClientMap;
     }
 
-    public void setTavoloMap(Map<Integer, Tavolo> tavoloMap) {
-        this.tavoloMap = tavoloMap;
+    public void setTavoloClientMap(Map<Integer, Tavolo> tavoloClientMap) {
+        this.tavoloClientMap = tavoloClientMap;
     }
+
+    public List<Prenotazione> getPrenotazioneList() {
+        return prenotazioneList;
+    }
+
 
     /**
      * Prints the whole menu of the restaurant
@@ -111,8 +117,7 @@ public class Ristorante {
                 , address
                 , menuType
                 , getNumeroTotaleTavoli()
-                , calculatePrezzoMenu()
-                , this.numeroDiPosti);
+                , calculatePrezzoMenu());
     }
 
     /**
@@ -128,11 +133,9 @@ public class Ristorante {
      * @param tavolo the table
      * @throws Exception if the map size reaches the max number of tables
      */
-    public void putTavoli(Tavolo tavolo) throws Exception {
-        if (tavoloMap.size() < numeroTavoliMax) {
-            tavoloMap.putIfAbsent(tavolo.getNumeroDelTavolo(), tavolo);
-        } else {
-            throw new Exception("Numero di tavoli max raggiunto");
+    public void putTavoli(Client cliente,Tavolo tavolo) throws Exception {
+        if (tavoloClientMap.size() < capienzaTavoliMassima) {
+            tavoloClientMap.putIfAbsent(cliente, tavolo);
         }
     }
 
@@ -142,14 +145,14 @@ public class Ristorante {
      * @return tavoloMap size
      */
     public Integer getNumeroTotaleTavoli() {
-        return tavoloMap.size();
+        return tavoloClientMap.size();
     }
 
     /**
      * This method prints the details of all tavolo objects in tavoloMap
      */
     public void printDettagliTavoli() {
-        tavoloMap.forEach((integer, tavolo) -> {
+        tavoloClientMap.forEach((integer, tavolo) -> {
             tavolo.printTavoloDetails();
         });
     }
@@ -172,12 +175,20 @@ public class Ristorante {
      * @param numeroPersone the number of people that the clients books for
      * @throws Exception if the variable numeroDiPosti of the restaurant is less than the numeroPersone
      */
-    public void prenotaPosti(Prenotazione prenotazione,Integer numeroPersone) throws Exception{
-        if(numeroPersone <= this.numeroDiPosti) {
-            this.numeroDiPosti -= numeroPersone;
-            System.out.printf("Prenotazione a nome di %s per %d persone%n", prenotazione.getNominativo(), numeroPersone);
+    public void prenotaPosti(Client client, Tavolo tavolo) throws Exception{
+        //controllo overbook
+        if(tavoloClientMap.size() < capienzaTavoliMassima) {
+            putTavoli(client,tavolo);
+            Prenotazione prenotazione = new Prenotazione(client.getName(),client.getEmail(),client.getPhoneNumber());
+            prenotazioneList.add(prenotazione);
+            System.out.printf("Prenotazione a nome di %s per %d persone%n");
+            client.printClientDetails();
         } else {
-            throw new Exception("Posti a sedere esauriti");
+            System.out.printf("Ristorante pieno riprovare tra un po di tempo");
         }
     }
+
+
+    //TODO  dobbiamo fare un metodo che si chiama pagaConto che ogni volta che
+    // si paga ci rimuove l'elemento dalla mappa
 }
