@@ -26,6 +26,8 @@ public class Portata {
         this.ingredients = ingredients;
         this.portataTypeEnum = portataTypeEnum;
     }
+
+
     public String getName() {
         return name;
     }
@@ -58,9 +60,11 @@ public class Portata {
         this.portataTypeEnum = portataTypeEnum;
     }
 
+
     /**
      * This method prints the dish's details
      */
+
     public void printPortataDetails() {
         System.out.printf("%n \u277D Nome: %s" +
                         " Prezzo: %.2f €" +

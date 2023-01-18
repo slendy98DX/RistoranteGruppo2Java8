@@ -51,6 +51,7 @@ public class Dolci extends Portata {
                 quantita
         );
     }
+
     /**
      * @author Maria Coman
      * specifiche per dolci

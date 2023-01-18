@@ -12,10 +12,11 @@ public class Tavolo {
 
     /**
      * Constructor method for the tavolo object
+     *
      * @param numeroDelTavolo the number of the table
-     * @param posizioneEnum the position of the table
+     * @param posizioneEnum   the position of the table
      */
-    public Tavolo(Integer numeroDelTavolo,TavoloPositionEnum posizioneEnum){
+    public Tavolo(Integer numeroDelTavolo, TavoloPositionEnum posizioneEnum) {
         this.numeroDelTavolo = numeroDelTavolo;
         this.posizioneEnum = posizioneEnum;
     }
@@ -40,7 +41,7 @@ public class Tavolo {
      * Prints the details of the table
      */
 
-    public void printTavoloDetails(){
+    public void printTavoloDetails() {
         System.out.printf("Numero del tavolo: %d Posizione: %s%n",
                 numeroDelTavolo,
                 posizioneEnum);
