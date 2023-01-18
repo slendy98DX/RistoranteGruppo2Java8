@@ -24,17 +24,15 @@ public class Ristorante {
 
     private Integer capienzaTavoliMassima;
 
-    //private Integer numeroDiPosti;
-
     /**
      * The constructor method for the restaurant object
-     * @param restaurantName the name of the restaurant
-     * @param address the address of the restaurant
-     * @param menuType the avaible menus of the restaurant
+     *
+     * @param restaurantName  the name of the restaurant
+     * @param address         the address of the restaurant
+     * @param menuType        the avaible menus of the restaurant
      * @param numeroTavoliMax the max number of tables of the restaurant
-     * @param numeroDiPosti the max number of seats of the restaurant
      */
-    public Ristorante(String restaurantName, String address, TypeEnum menuType, Integer numeroTavoliMax, Integer numeroDiPosti) {
+    public Ristorante(String restaurantName, String address, TypeEnum menuType, Integer numeroTavoliMax) {
         this.restaurantName = restaurantName;
         this.address = address;
         this.menuType = menuType;
@@ -81,11 +79,15 @@ public class Ristorante {
         this.portataList = portataList;
     }
 
-    public Map<Integer, Tavolo> getTavoloClientMap() {
+    public void setPrenotazioneList(List<Prenotazione> prenotazioneList) {
+        this.prenotazioneList = prenotazioneList;
+    }
+
+    public Map<Client, Tavolo> getTavoloClientMap() {
         return tavoloClientMap;
     }
 
-    public void setTavoloClientMap(Map<Integer, Tavolo> tavoloClientMap) {
+    public void setTavoloClientMap(Map<Client, Tavolo> tavoloClientMap) {
         this.tavoloClientMap = tavoloClientMap;
     }
 
@@ -111,8 +113,7 @@ public class Ristorante {
                         "Indirizzo: %s%n" +
                         "Menù disponibili: %s%n" +
                         "Numero di tavoli: %d%n" +
-                        "Costo del menù: %.2f€%n" +
-                        "Numero di posti a sedere disponibili: %d%n"
+                        "Costo del menù: %.2f€%n"
                 , restaurantName
                 , address
                 , menuType
@@ -122,6 +123,7 @@ public class Ristorante {
 
     /**
      * Adds Portata object to the list portataList
+     *
      * @param portata an object of type Portata
      */
     public void addPortata(Portata portata) {
@@ -129,19 +131,23 @@ public class Ristorante {
     }
 
     /**
-     * This method add tavolo objects to the tavoloMap
-     * @param tavolo the table
-     * @throws Exception if the map size reaches the max number of tables
+     * This method add the couple client-tavolo to the map tavoloClientMap
+     *
+     * @param cliente a client object
+     * @param tavolo  a table object
      */
-    public void putTavoli(Client cliente,Tavolo tavolo) throws Exception {
+    public void putTavoli(Client cliente, Tavolo tavolo) {
         if (tavoloClientMap.size() < capienzaTavoliMassima) {
             tavoloClientMap.putIfAbsent(cliente, tavolo);
+        } else {
+            System.out.println("Capienza massima dei tavoli raggiunta");
         }
     }
 
 
     /**
      * This method returns the size of the tavoloMap
+     *
      * @return tavoloMap size
      */
     public Integer getNumeroTotaleTavoli() {
@@ -149,16 +155,8 @@ public class Ristorante {
     }
 
     /**
-     * This method prints the details of all tavolo objects in tavoloMap
-     */
-    public void printDettagliTavoli() {
-        tavoloClientMap.forEach((integer, tavolo) -> {
-            tavolo.printTavoloDetails();
-        });
-    }
-
-    /**
      * Method that calculates menu price
+     *
      * @return menu price of type Double
      */
     public Double calculatePrezzoMenu() {
@@ -170,21 +168,24 @@ public class Ristorante {
     }
 
     /**
-     * This method makes a booking taking in input a booking object and an integer number of people
-     * @param prenotazione the booking from the client
-     * @param numeroPersone the number of people that the clients books for
-     * @throws Exception if the variable numeroDiPosti of the restaurant is less than the numeroPersone
+     * This method adds a couple client-tavolo till the capienzaTavoliMassima is more than
+     * tavoloClientMap size and creates a new Prenotazione object and adds it to the prenotazioneList
+     * and prints an informative message that inform the user that a Prenotazione object is created,
+     * else prints an informative message that alerts the user that the Ristorante object is full.
+     *
+     * @param client a client object
+     * @param tavolo a tavolo object
      */
-    public void prenotaPosti(Client client, Tavolo tavolo) throws Exception{
-        //controllo overbook
-        if(tavoloClientMap.size() < capienzaTavoliMassima) {
-            putTavoli(client,tavolo);
-            Prenotazione prenotazione = new Prenotazione(client.getName(),client.getEmail(),client.getPhoneNumber());
+    public void prenotaPosti(Client client, Tavolo tavolo) {
+        if (tavoloClientMap.size() < capienzaTavoliMassima) {
+            putTavoli(client, tavolo);
+            Prenotazione prenotazione = new Prenotazione(client.getName(), client.getEmail());
             prenotazioneList.add(prenotazione);
-            System.out.printf("Prenotazione a nome di %s per %d persone%n");
             client.printClientDetails();
+            tavolo.printTavoloDetails();
+            prenotazione.printPrenotazioneDetails();
         } else {
-            System.out.printf("Ristorante pieno riprovare tra un po di tempo");
+            System.out.println("Ristorante pieno,riprovare tra un pò di tempo");
         }
     }
 
