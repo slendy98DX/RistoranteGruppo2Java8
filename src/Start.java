@@ -5,7 +5,7 @@ public class Start {
 
     public static void main(String[] args) {
 
-        Ristorante ristorante = new Ristorante("Palla 8", "Via Roma 1", TypeEnum.CARNE, 3);
+        Ristorante ristorante = new Ristorante("Palla 8", "Via Roma 1", TypeEnum.CARNE, 4);
 
         System.out.println("MENU' DEL RISTORANTE");
         ristorante.addPortata(new Bevanda("Nastro Azzurro", 1.20, "", TypeEnum.CARNE, TipoDiBevandaEnum.BIRRA));
@@ -23,20 +23,22 @@ public class Start {
         System.out.println("-----------------");
         ristorante.printMenuRistorante();
         System.out.println("-----------------");
+        Client cliente = new Client("Giovanni", "Zaccuri", TypeEnum.CARNE, "lol_lel@libero.it");
         ristorante.prenotaPosti(
                 new Client("Marco", "Setaro", TypeEnum.CARNE, "m_setaro@yahoo.it"),
                 new Tavolo(1, TavoloPositionEnum.ESTERNO_GIARDINO));
-        System.out.println("-----------------");
         ristorante.prenotaPosti(
                 new Client("Alessio", "Pollina", TypeEnum.CARNE, "abc_cba@yahoo.it"),
                 new Tavolo(2, TavoloPositionEnum.ESTERNO_TERRAZZO));
-        System.out.println("-----------------");
         ristorante.prenotaPosti(
                 new Client("Maria", "Coman", TypeEnum.CARNE, "dbc_cdb@libero.it"),
                 new Tavolo(3, TavoloPositionEnum.INTERNO));
-        System.out.println("-----------------");
         ristorante.prenotaPosti(
-                new Client("Giovanni", "Zaccuri", TypeEnum.CARNE, "lol_lel@libero.it"),
+                cliente,
+                new Tavolo(4, TavoloPositionEnum.ESTERNO_VISTA_MARE));
+        ristorante.checkout(cliente);
+        ristorante.prenotaPosti(
+                cliente,
                 new Tavolo(4, TavoloPositionEnum.ESTERNO_VISTA_MARE));
     }
 }

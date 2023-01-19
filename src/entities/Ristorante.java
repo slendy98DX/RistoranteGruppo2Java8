@@ -13,7 +13,6 @@ import java.util.Map;
 public class Ristorante {
 
     private String restaurantName;
-
     private String address;
     private TypeEnum menuType;
     private List<Portata> portataList = new ArrayList<>();
@@ -189,7 +188,12 @@ public class Ristorante {
         }
     }
 
-
-    //TODO  dobbiamo fare un metodo che si chiama pagaConto che ogni volta che
-    // si paga ci rimuove l'elemento dalla mappa
+    /**
+     * This method completes a checkout operation given a client object
+     * @param client the client that completed his booking
+     */
+    public void checkout(Client client) {
+        tavoloClientMap.remove(client);
+        System.out.printf("Cliente %s lascia il ristorante%n", client.getName());
+    }
 }
