@@ -12,10 +12,11 @@ public class Bevanda extends Portata {
 
     /**
      * Constructor method of the beverages
-     * @param name name of the beverage
-     * @param priceEuros price of the beverage
-     * @param ingredients ingredients of the beverage
-     * @param portataTypeEnum the type of the beverage
+     *
+     * @param name              name of the beverage
+     * @param priceEuros        price of the beverage
+     * @param ingredients       ingredients of the beverage
+     * @param portataTypeEnum   the type of the beverage
      * @param tipoDiBevandaEnum it's the type of the beverage
      */
     public Bevanda(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, TipoDiBevandaEnum tipoDiBevandaEnum) {
@@ -37,6 +38,6 @@ public class Bevanda extends Portata {
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        System.out.printf(" Tipo di bevanda: %s%n",tipoDiBevandaEnum);
+        System.out.printf(" Tipo di bevanda: %s%n", tipoDiBevandaEnum);
     }
 }

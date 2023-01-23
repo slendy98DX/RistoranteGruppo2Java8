@@ -10,16 +10,16 @@ public class SecondoPiatto extends Portata {
     private String sideDish;
 
 
-
     private CotturaTypeEnum cotturaTypeEnum;
 
     /**
      * Constructor method of the Second Plate
-     * @param name the name of the Second Plate
-     * @param priceEuros the price of the Second Plate
-     * @param ingredients the ingridients of the Second Plate
+     *
+     * @param name            the name of the Second Plate
+     * @param priceEuros      the price of the Second Plate
+     * @param ingredients     the ingridients of the Second Plate
      * @param portataTypeEnum the type of the Second Plate
-     * @param sideDish the sideDish of the Second Plate
+     * @param sideDish        the sideDish of the Second Plate
      * @param cotturaTypeEnum temperature of the baking
      */
     public SecondoPiatto(String name, Double priceEuros, String ingredients, TypeEnum portataTypeEnum, String sideDish, CotturaTypeEnum cotturaTypeEnum) {
@@ -53,7 +53,7 @@ public class SecondoPiatto extends Portata {
     public void printPortataDetails() {
         super.printPortataDetails();
         System.out.printf(" Contorni: %s" +
-                " Cottura del Piatto: %s%n"
+                        " Cottura del Piatto: %s%n"
                 , sideDish
                 , cotturaTypeEnum);
     }
