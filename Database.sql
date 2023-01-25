@@ -108,6 +108,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`dolce` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `mydb`.`tavolo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`tavolo` (
+  `numero_tavolo` INT NOT NULL AUTO_INCREMENT,
+  `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL,
+  PRIMARY KEY (`numero_tavolo`))
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
