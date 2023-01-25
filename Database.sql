@@ -18,6 +18,17 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
+-- Table `mydb`.`ristorante`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`ristorante` (
+  `id_ristorante` INT NOT NULL,
+  `nome_ristorante` VARCHAR(64) NOT NULL,
+  `indirizzo` VARCHAR(64) NOT NULL,
+  `tipi_di_menu` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL,
+  PRIMARY KEY (`id_ristorante`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `mydb`.`portata`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`portata` (
