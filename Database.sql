@@ -29,6 +29,26 @@ CREATE TABLE IF NOT EXISTS `mydb`.`portata` (
   PRIMARY KEY (`id_portata`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `mydb`.`bevanda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`bevanda` (
+  `id_bevanda` INT NOT NULL AUTO_INCREMENT,
+  `nome_bevanda` VARCHAR(64) NOT NULL,
+  `prezzo_bevanda` DECIMAL NOT NULL,
+  `ingredienti` VARCHAR(45) NOT NULL,
+  `tipo_bevanda_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
+  `tipo_bevanda` ENUM('COLA', 'LIQUORE', 'ACQUA', 'BIRRA') NOT NULL,
+  `portata_id_portata` INT NOT NULL,
+  PRIMARY KEY (`id_bevanda`),
+  INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
+  CONSTRAINT `fk_bevanda_portata1`
+    FOREIGN KEY (`portata_id_portata`)
+    REFERENCES `mydb`.`portata` (`id_portata`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`primo_piatto`
@@ -63,6 +83,25 @@ CREATE TABLE IF NOT EXISTS `mydb`.`secondo_piatto` (
   PRIMARY KEY (`id_secondo_piatto`),
   INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_secondo_piatto_portata1`
+    FOREIGN KEY (`portata_id_portata`)
+    REFERENCES `mydb`.`portata` (`id_portata`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`dolce`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`dolce` (
+  `id_dolce` INT NOT NULL AUTO_INCREMENT,
+  `nome_dolce` VARCHAR(64) NOT NULL,
+  `prezzo_dolce` DECIMAL NOT NULL,
+  `ingredienti` VARCHAR(64) NOT NULL,
+  `tipo_dolce` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
+  `portata_id_portata` INT NOT NULL,
+  PRIMARY KEY (`id_dolce`),
+  INDEX `fk_dolce_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
+  CONSTRAINT `fk_dolce_portata1`
     FOREIGN KEY (`portata_id_portata`)
     REFERENCES `mydb`.`portata` (`id_portata`)
     ON DELETE NO ACTION
