@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`primo_piatto` (
   `ingredienti_primo_piatto` VARCHAR(64) NOT NULL,
   `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL,
   PRIMARY KEY (`id_primo_piatto`),
-  INDEX `fk_primo_piatto_portata_idx` (`portata_id_portata` ASC) VISIBLE,
-    CONSTRAINT `fk_primo_piatto_portata`
+  INDEX `fk_primo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
+    CONSTRAINT `fk_primo_piatto_portata1`
       FOREIGN KEY (`portata_id_portata`)
       REFERENCES `mydb`.`portata` (`id_portata`)
       ON DELETE NO ACTION
