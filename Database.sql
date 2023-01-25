@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`primo_piatto` (
   `prezzo_primo_piatto` DECIMAL NOT NULL,
   `ingredienti_primo_piatto` VARCHAR(64) NOT NULL,
   `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL,
-  PRIMARY KEY (`id_primo_piatto`)
+  PRIMARY KEY (`id_primo_piatto`),
   INDEX `fk_primo_piatto_portata_idx` (`portata_id_portata` ASC) VISIBLE,
     CONSTRAINT `fk_primo_piatto_portata`
       FOREIGN KEY (`portata_id_portata`)
