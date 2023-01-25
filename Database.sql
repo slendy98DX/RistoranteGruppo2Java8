@@ -39,7 +39,34 @@ CREATE TABLE IF NOT EXISTS `mydb`.`primo_piatto` (
   `prezzo_primo_piatto` DECIMAL NOT NULL,
   `ingredienti_primo_piatto` VARCHAR(64) NOT NULL,
   `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL,
-  PRIMARY KEY (`id_primo_piatto`))
+  PRIMARY KEY (`id_primo_piatto`)
+  INDEX `fk_primo_piatto_portata_idx` (`portata_id_portata` ASC) VISIBLE,
+    CONSTRAINT `fk_primo_piatto_portata`
+      FOREIGN KEY (`portata_id_portata`)
+      REFERENCES `mydb`.`portata` (`id_portata`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION)
+  ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`secondo_piatto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`secondo_piatto` (
+  `id_secondo_piatto` INT NOT NULL AUTO_INCREMENT,
+  `nome_secondo_piatto` VARCHAR(64) NOT NULL,
+  `prezzo_secondo_piatto` DECIMAL NOT NULL,
+  `ingredienti_secondo_piatto` VARCHAR(64) NOT NULL,
+  `tipo_secondo_piatto` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL,
+  `contorno` VARCHAR(64) NOT NULL,
+  `cottura` ENUM('al_sangue', 'media', 'ben_cotta') NOT NULL,
+  `portata_id_portata` INT NOT NULL,
+  PRIMARY KEY (`id_secondo_piatto`),
+  INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
+  CONSTRAINT `fk_secondo_piatto_portata1`
+    FOREIGN KEY (`portata_id_portata`)
+    REFERENCES `mydb`.`portata` (`id_portata`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
