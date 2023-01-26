@@ -40,6 +40,12 @@ public class Start {
         ristorante.prenotaPosti(
                 cliente,
                 new Tavolo(4, TavoloPositionEnum.ESTERNO_VISTA_MARE));
+
+        //ristorante.createTableRistorante();
+        //ristorante.insertValuesRistorante();
+        //ristorante.deleteTableRistorante();
+        //ristorante.createSchema();
+        ristorante.readTableRistorante();
     }
 }
 

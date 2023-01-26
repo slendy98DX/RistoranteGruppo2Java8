@@ -2,6 +2,10 @@ package entities;
 
 import enumerations.TypeEnum;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -195,5 +199,115 @@ public class Ristorante {
     public void checkout(Client client) {
         tavoloClientMap.remove(client);
         System.out.printf("Cliente %s lascia il ristorante%n", client.getName());
+    }
+
+
+    /**
+     * This method creates a schema to the server if not exists
+     */
+    public void createSchema(){
+        String url = "";
+        String user = "";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "CREATE SCHEMA IF NOT EXISTS `ristorante_progetto` DEFAULT CHARACTER SET utf8 ;";
+            statement.executeUpdate(varname1);
+            System.out.println("Schema creato correttamente");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * This method creates a table into the schema if not exists
+     */
+    public void createTableRistorante() {
+        String url = "";
+        String user = "";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` ( "
+                    + "  `id_ristorante` INT NOT NULL, "
+                    + "  `nome_ristorante` VARCHAR(64) NOT NULL, "
+                    + "  `indirizzo` VARCHAR(64) NOT NULL, "
+                    + "  `tipi_di_menu` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL, "
+                    + "  PRIMARY KEY (`id_ristorante`))";
+            statement.executeUpdate(varname1);
+            System.out.println("Tabella creata correttamente");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * This method inserts values into the rows of the table
+     */
+    public void insertValuesRistorante(){
+        String url = "";
+        String user = "";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "INSERT INTO ristorante_progetto.ristorante "
+                    + "(id_ristorante, nome_ristorante, indirizzo, tipi_di_menu) "
+                    + "VALUES(1, 'Palla 8', 'Via Roma 1', 'carne');";
+            statement.executeUpdate(varname1);
+            System.out.println("Dati inseriti correttamente");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * This method drops the table
+     */
+    public void deleteTableRistorante() {
+        String url = "";
+        String user = "";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "DROP TABLE `ristorante_progetto`.`ristorante`;";
+            statement.executeUpdate(varname1);
+            System.out.println("Tabella cancellata correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * This method lets the user read in console the values from the table
+     */
+    public void readTableRistorante(){
+        String url = "";
+        String user = "";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "SELECT * "
+                    + "FROM ristorante_progetto.ristorante;";
+            ResultSet resultSet = statement.executeQuery(varname1);
+            while (resultSet.next()){
+                System.out.println(resultSet.getString("nome_ristorante"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
