@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema ristorante_progetto
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema ristorante_progetto
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `ristorante_progetto` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`ristorante`
+-- Table `ristorante_progetto`.`ristorante`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`ristorante` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` (
   `id_ristorante` INT NOT NULL,
   `nome_ristorante` VARCHAR(64) NOT NULL,
   `indirizzo` VARCHAR(64) NOT NULL,
@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ristorante` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`portata`
+-- Table `ristorante_progetto`.`portata`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`portata` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`portata` (
   `id_portata` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(64) NOT NULL,
   `prezzo` DECIMAL NOT NULL,
@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`portata` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`bevanda`
+-- Table `ristorante_progetto`.`bevanda`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`bevanda` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`bevanda` (
   `id_bevanda` INT NOT NULL AUTO_INCREMENT,
   `nome_bevanda` VARCHAR(64) NOT NULL,
   `prezzo_bevanda` DECIMAL NOT NULL,
@@ -62,9 +62,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`primo_piatto`
+-- Table `ristorante_progetto`.`primo_piatto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`primo_piatto` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`primo_piatto` (
   `id_primo_piatto` INT NOT NULL AUTO_INCREMENT,
   `nome_primo_piatto` VARCHAR(64) NOT NULL,
   `prezzo_primo_piatto` DECIMAL NOT NULL,
@@ -80,9 +80,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`primo_piatto` (
   ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`secondo_piatto`
+-- Table `ristorante_progetto`.`secondo_piatto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`secondo_piatto` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`secondo_piatto` (
   `id_secondo_piatto` INT NOT NULL AUTO_INCREMENT,
   `nome_secondo_piatto` VARCHAR(64) NOT NULL,
   `prezzo_secondo_piatto` DECIMAL NOT NULL,
@@ -101,9 +101,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`secondo_piatto` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`dolce`
+-- Table `ristorante_progetto`.`dolce`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`dolce` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`dolce` (
   `id_dolce` INT NOT NULL AUTO_INCREMENT,
   `nome_dolce` VARCHAR(64) NOT NULL,
   `prezzo_dolce` DECIMAL NOT NULL,
@@ -120,9 +120,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`dolce` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`tavolo`
+-- Table `ristorante_progetto`.`tavolo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tavolo` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` (
   `numero_tavolo` INT NOT NULL AUTO_INCREMENT,
   `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL,
   PRIMARY KEY (`numero_tavolo`))
