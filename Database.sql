@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`bevanda` (
   INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_bevanda_portata1`
     FOREIGN KEY (`portata_id_portata`)
-    REFERENCES `mydb`.`portata` (`id_portata`)
+    REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`primo_piatto` (
   INDEX `fk_primo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
     CONSTRAINT `fk_primo_piatto_portata1`
       FOREIGN KEY (`portata_id_portata`)
-      REFERENCES `mydb`.`portata` (`id_portata`)
+      REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION)
   ENGINE = InnoDB;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`secondo_piatto` (
   INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_secondo_piatto_portata1`
     FOREIGN KEY (`portata_id_portata`)
-    REFERENCES `mydb`.`portata` (`id_portata`)
+    REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`dolce` (
   INDEX `fk_dolce_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_dolce_portata1`
     FOREIGN KEY (`portata_id_portata`)
-    REFERENCES `mydb`.`portata` (`id_portata`)
+    REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
