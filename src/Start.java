@@ -43,6 +43,14 @@ public class Start {
 
         DatabaseManager databaseManager = new DatabaseManager();
 
+        //databaseManager.createSchema();
+        //databaseManager.createTablePortata();
+        //databaseManager.createTableSecondoPiatto();
+        databaseManager.insertValuesSecondoPiatto();
+        //databaseManager.readTableSecondoPiatto();
+        //databaseManager.deleteTableSecondoPiatto();
+
+
     }
 }
 
