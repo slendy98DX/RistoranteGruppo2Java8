@@ -316,8 +316,8 @@ public class DatabaseManager {
                     + "  `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL, "
                     + "  `portata_id_portata` INT,"
                     + "  PRIMARY KEY (`id_primo_piatto`),"
-                    + "  INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
-                    + "  CONSTRAINT `fk_bevanda_portata1` "
+                    + "  INDEX `fk_primo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_primo_piatto_portata1` "
                     + "    FOREIGN KEY (`portata_id_portata`) "
                     + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
                     + "    ON DELETE NO ACTION "
@@ -401,7 +401,14 @@ public class DatabaseManager {
                     + "  `tipo_secondo_piatto` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL, "
                     + "  `contorno` VARCHAR(64) NOT NULL, "
                     + "  `cottura` ENUM('al_sangue', 'media', 'ben_cotta') NOT NULL, "
-                    + "  `portata_id_portata` INT,";
+                    + "  `portata_id_portata` INT, "
+                    + "  PRIMARY KEY (`id_secondo_piatto`), "
+                    + "  INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_secondo_piatto_portata1` "
+                    + "    FOREIGN KEY (`portata_id_portata`) "
+                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
+                    + "    ON DELETE NO ACTION "
+                    + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
         } catch (Exception e) {
@@ -466,6 +473,191 @@ public class DatabaseManager {
             ResultSet resultSet = statement.executeQuery(varname1);
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(""));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method creates a table into the schema if not exists
+     */
+    public void createTableDolce() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`dolce` ( "
+                    + "  `id_dolce` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `nome_dolce` VARCHAR(64) NOT NULL, "
+                    + "  `prezzo_dolce` DECIMAL NOT NULL, "
+                    + "  `ingredienti` VARCHAR(64) NOT NULL, "
+                    + "  `tipo_dolce` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL, "
+                    + "  `portata_id_portata` INT, "
+                    + "  PRIMARY KEY (`id_dolce`), "
+                    + "  INDEX `fk_dolce_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_dolce_portata1` "
+                    + "    FOREIGN KEY (`portata_id_portata`) "
+                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
+                    + "    ON DELETE NO ACTION "
+                    + "    ON UPDATE NO ACTION)";
+            statement.executeUpdate(varname1);
+            System.out.println("Tabella creata correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method inserts values into the rows of the table
+     */
+    public void insertValuesDolce() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "INSERT INTO ristorante_progetto.dolce"
+                    + "(id_dolce, nome_dolce, prezzo_dolce, ingredienti, tipo_dolce)"
+                    + "VALUES(1, 'Sorbetto al limone', '5.25', 'Succo di limone,Aqua,Zucchero,Limoncello,Albumi', 'carne');";
+            statement.executeUpdate(varname1);
+            System.out.println("Dati inseriti correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method drops the table
+     */
+    public void deleteTableDolce() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "DROP TABLE `ristorante_progetto`.`dolce`;";
+            statement.executeUpdate(varname1);
+            System.out.println("Tabella cancellata correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method lets the user read in console the values from the table
+     */
+    public void readTableDolce() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "SELECT * "
+                    + "FROM ristorante_progetto.dolce;";
+            ResultSet resultSet = statement.executeQuery(varname1);
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("ingredienti"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method creates a table into the schema if not exists
+     */
+    public void createTableTavolo() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` ( "
+                    + "  `numero_tavolo` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL, "
+                    + "  `ristorante_id_ristorante` INT NOT NULL, "
+                    + "  PRIMARY KEY (`numero_tavolo`), "
+                    + "  INDEX `fk_tavolo_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_tavolo_ristorante1` "
+                    + "    FOREIGN KEY (`ristorante_id_ristorante`) "
+                    + "    REFERENCES `ristorante_progetto`.`ristorante` (`id_ristorante`) "
+                    + "    ON DELETE NO ACTION "
+                    + "    ON UPDATE NO ACTION)";
+            statement.executeUpdate(varname1);
+            System.out.println("Tabella creata correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method inserts values into the rows of the table
+     */
+    public void insertValuesTavolo() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "INSERT INTO ristorante_progetto.tavolo"
+                    + "(numero_tavolo, posizione_tavolo)"
+                    + "VALUES(1, 'interno');";
+            statement.executeUpdate(varname1);
+            System.out.println("Dati inseriti correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method drops the table
+     */
+    public void deleteTableTavolo() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "DROP TABLE `ristorante_progetto`.`tavolo`;";
+            statement.executeUpdate(varname1);
+            System.out.println("Tabella cancellata correttamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method lets the user read in console the values from the table
+     */
+    public void readTableTavolo() {
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
+        String password = "";
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            String varname1 = ""
+                    + "SELECT * "
+                    + "FROM ristorante_progetto.tavolo;";
+            ResultSet resultSet = statement.executeQuery(varname1);
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("ingredienti"));
             }
         } catch (Exception e) {
             e.printStackTrace();

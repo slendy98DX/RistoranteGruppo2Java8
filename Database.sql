@@ -125,7 +125,14 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` (
   `numero_tavolo` INT NOT NULL AUTO_INCREMENT,
   `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL,
-  PRIMARY KEY (`numero_tavolo`))
+  `ristorante_id_ristorante` INT NOT NULL,
+  PRIMARY KEY (`numero_tavolo`),
+  INDEX `fk_tavolo_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE,
+  CONSTRAINT `fk_tavolo_ristorante1`
+    FOREIGN KEY (`ristorante_id_ristorante`)
+    REFERENCES `ristorante_progetto`.`ristorante` (`id_ristorante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
