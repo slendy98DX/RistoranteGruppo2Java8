@@ -421,7 +421,7 @@ public class Ristorante {
                     + "  INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
                     + "  CONSTRAINT `fk_bevanda_portata1` "
                     + "    FOREIGN KEY (`portata_id_portata`) "
-                    + "    REFERENCES `mydb`.`portata` (`id_portata`) "
+                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
                     + "    ON DELETE NO ACTION "
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
