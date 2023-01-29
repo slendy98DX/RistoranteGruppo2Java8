@@ -15,7 +15,7 @@ public class DatabaseManager {
     public void createSchema() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -35,7 +35,7 @@ public class DatabaseManager {
     public void createTableRistorante() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -59,7 +59,7 @@ public class DatabaseManager {
     public void insertValuesRistorante() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -81,7 +81,7 @@ public class DatabaseManager {
     public void deleteTableRistorante() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -101,7 +101,7 @@ public class DatabaseManager {
     public void readTableRistorante() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -123,7 +123,7 @@ public class DatabaseManager {
     public void createTableCliente() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -155,7 +155,7 @@ public class DatabaseManager {
     public void insertTableCliente() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -191,7 +191,7 @@ public class DatabaseManager {
     public void deleteTableCliente() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -211,7 +211,7 @@ public class DatabaseManager {
     public void readTableCliente() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -242,7 +242,7 @@ public class DatabaseManager {
     public void createTablePortata() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -267,7 +267,7 @@ public class DatabaseManager {
     public void insertValuesPortata() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -288,7 +288,7 @@ public class DatabaseManager {
     public void deleteTablePortata() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -307,7 +307,7 @@ public class DatabaseManager {
     public void readTablePortata() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -329,7 +329,7 @@ public class DatabaseManager {
     public void createTableBevanda() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -362,7 +362,7 @@ public class DatabaseManager {
     public void insertValuesBevanda() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -383,7 +383,7 @@ public class DatabaseManager {
     public void deleteTableBevanda() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -402,7 +402,7 @@ public class DatabaseManager {
     public void readTableBevanda() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -420,7 +420,7 @@ public class DatabaseManager {
     public void createTablePrimoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -450,7 +450,7 @@ public class DatabaseManager {
     public void insertValuesPrimoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -484,7 +484,7 @@ public class DatabaseManager {
     public void readTablePrimoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -506,7 +506,7 @@ public class DatabaseManager {
     public void createTableSecondoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -540,7 +540,7 @@ public class DatabaseManager {
     public void insertValuesSecondoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -562,7 +562,7 @@ public class DatabaseManager {
     public void deleteTableSecondoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -581,7 +581,7 @@ public class DatabaseManager {
     public void readTableSecondoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -603,7 +603,7 @@ public class DatabaseManager {
     public void createTableDolce() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -635,7 +635,7 @@ public class DatabaseManager {
     public void insertValuesDolce() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -656,7 +656,7 @@ public class DatabaseManager {
     public void deleteTableDolce() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -675,7 +675,7 @@ public class DatabaseManager {
     public void readTableDolce() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -697,7 +697,7 @@ public class DatabaseManager {
     public void createTableTavolo() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -726,7 +726,7 @@ public class DatabaseManager {
     public void insertValuesTavolo() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -747,7 +747,7 @@ public class DatabaseManager {
     public void deleteTableTavolo() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -766,7 +766,7 @@ public class DatabaseManager {
     public void readTableTavolo() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -788,7 +788,7 @@ public class DatabaseManager {
     public void createTablePrenotazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -822,7 +822,7 @@ public class DatabaseManager {
     public void insertTablePrenotazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -855,7 +855,7 @@ public class DatabaseManager {
     public void deleteTablePrenotazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -874,7 +874,7 @@ public class DatabaseManager {
     public void readTablePrenotazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -903,7 +903,7 @@ public class DatabaseManager {
     public void createTableOrdinazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -934,7 +934,7 @@ public class DatabaseManager {
     public void insertTableOrdinazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -965,7 +965,7 @@ public class DatabaseManager {
     public void deleteTableOrdinazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -986,7 +986,7 @@ public class DatabaseManager {
     public void readTableOrdinazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "Rudy32?%";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
