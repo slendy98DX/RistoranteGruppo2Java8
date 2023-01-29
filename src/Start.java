@@ -51,6 +51,9 @@ public class Start {
         databaseManager.createTableSecondoPiatto();
         databaseManager.createTableDolce();
         databaseManager.createTableTavolo();
+        databaseManager.createTableCliente();
+        databaseManager.createTablePrenotazione();
+        databaseManager.createTableOrdinazione();
 
 
     }

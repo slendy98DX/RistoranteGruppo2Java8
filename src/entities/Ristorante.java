@@ -182,7 +182,7 @@ public class Ristorante {
     public void prenotaPosti(Client client, Tavolo tavolo) {
         if (tavoloClientMap.size() < capienzaTavoliMassima) {
             putTavoli(client, tavolo);
-            Prenotazione prenotazione = new Prenotazione(client.getName(), client.getEmail());
+            Prenotazione prenotazione = new Prenotazione( client.getName(), client.getEmail());
             prenotazioneList.add(prenotazione);
             client.printClientDetails();
             tavolo.printTavoloDetails();
