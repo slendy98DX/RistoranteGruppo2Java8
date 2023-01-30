@@ -29,6 +29,24 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
+-- Table `ristorante_progetto`.`cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS ristorante_progetto.cliente (
+  id_cliente INT NOT NULL AUTO_INCREMENT,
+  nome_cliente VARCHAR(64) NOT NULL,
+  cognome_cliente VARCHAR(64) NOT NULL,
+  email VARCHAR(64) NOT NULL,
+  tavolo_numero_tavolo INT ,
+  PRIMARY KEY (id_cliente),
+  INDEX fk_cliente_tavolo1_idx (tavolo_numero_tavolo ASC) VISIBLE,
+  CONSTRAINT fk_cliente_tavolo1
+    FOREIGN KEY (tavolo_numero_tavolo)
+    REFERENCES ristorante_progetto.tavolo (numero_tavolo)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `ristorante_progetto`.`portata`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`portata` (
@@ -131,6 +149,30 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` (
   CONSTRAINT `fk_tavolo_ristorante1`
     FOREIGN KEY (`ristorante_id_ristorante`)
     REFERENCES `ristorante_progetto`.`ristorante` (`id_ristorante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `ristorante_progetto`.`prenotazione`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS ristorante_progetto.prenotazione (
+  id_prenotazione INT NOT NULL AUTO_INCREMENT,
+  nominativo DATETIME NOT NULL,
+  contactinfo DATETIME NOT NULL,
+  cliente_id_cliente INT NOT NULL,
+  ristorante_id_ristorante INT NOT NULL,
+  PRIMARY KEY (id_prenotazione),
+  INDEX fk_prenotazione_cliente_idx (cliente_id_cliente ASC) VISIBLE,
+  INDEX fk_prenotazione_ristorante1_idx (ristorante_id_ristorante ASC) VISIBLE,
+  CONSTRAINT fk_prenotazione_cliente
+    FOREIGN KEY (cliente_id_cliente)
+    REFERENCES ristorante_progetto.cliente (id_cliente)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_prenotazione_ristorante1
+    FOREIGN KEY (ristorante_id_ristorante)
+    REFERENCES ristorante_progetto.ristorante (id_ristorante)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -127,19 +127,21 @@ public class DatabaseManager {
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
-
             String varname1 = ""
-                    + "CREATE TABLE `cliente` ( "
-                    + "  `id_cliente` int NOT NULL AUTO_INCREMENT, "
-                    + "  `nome_cliente` varchar(45) NOT NULL, "
-                    + "  `surname_cliente` varchar(64) NOT NULL, "
-                    + "  `email` varchar(64) NOT NULL, "
-                    + "  `prenotazione_id_prenotazione` int NOT NULL, "
-                    + "  `tavolo_numero_tavolo` int NOT NULL, "
-                    + "  PRIMARY KEY (`id_cliente`), "
-                    + "  KEY `fk_cliente_tavolo1_idx` (`tavolo_numero_tavolo`), "
-                    + "  CONSTRAINT `fk_cliente_tavolo1` FOREIGN KEY (`tavolo_numero_tavolo`) REFERENCES `tavolo` (`numero_tavolo`) "
-                    + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;";
+                    + "CREATE TABLE IF NOT EXISTS ristorante_progetto.cliente ( "
+                    + "  id_cliente INT NOT NULL AUTO_INCREMENT, "
+                    + "  nome_cliente VARCHAR(64) NOT NULL, "
+                    + "  cognome_cliente VARCHAR(64) NOT NULL, "
+                    + "  email VARCHAR(64) NOT NULL, "
+                    + "  tavolo_numero_tavolo INT , "
+                    + "  PRIMARY KEY (id_cliente), "
+                    + "  INDEX fk_cliente_tavolo1_idx (tavolo_numero_tavolo ASC) VISIBLE, "
+                    + "  CONSTRAINT fk_cliente_tavolo1 "
+                    + "    FOREIGN KEY (tavolo_numero_tavolo) "
+                    + "    REFERENCES ristorante_progetto.tavolo (numero_tavolo) "
+                    + "    ON DELETE NO ACTION "
+                    + "    ON UPDATE NO ACTION)";
+
 
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
@@ -163,17 +165,11 @@ public class DatabaseManager {
                     + "INSERT INTO `ristorante_progetto`.`cliente` "
                     + "(`id_cliente`, "
                     + "`nome_cliente`, "
-                    + "`surname_cliente`, "
+                    + "`cognone_cliente`, "
                     + "`email`, "
                     + "`prenotazione_id_prenotazione`, "
                     + "`tavolo_numero_tavolo`) "
-                    + "VALUES "
-                    + "(<{id_cliente: }>, "
-                    + "<{nome_cliente: }>, "
-                    + "<{surname_cliente: }>, "
-                    + "<{email: }>, "
-                    + "<{prenotazione_id_prenotazione: }>, "
-                    + "<{tavolo_numero_tavolo: }>);";
+                    + "VALUES(1, 'Valy', 'Coman', 'ValyComan@gmail');";
 
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
@@ -775,7 +771,7 @@ public class DatabaseManager {
                     + "FROM ristorante_progetto.tavolo;";
             ResultSet resultSet = statement.executeQuery(varname1);
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("ingredienti"));
+                System.out.println(resultSet.getString(""));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -792,26 +788,33 @@ public class DatabaseManager {
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
-
             String varname1 = ""
-                    + "CREATE TABLE `prenotazione` ( "
-                    + "  `id_prenotazione` int NOT NULL, "
-                    + "  `data_prenotazione` datetime NOT NULL, "
-                    + "  `data_prenotata_` datetime NOT NULL, "
-                    + "  `cliente_id_cliente` int NOT NULL, "
-                    + "  `ristorante_id_ristorante` int NOT NULL, "
-                    + "  PRIMARY KEY (`id_prenotazione`), "
-                    + "  KEY `fk_prenotazione_cliente1_idx` (`cliente_id_cliente`), "
-                    + "  KEY `fk_prenotazione_ristorante1_idx` (`ristorante_id_ristorante`), "
-                    + "  CONSTRAINT `fk_prenotazione_cliente1` FOREIGN KEY (`cliente_id_cliente`) REFERENCES `cliente` (`id_cliente`), "
-                    + "  CONSTRAINT `fk_prenotazione_ristorante1` FOREIGN KEY (`ristorante_id_ristorante`) REFERENCES `ristorante` (`id_ristorante`) "
-                    + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;";
+                    + "CREATE TABLE IF NOT EXISTS ristorante_progetto.prenotazione ( "
+                    + "  id_prenotazione INT NOT NULL AUTO_INCREMENT, "
+                    + "  nominativo DATETIME NOT NULL, "
+                    + "  contactinfo DATETIME NOT NULL, "
+                    + "  cliente_id_cliente INT NOT NULL, "
+                    + "  ristorante_id_ristorante INT NOT NULL, "
+                    + "  PRIMARY KEY (id_prenotazione), "
+                    + "  INDEX fk_prenotazione_cliente_idx (cliente_id_cliente ASC) VISIBLE, "
+                    + "  INDEX fk_prenotazione_ristorante1_idx (ristorante_id_ristorante ASC) VISIBLE, "
+                    + "  CONSTRAINT fk_prenotazione_cliente "
+                    + "    FOREIGN KEY (cliente_id_cliente) "
+                    + "    REFERENCES ristorante_progetto.cliente (id_cliente) "
+                    + "    ON DELETE NO ACTION "
+                    + "    ON UPDATE NO ACTION, "
+                    + "  CONSTRAINT fk_prenotazione_ristorante1 "
+                    + "    FOREIGN KEY (ristorante_id_ristorante) "
+                    + "    REFERENCES ristorante_progetto.ristorante (id_ristorante) "
+                    + "    ON DELETE NO ACTION "
+                    + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
 
     /**
@@ -895,115 +898,6 @@ public class DatabaseManager {
     }
 
 
-    /**
-     * This method creates a table into the schema if not exists
-     */
-
-
-    public void createTableOrdinazione() {
-        String url = "jdbc:mysql://localhost:3306/newdb";
-        String user = "root";
-        String password = "";
-        try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-            String varname1 = ""
-                    + "CREATE TABLE `ordinazione` ( "
-                    + "  `id_ordinazione` int NOT NULL AUTO_INCREMENT, "
-                    + "  `tipo_portata` varchar(64) NOT NULL, "
-                    + "  `numero_portata` int NOT NULL, "
-                    + "  `tavolo_numero_tavolo` int NOT NULL, "
-                    + "  PRIMARY KEY (`id_ordinazione`), "
-                    + "  UNIQUE KEY `id_ordinazione_UNIQUE` (`id_ordinazione`), "
-                    + "  KEY `fk_ordinazione_tavolo1_idx` (`tavolo_numero_tavolo`), "
-                    + "  CONSTRAINT `fk_ordinazione_tavolo1` FOREIGN KEY (`tavolo_numero_tavolo`) REFERENCES `tavolo` (`numero_tavolo`) "
-                    + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;";
-
-            statement.executeUpdate(varname1);
-            System.out.println("Tabella creata correttamente");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    /**
-     * This method inserts values into the rows of the table
-     */
-
-    public void insertTableOrdinazione() {
-        String url = "jdbc:mysql://localhost:3306/newdb";
-        String user = "root";
-        String password = "";
-        try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-    String varname1 = ""
-            + "INSERT INTO `ristorante_progetto`.`ordinazione` "
-            + "(`id_ordinazione`, "
-            + "`tipo_portata`, "
-            + "`numero_portata`, "
-            + "`tavolo_numero_tavolo`) "
-            + "VALUES "
-            + "(<{id_ordinazione: }>, "
-            + "<{tipo_portata: }>, "
-            + "<{numero_portata: }>, "
-            + "<{tavolo_numero_tavolo: }>);";
-
-            statement.executeUpdate(varname1);
-            System.out.println("Dati inseriti correttamente");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * This method delete data in the table
-     */
-
-
-    public void deleteTableOrdinazione() {
-        String url = "jdbc:mysql://localhost:3306/newdb";
-        String user = "root";
-        String password = "";
-        try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-            String varname1 = ""
-                    + "DELETE * FROM `ristorante_progetto`.`ordinazione` ";
-                    //+ "WHERE <{where_expression}>;";
-
-            statement.executeUpdate(varname1);
-            System.out.println("Dati inseriti correttamente");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * This method lets the user read in console the values from the table
-     */
-    public void readTableOrdinazione() {
-        String url = "jdbc:mysql://localhost:3306/newdb";
-        String user = "root";
-        String password = "";
-        try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-            String varname1 = ""
-                    + "SELECT `ordinazione`.`id_ordinazione`, "
-                    + "    `ordinazione`.`tipo_portata`, "
-                    + "    `ordinazione`.`numero_portata`, "
-                    + "    `ordinazione`.`tavolo_numero_tavolo` "
-                    + "FROM `ristorante_progetto`.`ordinazione`;";
-            ResultSet resultSet = statement.executeQuery(varname1);
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString(""));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 
 }

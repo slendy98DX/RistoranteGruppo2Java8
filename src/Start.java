@@ -45,15 +45,13 @@ public class Start {
 
         databaseManager.createSchema();
         databaseManager.createTableRistorante();
-        databaseManager.createTablePortata();
-        databaseManager.createTableBevanda();
-        databaseManager.createTablePrimoPiatto();
-        databaseManager.createTableSecondoPiatto();
-        databaseManager.createTableDolce();
         databaseManager.createTableTavolo();
         databaseManager.createTableCliente();
+
         databaseManager.createTablePrenotazione();
-        databaseManager.createTableOrdinazione();
+       // databaseManager.insertValuesRistorante();
+        databaseManager.insertTableCliente();
+
 
 
     }
