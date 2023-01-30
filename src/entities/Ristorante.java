@@ -2,6 +2,10 @@ package entities;
 
 import enumerations.TypeEnum;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -178,7 +182,7 @@ public class Ristorante {
     public void prenotaPosti(Client client, Tavolo tavolo) {
         if (tavoloClientMap.size() < capienzaTavoliMassima) {
             putTavoli(client, tavolo);
-            Prenotazione prenotazione = new Prenotazione(client.getName(), client.getEmail());
+            Prenotazione prenotazione = new Prenotazione( client.getName(), client.getEmail());
             prenotazioneList.add(prenotazione);
             client.printClientDetails();
             tavolo.printTavoloDetails();

@@ -50,8 +50,6 @@ public class Dolci extends Portata {
                 dolciBooleaneEnum,
                 quantita
         );
-
-
     }
 
     /**

@@ -52,8 +52,8 @@ public class SecondoPiatto extends Portata {
     @Override
     public void printPortataDetails() {
         super.printPortataDetails();
-        System.out.printf(" Contorni: %s" +
-                        " Cottura del Piatto: %s%n"
+        System.out.printf(
+                " Contorni: %s" + " Cottura del Piatto: %s%n"
                 , sideDish
                 , cotturaTypeEnum);
     }

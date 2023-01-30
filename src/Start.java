@@ -40,6 +40,21 @@ public class Start {
         ristorante.prenotaPosti(
                 cliente,
                 new Tavolo(4, TavoloPositionEnum.ESTERNO_VISTA_MARE));
+
+        DatabaseManager databaseManager = new DatabaseManager();
+
+        databaseManager.createSchema();
+        databaseManager.createTableRistorante();
+        databaseManager.createTableTavolo();
+        databaseManager.createTableCliente();
+        databaseManager.createTablePrenotazione();
+        databaseManager.createTablePortata();
+        databaseManager.createTableBevanda();
+        databaseManager.createTablePrimoPiatto();
+        databaseManager.createTableSecondoPiatto();
+        databaseManager.createTableDolce();
+        databaseManager.createTableSecondoPiatto();
+
     }
 }
 

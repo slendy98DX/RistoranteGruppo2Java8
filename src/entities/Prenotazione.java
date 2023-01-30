@@ -12,6 +12,8 @@ public class Prenotazione {
     private String nominativo;
     private String contactInfo;
 
+
+
     /**
      * Constructor method for the Prenotazione objects
      *
@@ -19,7 +21,9 @@ public class Prenotazione {
      * @param contactInfo the contact info of the client
      */
 
-    public Prenotazione(String nominativo, String contactInfo) {
+
+
+    public Prenotazione( String nominativo, String contactInfo) {
         this.id = generateID();
         this.nominativo = nominativo;
         this.contactInfo = contactInfo;
@@ -27,16 +31,15 @@ public class Prenotazione {
 
     /**
      * This method generate id for the booking
-     *
      * @return id for the booking
      */
 
-    public String generateID() {
+    public String generateID(){
         String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         char[] id = new char[7];
         Random rand = new Random();
         int index;
-        for (int i = 0; i < 7; i++) {
+        for(int i = 0; i < 7; i++){
             index = rand.nextInt(s.length());
             id[i] = s.charAt(index);
         }
@@ -67,12 +70,12 @@ public class Prenotazione {
         this.contactInfo = contactInfo;
     }
 
-    public void printPrenotazioneDetails() {
+    public void printPrenotazioneDetails(){
         System.out.printf("Nominativo: %s" +
                         " Contact Info: %s" +
                         " Id: %s%n"
-                , nominativo
-                , contactInfo
-                , id);
+                ,nominativo
+                ,contactInfo
+                ,id);
     }
 }
