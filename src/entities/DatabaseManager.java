@@ -23,6 +23,8 @@ public class DatabaseManager {
                     + "CREATE SCHEMA IF NOT EXISTS `ristorante_progetto` DEFAULT CHARACTER SET utf8 ;";
             statement.executeUpdate(varname1);
             System.out.println("Schema creato correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,6 +50,8 @@ public class DatabaseManager {
                     + "  PRIMARY KEY (`id_ristorante`))";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,6 +73,8 @@ public class DatabaseManager {
                     + "VALUES(1, 'Palla 8', 'Via Roma 1', 'carne');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,6 +95,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`ristorante`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -112,6 +120,8 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("nome_ristorante"));
             }
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -133,7 +143,7 @@ public class DatabaseManager {
                     + "  nome_cliente VARCHAR(64) NOT NULL, "
                     + "  cognome_cliente VARCHAR(64) NOT NULL, "
                     + "  email VARCHAR(64) NOT NULL, "
-                    + "  tavolo_numero_tavolo INT , "
+                    + "  tavolo_numero_tavolo INT, "
                     + "  PRIMARY KEY (id_cliente), "
                     + "  INDEX fk_cliente_tavolo1_idx (tavolo_numero_tavolo ASC) VISIBLE, "
                     + "  CONSTRAINT fk_cliente_tavolo1 "
@@ -141,10 +151,10 @@ public class DatabaseManager {
                     + "    REFERENCES ristorante_progetto.tavolo (numero_tavolo) "
                     + "    ON DELETE NO ACTION "
                     + "    ON UPDATE NO ACTION)";
-
-
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -163,16 +173,12 @@ public class DatabaseManager {
             Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO `ristorante_progetto`.`cliente` "
-                    + "(`id_cliente`, "
-                    + "`nome_cliente`, "
-                    + "`cognone_cliente`, "
-                    + "`email`, "
-                    + "`prenotazione_id_prenotazione`, "
-                    + "`tavolo_numero_tavolo`) "
-                    + "VALUES(1, 'Valy', 'Coman', 'ValyComan@gmail');";
-
+                    + "(id_cliente, nome_cliente, cognome_cliente, email) "
+                    + "VALUES(1, 'Marco', 'Setaro', 'abc123@yahoo.it');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -195,6 +201,8 @@ public class DatabaseManager {
                     + "DELETE * FROM `ristorante_progetto`.`cliente` ";
                         statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -223,6 +231,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(""));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -252,6 +263,8 @@ public class DatabaseManager {
                     + "  PRIMARY KEY (`id_portata`))";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -273,6 +286,8 @@ public class DatabaseManager {
                     + "VALUES();";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -292,6 +307,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`portata`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -314,6 +331,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(""));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -337,7 +357,7 @@ public class DatabaseManager {
                     + "  `ingredienti` VARCHAR(45) NOT NULL, "
                     + "  `tipo_bevanda_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL, "
                     + "  `tipo_bevanda` ENUM('COLA', 'LIQUORE', 'ACQUA', 'BIRRA') NOT NULL, "
-                    + "  `portata_id_portata` INT NOT NULL, "
+                    + "  `portata_id_portata` INT, "
                     + "  PRIMARY KEY (`id_bevanda`), "
                     + "  INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
                     + "  CONSTRAINT `fk_bevanda_portata1` "
@@ -347,6 +367,8 @@ public class DatabaseManager {
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -368,6 +390,8 @@ public class DatabaseManager {
                     + "VALUES(1, 'Palla 8', 'Via Roma 1', 'carne');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -387,6 +411,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`ristorante`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -409,6 +435,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("nome_ristorante"));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -438,6 +467,8 @@ public class DatabaseManager {
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -456,6 +487,8 @@ public class DatabaseManager {
                     + "VALUES(1, 'Risotto Funghi e Salsiccia', '13.3', 'riso,salsiccia,funghi','carne');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -472,6 +505,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`primoPiatto`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -491,6 +526,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("nome_primo_piatto"));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -525,6 +563,8 @@ public class DatabaseManager {
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -547,6 +587,8 @@ public class DatabaseManager {
                     + "VALUES();";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -566,6 +608,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`secondo_piatto`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -588,6 +632,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(""));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -620,6 +667,8 @@ public class DatabaseManager {
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -641,6 +690,8 @@ public class DatabaseManager {
                     + "VALUES(1, 'Sorbetto al limone', '5.25', 'Succo di limone,Aqua,Zucchero,Limoncello,Albumi', 'carne');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -660,6 +711,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`dolce`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -682,6 +735,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("ingredienti"));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -701,7 +757,7 @@ public class DatabaseManager {
                     + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` ( "
                     + "  `numero_tavolo` INT NOT NULL AUTO_INCREMENT, "
                     + "  `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL, "
-                    + "  `ristorante_id_ristorante` INT NOT NULL, "
+                    + "  `ristorante_id_ristorante` INT, "
                     + "  PRIMARY KEY (`numero_tavolo`), "
                     + "  INDEX `fk_tavolo_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE, "
                     + "  CONSTRAINT `fk_tavolo_ristorante1` "
@@ -711,6 +767,8 @@ public class DatabaseManager {
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -732,6 +790,8 @@ public class DatabaseManager {
                     + "VALUES(1, 'interno');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -751,6 +811,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`tavolo`;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -773,6 +835,9 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(""));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -789,27 +854,30 @@ public class DatabaseManager {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             String varname1 = ""
-                    + "CREATE TABLE IF NOT EXISTS ristorante_progetto.prenotazione ( "
-                    + "  id_prenotazione INT NOT NULL AUTO_INCREMENT, "
-                    + "  nominativo DATETIME NOT NULL, "
-                    + "  contactinfo DATETIME NOT NULL, "
-                    + "  cliente_id_cliente INT NOT NULL, "
-                    + "  ristorante_id_ristorante INT NOT NULL, "
-                    + "  PRIMARY KEY (id_prenotazione), "
-                    + "  INDEX fk_prenotazione_cliente_idx (cliente_id_cliente ASC) VISIBLE, "
-                    + "  INDEX fk_prenotazione_ristorante1_idx (ristorante_id_ristorante ASC) VISIBLE, "
-                    + "  CONSTRAINT fk_prenotazione_cliente "
-                    + "    FOREIGN KEY (cliente_id_cliente) "
-                    + "    REFERENCES ristorante_progetto.cliente (id_cliente) "
+                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`prenotazione` ( "
+                    + "  `id_prenotazione` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `nominativo` VARCHAR(64) NOT NULL, "
+                    + "  `contactinfo` VARCHAR(64) NOT NULL, "
+                    + "  `data_prenotazione` DATE NOT NULL, "
+                    + "  `ristorante_id_ristorante` INT, "
+                    + "  `cliente_id_cliente` INT, "
+                    + "  PRIMARY KEY (`id_prenotazione`), "
+                    + "  INDEX `fk_prenotazione_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE, "
+                    + "  INDEX `fk_prenotazione_cliente1_idx` (`cliente_id_cliente` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_prenotazione_ristorante1` "
+                    + "    FOREIGN KEY (`ristorante_id_ristorante`) "
+                    + "    REFERENCES `ristorante_progetto`.`ristorante` (`id_ristorante`) "
                     + "    ON DELETE NO ACTION "
                     + "    ON UPDATE NO ACTION, "
-                    + "  CONSTRAINT fk_prenotazione_ristorante1 "
-                    + "    FOREIGN KEY (ristorante_id_ristorante) "
-                    + "    REFERENCES ristorante_progetto.ristorante (id_ristorante) "
+                    + "  CONSTRAINT `fk_prenotazione_cliente1` "
+                    + "    FOREIGN KEY (`cliente_id_cliente`) "
+                    + "    REFERENCES `ristorante_progetto`.`cliente` (`id_cliente`) "
                     + "    ON DELETE NO ACTION "
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -831,20 +899,12 @@ public class DatabaseManager {
             Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO `ristorante_progetto`.`prenotazione` "
-                    + "(`id_prenotazione`, "
-                    + "`data_prenotazione`, "
-                    + "`data_prenotata_`, "
-                    + "`cliente_id_cliente`, "
-                    + "`ristorante_id_ristorante`) "
-                    + "VALUES "
-                    + "(<{id_prenotazione: }>, "
-                    + "<{data_prenotazione: }>, "
-                    + "<{data_prenotata_: }>, "
-                    + "<{cliente_id_cliente: }>, "
-                    + "<{ristorante_id_ristorante: }>);";
-
+                    + "(id_prenotazione, nominativo, contactinfo, data_prenotazione) "
+                    + "VALUES(1, 'Marco Setaro', 'abc123@yahoo.it', '2021-01-12');";
             statement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -866,6 +926,8 @@ public class DatabaseManager {
                     + "DROP TABLE `ristorante_progetto`.`prenotazione` ";
             statement.executeUpdate(varname1);
             System.out.println("Tabella cancellata correttamente");
+            connection.close();
+            statement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -892,14 +954,13 @@ public class DatabaseManager {
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(""));
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
-
-
 }
 
 

@@ -156,23 +156,24 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `ristorante_progetto`.`prenotazione`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS ristorante_progetto.prenotazione (
-  id_prenotazione INT NOT NULL AUTO_INCREMENT,
-  nominativo DATETIME NOT NULL,
-  contactinfo DATETIME NOT NULL,
-  cliente_id_cliente INT NOT NULL,
-  ristorante_id_ristorante INT NOT NULL,
-  PRIMARY KEY (id_prenotazione),
-  INDEX fk_prenotazione_cliente_idx (cliente_id_cliente ASC) VISIBLE,
-  INDEX fk_prenotazione_ristorante1_idx (ristorante_id_ristorante ASC) VISIBLE,
-  CONSTRAINT fk_prenotazione_cliente
-    FOREIGN KEY (cliente_id_cliente)
-    REFERENCES ristorante_progetto.cliente (id_cliente)
+CREATE TABLE IF NOT EXISTS `mydb`.`prenotazione` (
+  `id_prenotazione` INT NOT NULL AUTO_INCREMENT,
+  `nominativo` VARCHAR(64) NOT NULL,
+  `contactinfo` VARCHAR(64) NOT NULL,
+  `data_prenotazione` DATE NOT NULL,
+  `ristorante_id_ristorante` INT NOT NULL,
+  `cliente_id_cliente` INT NOT NULL,
+  PRIMARY KEY (`id_prenotazione`),
+  INDEX `fk_prenotazione_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE,
+  INDEX `fk_prenotazione_cliente1_idx` (`cliente_id_cliente` ASC) VISIBLE,
+  CONSTRAINT `fk_prenotazione_ristorante1`
+    FOREIGN KEY (`ristorante_id_ristorante`)
+    REFERENCES `ristorante_progetto`.`ristorante` (`id_ristorante`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT fk_prenotazione_ristorante1
-    FOREIGN KEY (ristorante_id_ristorante)
-    REFERENCES ristorante_progetto.ristorante (id_ristorante)
+  CONSTRAINT `fk_prenotazione_cliente1`
+    FOREIGN KEY (`cliente_id_cliente`)
+    REFERENCES `mydb`.`cliente` (`id_cliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -24,7 +24,7 @@ public class Prenotazione {
 
 
     public Prenotazione( String nominativo, String contactInfo) {
-
+        this.id = generateID();
         this.nominativo = nominativo;
         this.contactInfo = contactInfo;
     }
