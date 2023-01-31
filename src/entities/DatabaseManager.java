@@ -1,9 +1,6 @@
 package entities;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseManager {
 
@@ -43,10 +40,11 @@ public class DatabaseManager {
             Statement statement = connection.createStatement();
             String varname1 = ""
                     + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` ( "
-                    + "  `id_ristorante` INT NOT NULL, "
+                    + "  `id_ristorante` INT NOT NULL AUTO_INCREMENT, "
                     + "  `nome_ristorante` VARCHAR(64) NOT NULL, "
                     + "  `indirizzo` VARCHAR(64) NOT NULL, "
                     + "  `tipi_di_menu` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL, "
+                    + "  `capienza_massima_tavoli` INT NOT NULL, "
                     + "  PRIMARY KEY (`id_ristorante`))";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
@@ -60,21 +58,25 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesRistorante() {
+    public void insertValuesRistorante(Ristorante ristorante) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.ristorante "
-                    + "(id_ristorante, nome_ristorante, indirizzo, tipi_di_menu) "
-                    + "VALUES(1, 'Palla 8', 'Via Roma 1', 'carne');";
-            statement.executeUpdate(varname1);
+                    + "(nome_ristorante, indirizzo, tipi_di_menu, capienza_massima_tavoli) "
+                    + "VALUES(?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,ristorante.getRestaurantName());
+            preparedStatement.setString(2,ristorante.getAddress());
+            preparedStatement.setString(3,ristorante.getMenuType().name());
+            preparedStatement.setInt(4,ristorante.getCapienzaTavoliMassima());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -138,17 +140,18 @@ public class DatabaseManager {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             String varname1 = ""
-                    + "CREATE TABLE IF NOT EXISTS ristorante_progetto.cliente ( "
-                    + "  id_cliente INT NOT NULL AUTO_INCREMENT, "
-                    + "  nome_cliente VARCHAR(64) NOT NULL, "
-                    + "  cognome_cliente VARCHAR(64) NOT NULL, "
-                    + "  email VARCHAR(64) NOT NULL, "
-                    + "  tavolo_numero_tavolo INT, "
-                    + "  PRIMARY KEY (id_cliente), "
-                    + "  INDEX fk_cliente_tavolo1_idx (tavolo_numero_tavolo ASC) VISIBLE, "
-                    + "  CONSTRAINT fk_cliente_tavolo1 "
-                    + "    FOREIGN KEY (tavolo_numero_tavolo) "
-                    + "    REFERENCES ristorante_progetto.tavolo (numero_tavolo) "
+                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`cliente` ( "
+                    + "  `id_cliente` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `nome_cliente` VARCHAR(64) NOT NULL, "
+                    + "  `cognome_cliente` VARCHAR(64) NOT NULL, "
+                    + "  `email` VARCHAR(64) NOT NULL, "
+                    + "  `preferred_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL, "
+                    + "  `tavolo_numero_tavolo` INT, "
+                    + "  PRIMARY KEY (`id_cliente`), "
+                    + "  INDEX `fk_cliente_tavolo1_idx` (`tavolo_numero_tavolo` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_cliente_tavolo1` "
+                    + "    FOREIGN KEY (`tavolo_numero_tavolo`) "
+                    + "    REFERENCES `ristorante_progetto`.`tavolo` (`numero_tavolo`) "
                     + "    ON DELETE NO ACTION "
                     + "    ON UPDATE NO ACTION)";
             statement.executeUpdate(varname1);
@@ -164,21 +167,25 @@ public class DatabaseManager {
      * This method inserts values into the rows of the table
      */
 
-    public void insertTableCliente() {
+    public void insertValuesCliente(Client client) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO `ristorante_progetto`.`cliente` "
-                    + "(id_cliente, nome_cliente, cognome_cliente, email) "
-                    + "VALUES(1, 'Marco', 'Setaro', 'abc123@yahoo.it');";
-            statement.executeUpdate(varname1);
+                    + "(nome_cliente, cognome_cliente, email, preferred_menu)"
+                    + "VALUES(?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,client.getName());
+            preparedStatement.setString(2,client.getSurname());
+            preparedStatement.setString(3,client.getEmail());
+            preparedStatement.setString(4,client.getTypeEnum().name());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -249,7 +256,7 @@ public class DatabaseManager {
     public void createTablePortata() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "";
+        String password = "qwerty12345678910#";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -273,21 +280,25 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesPortata() {
+    public void insertValuesPortata(Portata portata) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.portata "
-                    + "(id_portata, nome, prezzo, ingredienti, tipo_portata) "
-                    + "VALUES();";
-            statement.executeUpdate(varname1);
+                    + "(nome, prezzo, ingredienti, tipo_portata) "
+                    + "VALUES(?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,portata.getName());
+            preparedStatement.setDouble(2,portata.getPriceEuros());
+            preparedStatement.setString(3,portata.getIngredients());
+            preparedStatement.setString(4,portata.getPortataTypeEnum().name());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -345,7 +356,7 @@ public class DatabaseManager {
     public void createTableBevanda() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "";
+        String password = "qwerty12345678910#";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -377,21 +388,26 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesBevanda() {
+    public void insertValuesBevanda(Bevanda bevanda) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.bevanda "
-                    + "(id_ristorante, nome_ristorante, indirizzo, tipi_di_menu) "
-                    + "VALUES(1, 'Palla 8', 'Via Roma 1', 'carne');";
-            statement.executeUpdate(varname1);
+                    + "(nome_bevanda,prezzo_bevanda,ingredienti,tipo_bevanda_menu,tipo_bevanda) "
+                    + "VALUES(?,?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,bevanda.getName());
+            preparedStatement.setDouble(2,bevanda.getPriceEuros());
+            preparedStatement.setString(3,bevanda.getIngredients());
+            preparedStatement.setString(4,bevanda.getPortataTypeEnum().name());
+            preparedStatement.setString(5,bevanda.getTipoDiBevandaEnum().name());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -445,7 +461,7 @@ public class DatabaseManager {
     public void createTablePrimoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "";
+        String password = "qwerty12345678910#";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -474,29 +490,33 @@ public class DatabaseManager {
         }
     }
 
-    public void insertValuesPrimoPiatto() {
+    public void insertValuesPrimoPiatto(PrimoPiatto primoPiatto) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.primo_piatto "
-                    + "(id_primo_piatto, nome_primo_piatto, prezzo_primo_piatto, ingredienti_primo_piatto,tipo_primo_piatto) "
-                    + "VALUES(1, 'Risotto Funghi e Salsiccia', '13.3', 'riso,salsiccia,funghi','carne');";
-            statement.executeUpdate(varname1);
+                    + "(nome_primo_piatto, prezzo_primo_piatto, ingredienti_primo_piatto,tipo_primo_piatto) "
+                    + "VALUES(?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,primoPiatto.getName());
+            preparedStatement.setDouble(2,primoPiatto.getPriceEuros());
+            preparedStatement.setString(3,primoPiatto.getIngredients());
+            preparedStatement.setString(4,primoPiatto.getPortataTypeEnum().name());
+            preparedStatement.executeUpdate(varname1);
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void deleteTablePrimoPiatto() {
-        String url = "";
-        String user = "";
+        String url = "jdbc:mysql://localhost:3306/newdb";
+        String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
@@ -573,22 +593,28 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesSecondoPiatto() {
+    public void insertValuesSecondoPiatto(SecondoPiatto secondoPiatto) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.secondo_piatto "
-                    + "(id_secondo_piatto, nome_secondo_piatto, prezzo_secondo_piatto, ingredienti_secondo_piatto," +
+                    + "(nome_secondo_piatto, prezzo_secondo_piatto, ingredienti_secondo_piatto," +
                     " tipo_secondo_piatto, contorno, cottura) "
-                    + "VALUES();";
-            statement.executeUpdate(varname1);
+                    + "VALUES(?,?,?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,secondoPiatto.getName());
+            preparedStatement.setDouble(2,secondoPiatto.getPriceEuros());
+            preparedStatement.setString(3,secondoPiatto.getIngredients());
+            preparedStatement.setString(4,secondoPiatto.getPortataTypeEnum().name());
+            preparedStatement.setString(5,secondoPiatto.getSideDish());
+            preparedStatement.setString(6,secondoPiatto.getCotturaTypeEnum().name());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -677,21 +703,25 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesDolce() {
+    public void insertValuesDolce(Dolci dolci) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.dolce"
-                    + "(id_dolce, nome_dolce, prezzo_dolce, ingredienti, tipo_dolce)"
-                    + "VALUES(1, 'Sorbetto al limone', '5.25', 'Succo di limone,Aqua,Zucchero,Limoncello,Albumi', 'carne');";
-            statement.executeUpdate(varname1);
+                    + "(nome_dolce, prezzo_dolce, ingredienti, tipo_dolce)"
+                    + "VALUES(?,?,?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,dolci.getName());
+            preparedStatement.setDouble(2,dolci.getPriceEuros());
+            preparedStatement.setString(3,dolci.getIngredients());
+            preparedStatement.setString(4,dolci.getPortataTypeEnum().name());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -755,7 +785,8 @@ public class DatabaseManager {
             Statement statement = connection.createStatement();
             String varname1 = ""
                     + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` ( "
-                    + "  `numero_tavolo` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `id_tavolo` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `numero_tavolo` INT NOT NULL, "
                     + "  `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL, "
                     + "  `ristorante_id_ristorante` INT, "
                     + "  PRIMARY KEY (`numero_tavolo`), "
@@ -777,21 +808,23 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesTavolo() {
+    public void insertValuesTavolo(Tavolo tavolo) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.tavolo"
-                    + "(numero_tavolo, posizione_tavolo)"
-                    + "VALUES(1, 'interno');";
-            statement.executeUpdate(varname1);
+                    + "(numero_tavolo,posizione_tavolo)"
+                    + "VALUES(?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setInt(1,tavolo.getNumeroDelTavolo());
+            preparedStatement.setString(2,tavolo.getPosizioneEnum().name());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -849,7 +882,7 @@ public class DatabaseManager {
     public void createTablePrenotazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "";
+        String password = "qwerty12345678910#";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -858,7 +891,7 @@ public class DatabaseManager {
                     + "  `id_prenotazione` INT NOT NULL AUTO_INCREMENT, "
                     + "  `nominativo` VARCHAR(64) NOT NULL, "
                     + "  `contactinfo` VARCHAR(64) NOT NULL, "
-                    + "  `data_prenotazione` DATE NOT NULL, "
+                    + "  `data_prenotazione` DATE, "
                     + "  `ristorante_id_ristorante` INT, "
                     + "  `cliente_id_cliente` INT, "
                     + "  PRIMARY KEY (`id_prenotazione`), "
@@ -890,21 +923,23 @@ public class DatabaseManager {
      */
 
 
-    public void insertTablePrenotazione() {
+    public void insertValuesPrenotazione(Prenotazione prenotazione) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
             String varname1 = ""
                     + "INSERT INTO `ristorante_progetto`.`prenotazione` "
-                    + "(id_prenotazione, nominativo, contactinfo, data_prenotazione) "
-                    + "VALUES(1, 'Marco Setaro', 'abc123@yahoo.it', '2021-01-12');";
-            statement.executeUpdate(varname1);
+                    + "(nominativo, contactinfo) "
+                    + "VALUES(?,?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(varname1);
+            preparedStatement.setString(1,prenotazione.getNominativo());
+            preparedStatement.setString(2,prenotazione.getContactInfo());
+            preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
-            statement.close();
+            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

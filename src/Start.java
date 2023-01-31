@@ -54,7 +54,7 @@ public class Start {
         databaseManager.createTableSecondoPiatto();
         databaseManager.createTableDolce();
         databaseManager.createTableSecondoPiatto();
-
+        databaseManager.insertValuesRistorante(ristorante);
     }
 }
 
