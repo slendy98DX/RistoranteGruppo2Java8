@@ -21,31 +21,32 @@ USE `mydb` ;
 -- Table `ristorante_progetto`.`ristorante`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` (
-  `id_ristorante` INT NOT NULL,
+  `id_ristorante` INT NULL,
   `nome_ristorante` VARCHAR(64) NOT NULL,
   `indirizzo` VARCHAR(64) NOT NULL,
   `tipi_di_menu` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL,
+  `capienza_massima_tavoli` INT NOT NULL,
   PRIMARY KEY (`id_ristorante`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `ristorante_progetto`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS ristorante_progetto.cliente (
-  id_cliente INT NOT NULL AUTO_INCREMENT,
-  nome_cliente VARCHAR(64) NOT NULL,
-  cognome_cliente VARCHAR(64) NOT NULL,
-  email VARCHAR(64) NOT NULL,
-  tavolo_numero_tavolo INT ,
-  PRIMARY KEY (id_cliente),
-  INDEX fk_cliente_tavolo1_idx (tavolo_numero_tavolo ASC) VISIBLE,
-  CONSTRAINT fk_cliente_tavolo1
-    FOREIGN KEY (tavolo_numero_tavolo)
-    REFERENCES ristorante_progetto.tavolo (numero_tavolo)
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`cliente` (
+  `id_cliente` INT AUTO_INCREMENT,
+  `nome_cliente` VARCHAR(64) NOT NULL,
+  `cognome_cliente` VARCHAR(64) NOT NULL,
+  `email` VARCHAR(64) NOT NULL,
+  `preferred_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
+  `tavolo_numero_tavolo` INT,
+  PRIMARY KEY (`id_cliente`),
+  INDEX `fk_cliente_tavolo1_idx` (`tavolo_numero_tavolo` ASC) VISIBLE,
+  CONSTRAINT `fk_cliente_tavolo1`
+    FOREIGN KEY (`tavolo_numero_tavolo`)
+    REFERENCES `ristorante_progetto`.`tavolo` (`numero_tavolo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 -- -----------------------------------------------------
 -- Table `ristorante_progetto`.`portata`
 -- -----------------------------------------------------
@@ -68,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`bevanda` (
   `ingredienti` VARCHAR(45) NOT NULL,
   `tipo_bevanda_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
   `tipo_bevanda` ENUM('COLA', 'LIQUORE', 'ACQUA', 'BIRRA') NOT NULL,
-  `portata_id_portata` INT NOT NULL,
+  `portata_id_portata` INT,
   PRIMARY KEY (`id_bevanda`),
   INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_bevanda_portata1`
@@ -88,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`primo_piatto` (
   `prezzo_primo_piatto` DECIMAL NOT NULL,
   `ingredienti_primo_piatto` VARCHAR(64) NOT NULL,
   `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL,
+  `portata_id_portata` INT,
   PRIMARY KEY (`id_primo_piatto`),
   INDEX `fk_primo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
     CONSTRAINT `fk_primo_piatto_portata1`
@@ -108,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`secondo_piatto` (
   `tipo_secondo_piatto` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL,
   `contorno` VARCHAR(64) NOT NULL,
   `cottura` ENUM('al_sangue', 'media', 'ben_cotta') NOT NULL,
-  `portata_id_portata` INT NOT NULL,
+  `portata_id_portata` INT,
   PRIMARY KEY (`id_secondo_piatto`),
   INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_secondo_piatto_portata1`
@@ -127,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`dolce` (
   `prezzo_dolce` DECIMAL NOT NULL,
   `ingredienti` VARCHAR(64) NOT NULL,
   `tipo_dolce` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
-  `portata_id_portata` INT NOT NULL,
+  `portata_id_portata` INT,
   PRIMARY KEY (`id_dolce`),
   INDEX `fk_dolce_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
   CONSTRAINT `fk_dolce_portata1`
@@ -141,9 +143,10 @@ ENGINE = InnoDB;
 -- Table `ristorante_progetto`.`tavolo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`tavolo` (
-  `numero_tavolo` INT NOT NULL AUTO_INCREMENT,
+  `id_tavolo` INT NOT NULL AUTO_INCREMENT,
+  `numero_tavolo` INT NOT NULL,
   `posizione_tavolo` ENUM('Esterno_Terrazzo', 'Esterno_Vista_Mare', 'Esterno_Giardino', 'Interno') NOT NULL,
-  `ristorante_id_ristorante` INT NOT NULL,
+  `ristorante_id_ristorante` INT,
   PRIMARY KEY (`numero_tavolo`),
   INDEX `fk_tavolo_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE,
   CONSTRAINT `fk_tavolo_ristorante1`
@@ -161,8 +164,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`prenotazione` (
   `nominativo` VARCHAR(64) NOT NULL,
   `contactinfo` VARCHAR(64) NOT NULL,
   `data_prenotazione` DATE NOT NULL,
-  `ristorante_id_ristorante` INT NOT NULL,
-  `cliente_id_cliente` INT NOT NULL,
+  `ristorante_id_ristorante` INT,
+  `cliente_id_cliente` INT,
   PRIMARY KEY (`id_prenotazione`),
   INDEX `fk_prenotazione_ristorante1_idx` (`ristorante_id_ristorante` ASC) VISIBLE,
   INDEX `fk_prenotazione_cliente1_idx` (`cliente_id_cliente` ASC) VISIBLE,
