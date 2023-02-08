@@ -40,12 +40,15 @@ public class DatabaseManager {
             Statement statement = connection.createStatement();
             String varname1 = ""
                     + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` ( "
-                    + "  `id_ristorante` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `id_ristorante` INT NULL DEFAULT NULL, "
                     + "  `nome_ristorante` VARCHAR(64) NOT NULL, "
                     + "  `indirizzo` VARCHAR(64) NOT NULL, "
-                    + "  `tipi_di_menu` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL, "
+                    + "  `tipi_di_menu` VARCHAR(64) NOT NULL, "
                     + "  `capienza_massima_tavoli` INT NOT NULL, "
-                    + "  PRIMARY KEY (`id_ristorante`))";
+                    + "  `prezzo_medio` DECIMAL NOT NULL, "
+                    + "  `stile` VARCHAR(64) NOT NULL, "
+                    + "  PRIMARY KEY (`id_ristorante`)) "
+                    + "ENGINE = InnoDB;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
             connection.close();
@@ -66,13 +69,15 @@ public class DatabaseManager {
             Connection connection = DriverManager.getConnection(url, user, password);
             String varname1 = ""
                     + "INSERT INTO ristorante_progetto.ristorante "
-                    + "(nome_ristorante, indirizzo, tipi_di_menu, capienza_massima_tavoli) "
-                    + "VALUES(?,?,?,?);";
+                    + "(nome_ristorante, indirizzo, tipi_di_menu, capienza_massima_tavoli, prezzo_medio, stile) "
+                    + "VALUES(?,?,?,?,?,?);";
             PreparedStatement preparedStatement = connection.prepareStatement(varname1);
             preparedStatement.setString(1,ristorante.getRestaurantName());
             preparedStatement.setString(2,ristorante.getAddress());
             preparedStatement.setString(3,ristorante.getMenuType().name());
             preparedStatement.setInt(4,ristorante.getCapienzaTavoliMassima());
+            preparedStatement.setDouble(5,ristorante.getPrezzoMedio());
+            preparedStatement.setString(6,ristorante.getStile());
             preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
@@ -253,21 +258,21 @@ public class DatabaseManager {
     /**
      * This method creates a table into the schema if not exists
      */
-    public void createTablePortata() {
+    public void createTableMenu() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "qwerty12345678910#";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             String varname1 = ""
-                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`portata` ( "
-                    + "  `id_portata` INT NOT NULL AUTO_INCREMENT, "
-                    + "  `nome` VARCHAR(64) NOT NULL, "
-                    + "  `prezzo` DECIMAL NOT NULL, "
-                    + "  `ingredienti` VARCHAR(64) NOT NULL, "
-                    + "  `tipo_portata` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL, "
-                    + "  PRIMARY KEY (`id_portata`))";
+                    + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`menu` ( "
+                    + "  `id_menu` INT NOT NULL AUTO_INCREMENT, "
+                    + "  `nome_chef` VARCHAR(64) NOT NULL, "
+                    + "  `prezzo_medio` DECIMAL NOT NULL, "
+                    + "  `tipo_portata` VARCHAR(64) NOT NULL, "
+                    + "  PRIMARY KEY (`id_menu`)) "
+                    + "ENGINE = InnoDB;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
             connection.close();
@@ -280,21 +285,20 @@ public class DatabaseManager {
     /**
      * This method inserts values into the rows of the table
      */
-    public void insertValuesPortata(Portata portata) {
+    public void insertValuesMenu(Menu menu) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
         String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             String varname1 = ""
-                    + "INSERT INTO ristorante_progetto.portata "
-                    + "(nome, prezzo, ingredienti, tipo_portata) "
-                    + "VALUES(?,?,?,?);";
+                    + "INSERT INTO ristorante_progetto.menu "
+                    + "(nome_chef, prezzo_medio, tipo_portata) "
+                    + "VALUES(?,?,?);";
             PreparedStatement preparedStatement = connection.prepareStatement(varname1);
-            preparedStatement.setString(1,portata.getName());
-            preparedStatement.setDouble(2,portata.getPriceEuros());
-            preparedStatement.setString(3,portata.getIngredients());
-            preparedStatement.setString(4,portata.getPortataTypeEnum().name());
+            preparedStatement.setString(1, menu.getChefName());
+            preparedStatement.setDouble(2, menu.getAveragePrice());
+            preparedStatement.setString(3, menu.getTypeEnum().name());
             preparedStatement.executeUpdate();
             System.out.println("Dati inseriti correttamente");
             connection.close();
@@ -356,7 +360,7 @@ public class DatabaseManager {
     public void createTableBevanda() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "qwerty12345678910#";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
@@ -366,16 +370,17 @@ public class DatabaseManager {
                     + "  `nome_bevanda` VARCHAR(64) NOT NULL, "
                     + "  `prezzo_bevanda` DECIMAL NOT NULL, "
                     + "  `ingredienti` VARCHAR(45) NOT NULL, "
-                    + "  `tipo_bevanda_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL, "
-                    + "  `tipo_bevanda` ENUM('COLA', 'LIQUORE', 'ACQUA', 'BIRRA') NOT NULL, "
-                    + "  `portata_id_portata` INT, "
+                    + "  `tipo_bevanda_menu` VARCHAR(64) NOT NULL, "
+                    + "  `tipo_bevanda` VARCHAR(64) NOT NULL, "
+                    + "  `menu_id_menu` INT, "
                     + "  PRIMARY KEY (`id_bevanda`), "
-                    + "  INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
-                    + "  CONSTRAINT `fk_bevanda_portata1` "
-                    + "    FOREIGN KEY (`portata_id_portata`) "
-                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
+                    + "  INDEX `fk_bevanda_menu1_idx` (`menu_id_menu` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_bevanda_menu1` "
+                    + "    FOREIGN KEY (`menu_id_menu`) "
+                    + "    REFERENCES `ristorante_progetto`.`menu` (`id_menu`) "
                     + "    ON DELETE NO ACTION "
-                    + "    ON UPDATE NO ACTION)";
+                    + "    ON UPDATE NO ACTION) "
+                    + "ENGINE = InnoDB;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
             connection.close();
@@ -461,26 +466,27 @@ public class DatabaseManager {
     public void createTablePrimoPiatto() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "qwerty12345678910#";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             String varname1 = ""
-
                     + "CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`primo_piatto` ( "
                     + "  `id_primo_piatto` INT NOT NULL AUTO_INCREMENT, "
                     + "  `nome_primo_piatto` VARCHAR(64) NOT NULL, "
                     + "  `prezzo_primo_piatto` DECIMAL NOT NULL, "
                     + "  `ingredienti_primo_piatto` VARCHAR(64) NOT NULL, "
-                    + "  `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL, "
-                    + "  `portata_id_portata` INT,"
-                    + "  PRIMARY KEY (`id_primo_piatto`),"
-                    + "  INDEX `fk_primo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
-                    + "  CONSTRAINT `fk_primo_piatto_portata1` "
-                    + "    FOREIGN KEY (`portata_id_portata`) "
-                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
+                    + "  `tipo_primo_piatto` VARCHAR(64) NOT NULL, "
+                    + "  `menu_id_menu` INT , "
+                    + "  PRIMARY KEY (`id_primo_piatto`), "
+                    + "  INDEX `fk_primo_piatto_portata1_idx` (`menu_id_menu` ASC) VISIBLE, "
+                    + "  INDEX `fk_primo_piatto_menu1_idx` (`menu_id_menu` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_primo_piatto_menu1` "
+                    + "    FOREIGN KEY (`menu_id_menu`) "
+                    + "    REFERENCES `ristorante_progetto`.`menu` (`id_menu`) "
                     + "    ON DELETE NO ACTION "
-                    + "    ON UPDATE NO ACTION)";
+                    + "    ON UPDATE NO ACTION) "
+                    + "ENGINE = InnoDB;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
             connection.close();
@@ -570,17 +576,18 @@ public class DatabaseManager {
                     + "  `nome_secondo_piatto` VARCHAR(64) NOT NULL, "
                     + "  `prezzo_secondo_piatto` DECIMAL NOT NULL, "
                     + "  `ingredienti_secondo_piatto` VARCHAR(64) NOT NULL, "
-                    + "  `tipo_secondo_piatto` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL, "
+                    + "  `tipo_secondo_piatto` VARCHAR(64) NOT NULL, "
                     + "  `contorno` VARCHAR(64) NOT NULL, "
-                    + "  `cottura` ENUM('al_sangue', 'media', 'ben_cotta') NOT NULL, "
-                    + "  `portata_id_portata` INT, "
+                    + "  `cottura` VARCHAR(64) NOT NULL, "
+                    + "  `menu_id_menu` INT, "
                     + "  PRIMARY KEY (`id_secondo_piatto`), "
-                    + "  INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
-                    + "  CONSTRAINT `fk_secondo_piatto_portata1` "
-                    + "    FOREIGN KEY (`portata_id_portata`) "
-                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
+                    + "  INDEX `fk_secondo_piatto_menu1_idx` (`menu_id_menu` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_secondo_piatto_menu1` "
+                    + "    FOREIGN KEY (`menu_id_menu`) "
+                    + "    REFERENCES `ristorante_progetto`.`menu` (`id_menu`) "
                     + "    ON DELETE NO ACTION "
-                    + "    ON UPDATE NO ACTION)";
+                    + "    ON UPDATE NO ACTION) "
+                    + "ENGINE = InnoDB;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
             connection.close();
@@ -682,15 +689,16 @@ public class DatabaseManager {
                     + "  `nome_dolce` VARCHAR(64) NOT NULL, "
                     + "  `prezzo_dolce` DECIMAL NOT NULL, "
                     + "  `ingredienti` VARCHAR(64) NOT NULL, "
-                    + "  `tipo_dolce` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL, "
-                    + "  `portata_id_portata` INT, "
+                    + "  `tipo_dolce` VARCHAR(64) NOT NULL, "
+                    + "  `menu_id_menu` INT, "
                     + "  PRIMARY KEY (`id_dolce`), "
-                    + "  INDEX `fk_dolce_portata1_idx` (`portata_id_portata` ASC) VISIBLE, "
-                    + "  CONSTRAINT `fk_dolce_portata1` "
-                    + "    FOREIGN KEY (`portata_id_portata`) "
-                    + "    REFERENCES `ristorante_progetto`.`portata` (`id_portata`) "
+                    + "  INDEX `fk_dolce_menu1_idx` (`menu_id_menu` ASC) VISIBLE, "
+                    + "  CONSTRAINT `fk_dolce_menu1` "
+                    + "    FOREIGN KEY (`menu_id_menu`) "
+                    + "    REFERENCES `ristorante_progetto`.`menu` (`id_menu`) "
                     + "    ON DELETE NO ACTION "
-                    + "    ON UPDATE NO ACTION)";
+                    + "    ON UPDATE NO ACTION) "
+                    + "ENGINE = InnoDB;";
             statement.executeUpdate(varname1);
             System.out.println("Tabella creata correttamente");
             connection.close();
@@ -882,7 +890,7 @@ public class DatabaseManager {
     public void createTablePrenotazione() {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
-        String password = "qwerty12345678910#";
+        String password = "";
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();

@@ -21,11 +21,13 @@ USE `mydb` ;
 -- Table `ristorante_progetto`.`ristorante`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`ristorante` (
-  `id_ristorante` INT NULL,
+  `id_ristorante` INT NULL DEFAULT NULL,
   `nome_ristorante` VARCHAR(64) NOT NULL,
   `indirizzo` VARCHAR(64) NOT NULL,
-  `tipi_di_menu` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL,
+  `tipi_di_menu` VARCHAR(64) NOT NULL,
   `capienza_massima_tavoli` INT NOT NULL,
+  `prezzo_medio` DECIMAL NOT NULL,
+  `stile` VARCHAR(64) NOT NULL,
   PRIMARY KEY (`id_ristorante`))
 ENGINE = InnoDB;
 
@@ -48,15 +50,14 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`cliente` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
--- Table `ristorante_progetto`.`portata`
+-- Table `ristorante_progetto`.`menu`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`portata` (
-  `id_portata` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(64) NOT NULL,
-  `prezzo` DECIMAL NOT NULL,
-  `ingredienti` VARCHAR(64) NOT NULL,
-  `tipo_portata` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL,
-  PRIMARY KEY (`id_portata`))
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`menu` (
+  `id_menu` INT NOT NULL AUTO_INCREMENT,
+  `nome_chef` VARCHAR(64) NOT NULL,
+  `prezzo_medio` DECIMAL NOT NULL,
+  `tipo_portata` VARCHAR(64) NOT NULL,
+  PRIMARY KEY (`id_menu`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -67,14 +68,14 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`bevanda` (
   `nome_bevanda` VARCHAR(64) NOT NULL,
   `prezzo_bevanda` DECIMAL NOT NULL,
   `ingredienti` VARCHAR(45) NOT NULL,
-  `tipo_bevanda_menu` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
-  `tipo_bevanda` ENUM('COLA', 'LIQUORE', 'ACQUA', 'BIRRA') NOT NULL,
-  `portata_id_portata` INT,
+  `tipo_bevanda_menu` VARCHAR(64) NOT NULL,
+  `tipo_bevanda` VARCHAR(64) NOT NULL,
+  `menu_id_menu` INT,
   PRIMARY KEY (`id_bevanda`),
-  INDEX `fk_bevanda_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
-  CONSTRAINT `fk_bevanda_portata1`
-    FOREIGN KEY (`portata_id_portata`)
-    REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
+  INDEX `fk_bevanda_menu1_idx` (`menu_id_menu` ASC) VISIBLE,
+  CONSTRAINT `fk_bevanda_menu1`
+    FOREIGN KEY (`menu_id_menu`)
+    REFERENCES `ristorante_progetto`.`menu` (`id_menu`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -88,16 +89,17 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`primo_piatto` (
   `nome_primo_piatto` VARCHAR(64) NOT NULL,
   `prezzo_primo_piatto` DECIMAL NOT NULL,
   `ingredienti_primo_piatto` VARCHAR(64) NOT NULL,
-  `tipo_primo_piatto` ENUM('Carne', 'Pesce', 'Vegano', 'Misto') NOT NULL,
-  `portata_id_portata` INT,
+  `tipo_primo_piatto` VARCHAR(64) NOT NULL,
+  `menu_id_menu` INT ,
   PRIMARY KEY (`id_primo_piatto`),
-  INDEX `fk_primo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
-    CONSTRAINT `fk_primo_piatto_portata1`
-      FOREIGN KEY (`portata_id_portata`)
-      REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION)
-  ENGINE = InnoDB;
+  INDEX `fk_primo_piatto_portata1_idx` () VISIBLE,
+  INDEX `fk_primo_piatto_menu1_idx` (`menu_id_menu` ASC) VISIBLE,
+  CONSTRAINT `fk_primo_piatto_menu1`
+    FOREIGN KEY (`menu_id_menu`)
+    REFERENCES `ristorante_progetto`.`menu` (`id_menu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `ristorante_progetto`.`secondo_piatto`
@@ -107,15 +109,15 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`secondo_piatto` (
   `nome_secondo_piatto` VARCHAR(64) NOT NULL,
   `prezzo_secondo_piatto` DECIMAL NOT NULL,
   `ingredienti_secondo_piatto` VARCHAR(64) NOT NULL,
-  `tipo_secondo_piatto` ENUM('carne', 'pesce', 'vegano', 'misto') NOT NULL,
+  `tipo_secondo_piatto` VARCHAR(64) NOT NULL,
   `contorno` VARCHAR(64) NOT NULL,
-  `cottura` ENUM('al_sangue', 'media', 'ben_cotta') NOT NULL,
-  `portata_id_portata` INT,
+  `cottura` VARCHAR(64) NOT NULL,
+  `menu_id_menu` INT,
   PRIMARY KEY (`id_secondo_piatto`),
-  INDEX `fk_secondo_piatto_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
-  CONSTRAINT `fk_secondo_piatto_portata1`
-    FOREIGN KEY (`portata_id_portata`)
-    REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
+  INDEX `fk_secondo_piatto_menu1_idx` (`menu_id_menu` ASC) VISIBLE,
+  CONSTRAINT `fk_secondo_piatto_menu1`
+    FOREIGN KEY (`menu_id_menu`)
+    REFERENCES `ristorante_progetto`.`menu` (`id_menu`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -128,13 +130,13 @@ CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`dolce` (
   `nome_dolce` VARCHAR(64) NOT NULL,
   `prezzo_dolce` DECIMAL NOT NULL,
   `ingredienti` VARCHAR(64) NOT NULL,
-  `tipo_dolce` ENUM('CARNE', 'PESCE', 'VEGANO', 'MISTO') NOT NULL,
-  `portata_id_portata` INT,
+  `tipo_dolce` VARCHAR(64) NOT NULL,
+  `menu_id_menu` INT,
   PRIMARY KEY (`id_dolce`),
-  INDEX `fk_dolce_portata1_idx` (`portata_id_portata` ASC) VISIBLE,
-  CONSTRAINT `fk_dolce_portata1`
-    FOREIGN KEY (`portata_id_portata`)
-    REFERENCES `ristorante_progetto`.`portata` (`id_portata`)
+  INDEX `fk_dolce_menu1_idx` (`menu_id_menu` ASC) VISIBLE,
+  CONSTRAINT `fk_dolce_menu1`
+    FOREIGN KEY (`menu_id_menu`)
+    REFERENCES `ristorante_progetto`.`menu` (`id_menu`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -159,7 +161,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `ristorante_progetto`.`prenotazione`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`prenotazione` (
+CREATE TABLE IF NOT EXISTS `ristorante_progetto`.`prenotazione` (
   `id_prenotazione` INT NOT NULL AUTO_INCREMENT,
   `nominativo` VARCHAR(64) NOT NULL,
   `contactinfo` VARCHAR(64) NOT NULL,

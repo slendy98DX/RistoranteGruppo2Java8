@@ -22,19 +22,27 @@ public class Ristorante {
 
     private Integer capienzaTavoliMassima;
 
+    private Double prezzoMedio;
+
+    private String stile;
+
     /**
      * The constructor method for the restaurant object
      *
      * @param restaurantName  the name of the restaurant
      * @param address         the address of the restaurant
      * @param menuType        the avaible menus of the restaurant
-     * @param numeroTavoliMax the max number of tables of the restaurant
+     * @param capienzaTavoliMassima the max number of tables of the restaurant
+     * @param prezzoMedio the average price of menu restaurant
+     * @param stile the style of the restaurant
      */
-    public Ristorante(String restaurantName, String address, TypeEnum menuType, Integer numeroTavoliMax) {
+    public Ristorante(String restaurantName, String address, TypeEnum menuType, Integer capienzaTavoliMassima, Double prezzoMedio, String stile) {
         this.restaurantName = restaurantName;
         this.address = address;
         this.menuType = menuType;
-        this.capienzaTavoliMassima = numeroTavoliMax;
+        this.capienzaTavoliMassima = capienzaTavoliMassima;
+        this.prezzoMedio = prezzoMedio;
+        this.stile = stile;
     }
 
     public String getRestaurantName() {
@@ -93,6 +101,21 @@ public class Ristorante {
         return prenotazioneList;
     }
 
+    public Double getPrezzoMedio() {
+        return prezzoMedio;
+    }
+
+    public void setPrezzoMedio(Double prezzoMedio) {
+        this.prezzoMedio = prezzoMedio;
+    }
+
+    public String getStile() {
+        return stile;
+    }
+
+    public void setStile(String stile) {
+        this.stile = stile;
+    }
 
     /**
      * Prints the whole menu of the restaurant

@@ -5,7 +5,7 @@ public class Start {
 
     public static void main(String[] args) {
 
-        Ristorante ristorante = new Ristorante("Palla 8", "Via Roma 1", TypeEnum.CARNE, 4);
+        Ristorante ristorante = new Ristorante("Palla 8", "Via Roma 1", TypeEnum.CARNE, 4, 50.00, "Messicano");
 
         System.out.println("MENU' DEL RISTORANTE");
         ristorante.addPortata(new Bevanda("Nastro Azzurro", 1.20, "", TypeEnum.CARNE, TipoDiBevandaEnum.BIRRA));
@@ -48,13 +48,13 @@ public class Start {
         databaseManager.createTableTavolo();
         databaseManager.createTableCliente();
         databaseManager.createTablePrenotazione();
-        databaseManager.createTablePortata();
+        databaseManager.createTableMenu();
         databaseManager.createTableBevanda();
         databaseManager.createTablePrimoPiatto();
         databaseManager.createTableSecondoPiatto();
         databaseManager.createTableDolce();
         databaseManager.createTableSecondoPiatto();
-        databaseManager.insertValuesRistorante(ristorante);
+        //databaseManager.insertValuesRistorante(ristorante);
     }
 }
 
